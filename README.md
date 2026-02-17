@@ -18,7 +18,7 @@
 
 ## 2. System Architecture
 
-The project is organized into modular components:
+The project is organized into modular components :
 
 ### Directory Structure
 *   `static_analysis/`: AST parsers for Python and Java.
