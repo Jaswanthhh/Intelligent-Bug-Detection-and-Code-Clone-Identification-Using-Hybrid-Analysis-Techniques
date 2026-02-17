@@ -1,0 +1,4 @@
+Reading plan.pdf...
+Number of pages: 4
+--- Page 1 ---
+Error reading PDF: 'charmap' codec can't encode character '\U0001f44d' in position 7: character maps to <undefined>

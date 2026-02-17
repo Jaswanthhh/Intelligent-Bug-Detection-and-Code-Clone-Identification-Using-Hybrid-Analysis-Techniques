@@ -1,0 +1,1053 @@
+{
+  "metadata": {
+    "code_folder": "samples",
+    "semantic_threshold": 0.75,
+    "dynamic_runs": 5,
+    "enable_bci": false,
+    "timestamp": "2026-02-02 18:26:18",
+    "execution_time_seconds": 3.73
+  },
+  "static_analysis": {
+    "total_files": 23,
+    "files": [
+      {
+        "path": "samples\\AdminManager.java",
+        "num_methods": 2,
+        "methods": [
+          {
+            "name": "checkAdmin",
+            "code": "",
+            "features": {
+              "num_statements": 3,
+              "num_branches": 0
+            }
+          },
+          {
+            "name": "persistAdmin",
+            "code": "",
+            "features": {
+              "num_statements": 1,
+              "num_branches": 0
+            }
+          }
+        ]
+      },
+      {
+        "path": "samples\\algorithms.cpp",
+        "num_functions": 0,
+        "functions": [],
+        "note": "Basic C/C++ support"
+      },
+      {
+        "path": "samples\\algorithms_clone.cpp",
+        "num_functions": 0,
+        "functions": [],
+        "note": "Basic C/C++ support"
+      },
+      {
+        "path": "samples\\buggy.cpp",
+        "num_functions": 0,
+        "functions": [],
+        "note": "Basic C/C++ support"
+      },
+      {
+        "path": "samples\\buggy.js",
+        "num_functions": 0,
+        "functions": [],
+        "note": "Basic JS/TS support"
+      },
+      {
+        "path": "samples\\buggy_critical.py",
+        "num_functions": 2,
+        "functions": [
+          {
+            "name": "delete_system",
+            "start": 2,
+            "end": 4,
+            "code": "def delete_system():\n    # CRITICAL: Deleting system files\n    os.system(\"rm -rf /\")",
+            "features": {
+              "num_statements": 2,
+              "num_branches": 0
+            }
+          },
+          {
+            "name": "hardcoded_secret",
+            "start": 6,
+            "end": 9,
+            "code": "def hardcoded_secret():\n    # CRITICAL: Hardcoded API key\n    api_key = \"sk-1234567890abcdef1234567890abcdef\"\n    print(api_key)",
+            "features": {
+              "num_statements": 3,
+              "num_branches": 0
+            }
+          }
+        ]
+      },
+      {
+        "path": "samples\\buggy_high.js",
+        "num_functions": 0,
+        "functions": [],
+        "note": "Basic JS/TS support"
+      },
+      {
+        "path": "samples\\buggy_low.cpp",
+        "num_functions": 0,
+        "functions": [],
+        "note": "Basic C/C++ support"
+      },
+      {
+        "path": "samples\\cart_utils.js",
+        "num_functions": 0,
+        "functions": [],
+        "note": "Basic JS/TS support"
+      },
+      {
+        "path": "samples\\exact_clone.py",
+        "num_functions": 1,
+        "functions": [
+          {
+            "name": "add",
+            "start": 1,
+            "end": 3,
+            "code": "def add(a, b):\n    \"\"\"Simple add\"\"\"\n    return a + b",
+            "features": {
+              "num_statements": 3,
+              "num_branches": 0
+            }
+          }
+        ]
+      },
+      {
+        "path": "samples\\math_utils.py",
+        "num_functions": 2,
+        "functions": [
+          {
+            "name": "calculate_factorial",
+            "start": 0,
+            "end": 8,
+            "code": "def calculate_factorial(n):\n    if n < 0:\n        return None\n    if n == 0:\n        return 1\n    result = 1\n    for i in range(1, n + 1):\n        result *= i\n    return result",
+            "features": {
+              "num_statements": 9,
+              "num_branches": 3
+            }
+          },
+          {
+            "name": "calculate_fibonacci",
+            "start": 10,
+            "end": 18,
+            "code": "def calculate_fibonacci(n):\n    if n <= 0:\n        return []\n    if n == 1:\n        return [0]\n    sequence = [0, 1]\n    while len(sequence) < n:\n        sequence.append(sequence[-1] + sequence[-2])\n    return sequence",
+            "features": {
+              "num_statements": 9,
+              "num_branches": 3
+            }
+          }
+        ]
+      },
+      {
+        "path": "samples\\math_utils_clone.py",
+        "num_functions": 2,
+        "functions": [
+          {
+            "name": "compute_factorial",
+            "start": 0,
+            "end": 10,
+            "code": "def compute_factorial(number):\n    # This function computes factorial\n    # It is semantically identical to calculate_factorial in math_utils.py\n    if number < 0:\n        return None\n    if number == 0:\n        return 1\n    res = 1\n    for x in range(1, number + 1):\n        res = res * x\n    return res",
+            "features": {
+              "num_statements": 9,
+              "num_branches": 3
+            }
+          },
+          {
+            "name": "get_fib_sequence",
+            "start": 12,
+            "end": 23,
+            "code": "def get_fib_sequence(count):\n    # This computes fibonacci sequence\n    # Semantically similar to calculate_fibonacci\n    if count <= 0:\n        return []\n    if count == 1:\n        return [0]\n    seq = [0, 1]\n    while len(seq) < count:\n        next_val = seq[-1] + seq[-2]\n        seq.append(next_val)\n    return seq",
+            "features": {
+              "num_statements": 10,
+              "num_branches": 3
+            }
+          }
+        ]
+      },
+      {
+        "path": "samples\\order_processor.js",
+        "num_functions": 0,
+        "functions": [],
+        "note": "Basic JS/TS support"
+      },
+      {
+        "path": "samples\\ResourceLeak.java",
+        "num_methods": 2,
+        "methods": [
+          {
+            "name": "readFile",
+            "code": "",
+            "features": {
+              "num_statements": 3,
+              "num_branches": 0
+            }
+          },
+          {
+            "name": "compare",
+            "code": "",
+            "features": {
+              "num_statements": 1,
+              "num_branches": 0
+            }
+          }
+        ]
+      },
+      {
+        "path": "samples\\SampleBuggy.java",
+        "error": "Could not process token at \"#\", line 1: # Optimized and fixed code"
+      },
+      {
+        "path": "samples\\SampleJava1.java",
+        "num_methods": 2,
+        "methods": [
+          {
+            "name": "add",
+            "code": "",
+            "features": {
+              "num_statements": 1,
+              "num_branches": 0
+            }
+          },
+          {
+            "name": "main",
+            "code": "",
+            "features": {
+              "num_statements": 2,
+              "num_branches": 0
+            }
+          }
+        ]
+      },
+      {
+        "path": "samples\\SampleJava2.java",
+        "num_methods": 2,
+        "methods": [
+          {
+            "name": "sumTwo",
+            "code": "",
+            "features": {
+              "num_statements": 1,
+              "num_branches": 0
+            }
+          },
+          {
+            "name": "main",
+            "code": "",
+            "features": {
+              "num_statements": 2,
+              "num_branches": 0
+            }
+          }
+        ]
+      },
+      {
+        "path": "samples\\sample_buggy.py",
+        "num_functions": 15,
+        "functions": [
+          {
+            "name": "divide_numbers",
+            "start": 2,
+            "end": 6,
+            "code": "def divide_numbers(a, b):\n    \"\"\"Divides two numbers and returns the result.\"\"\"\n    # BUG: Division by zero not handled\n    result = a / b\n    return result",
+            "features": {
+              "num_statements": 4,
+              "num_branches": 0
+            }
+          },
+          {
+            "name": "process_data",
+            "start": 8,
+            "end": 28,
+            "code": "def process_data(data, unused_param):\n    \"\"\"Process the data and return summary.\n    \n    Returns:\n        dict: A summary of the processed data\n    \"\"\"\n    # BUG: unused_param is never used\n    # BUG: Mutable default argument would be bad here\n    \n    # BUG: Using == None instead of is None\n    if data == None:\n        return None\n    \n    # BUG: Empty exception handler\n    try:\n        result = data['key']\n    except:\n        pass\n    \n    # BUG: Docstring says returns dict but returns None implicitly\n    print(\"Processing done\")",
+            "features": {
+              "num_statements": 8,
+              "num_branches": 2
+            }
+          },
+          {
+            "name": "always_false_check",
+            "start": 30,
+            "end": 40,
+            "code": "def always_false_check(x):\n    \"\"\"Check something impossible.\"\"\"\n    # BUG: Contradictory condition - always false\n    if x > 10 and x < 5:\n        return \"impossible\"\n    \n    # BUG: Self comparison\n    if x != x:\n        return \"never happens\"\n    \n    return \"normal\"",
+            "features": {
+              "num_statements": 7,
+              "num_branches": 2
+            }
+          },
+          {
+            "name": "shadowing_builtins",
+            "start": 42,
+            "end": 50,
+            "code": "def shadowing_builtins():\n    \"\"\"Function that shadows built-ins.\"\"\"\n    # BUG: Shadowing built-in 'list'\n    list = [1, 2, 3]\n    # BUG: Shadowing built-in 'dict'\n    dict = {\"a\": 1}\n    # BUG: Shadowing built-in 'str'\n    str = \"hello\"\n    return list, dict, str",
+            "features": {
+              "num_statements": 6,
+              "num_branches": 0
+            }
+          },
+          {
+            "name": "unreachable_code",
+            "start": 52,
+            "end": 57,
+            "code": "def unreachable_code():\n    \"\"\"Function with unreachable code.\"\"\"\n    return \"early return\"\n    # BUG: Unreachable code\n    print(\"This will never execute\")\n    x = 10",
+            "features": {
+              "num_statements": 5,
+              "num_branches": 0
+            }
+          },
+          {
+            "name": "mutable_default",
+            "start": 59,
+            "end": 63,
+            "code": "def mutable_default(items=[]):\n    \"\"\"Function with mutable default argument.\"\"\"\n    # BUG: Mutable default argument\n    items.append(1)\n    return items",
+            "features": {
+              "num_statements": 4,
+              "num_branches": 0
+            }
+          },
+          {
+            "name": "bare_except_handler",
+            "start": 65,
+            "end": 67,
+            "code": "def bare_except_handler():\n    \"\"\"Function with bare except.\"\"\"\n    try:\n        risky_operation()\n    except:  # BUG: Bare except catches everything including KeyboardInterrupt\n        pass",
+            "features": {
+              "num_statements": 5,
+              "num_branches": 1
+            }
+          },
+          {
+            "name": "swallowed_exception",
+            "start": 72,
+            "end": 74,
+            "code": "def swallowed_exception():\n    \"\"\"Function that swallows exceptions.\"\"\"\n    try:\n        something_risky()\n    except Exception:  # BUG: Catching broad Exception and ignoring\n        pass",
+            "features": {
+              "num_statements": 5,
+              "num_branches": 1
+            }
+          },
+          {
+            "name": "constant_condition",
+            "start": 79,
+            "end": 88,
+            "code": "def constant_condition():\n    \"\"\"Function with constant conditions.\"\"\"\n    # BUG: Condition is always True\n    if True:\n        print(\"always\")\n    else:\n        print(\"never\")  # Dead code\n    \n    # BUG: Condition is always False\n    if False:\n        print(\"dead code\")",
+            "features": {
+              "num_statements": 7,
+              "num_branches": 2
+            }
+          },
+          {
+            "name": "duplicate_conditions",
+            "start": 91,
+            "end": 93,
+            "code": "def duplicate_conditions(x):\n    \"\"\"Function with duplicate conditions.\"\"\"\n    if x > 10:\n        return \"big\"\n    elif x > 10:  # BUG: Duplicate condition\n        return \"also big\"\n    else:\n        return \"small\"",
+            "features": {
+              "num_statements": 7,
+              "num_branches": 2
+            }
+          },
+          {
+            "name": "tautology_check",
+            "start": 100,
+            "end": 103,
+            "code": "def tautology_check(flag):\n    \"\"\"Function with tautology.\"\"\"\n    # BUG: x or not x is always True\n    if flag or not flag:\n        return \"always true\"",
+            "features": {
+              "num_statements": 4,
+              "num_branches": 1
+            }
+          },
+          {
+            "name": "contradiction_check",
+            "start": 106,
+            "end": 111,
+            "code": "def contradiction_check(flag):\n    \"\"\"Function with contradiction.\"\"\"\n    # BUG: x and not x is always False\n    if flag and not flag:\n        return \"never happens\"\n    return \"normal\"",
+            "features": {
+              "num_statements": 5,
+              "num_branches": 1
+            }
+          },
+          {
+            "name": "division_by_literal_zero",
+            "start": 113,
+            "end": 117,
+            "code": "def division_by_literal_zero():\n    \"\"\"Function with division by zero.\"\"\"\n    # BUG: Division by zero\n    x = 10 / 0\n    return x",
+            "features": {
+              "num_statements": 4,
+              "num_branches": 0
+            }
+          },
+          {
+            "name": "risky_operation",
+            "start": 119,
+            "end": 120,
+            "code": "def risky_operation():\n    raise ValueError(\"risky\")",
+            "features": {
+              "num_statements": 2,
+              "num_branches": 0
+            }
+          },
+          {
+            "name": "something_risky",
+            "start": 122,
+            "end": 123,
+            "code": "def something_risky():\n    raise RuntimeError(\"something went wrong\")",
+            "features": {
+              "num_statements": 2,
+              "num_branches": 0
+            }
+          }
+        ]
+      },
+      {
+        "path": "samples\\sample_safe_1.py",
+        "num_functions": 1,
+        "functions": [
+          {
+            "name": "add",
+            "start": 1,
+            "end": 3,
+            "code": "def add(a, b):\n    \"\"\"Simple add\"\"\"\n    return a + b",
+            "features": {
+              "num_statements": 3,
+              "num_branches": 0
+            }
+          }
+        ]
+      },
+      {
+        "path": "samples\\sample_safe_2.py",
+        "num_functions": 2,
+        "functions": [
+          {
+            "name": "sum_two",
+            "start": 1,
+            "end": 2,
+            "code": "def sum_two(x, y):\n    return x + y",
+            "features": {
+              "num_statements": 2,
+              "num_branches": 0
+            }
+          },
+          {
+            "name": "maybe_throw",
+            "start": 4,
+            "end": 9,
+            "code": "def maybe_throw(s):\n    # very rarely throws intentionally if RANDOM_INPUT contains 'Z'\n    import os\n    if 'Z' in os.environ.get(\"RANDOM_INPUT\",\"\"):\n        raise ValueError(\"Intentional rare error\")\n    return True",
+            "features": {
+              "num_statements": 5,
+              "num_branches": 1
+            }
+          }
+        ]
+      },
+      {
+        "path": "samples\\UserManager.java",
+        "num_methods": 2,
+        "methods": [
+          {
+            "name": "validateUser",
+            "code": "",
+            "features": {
+              "num_statements": 3,
+              "num_branches": 0
+            }
+          },
+          {
+            "name": "saveUser",
+            "code": "",
+            "features": {
+              "num_statements": 1,
+              "num_branches": 0
+            }
+          }
+        ]
+      },
+      {
+        "path": "samples\\com\\example\\samples\\SampleJava1.java",
+        "num_methods": 6,
+        "methods": [
+          {
+            "name": "addNumber",
+            "code": "",
+            "features": {
+              "num_statements": 2,
+              "num_branches": 0
+            }
+          },
+          {
+            "name": "calculateSum",
+            "code": "",
+            "features": {
+              "num_statements": 3,
+              "num_branches": 0
+            }
+          },
+          {
+            "name": "calculateAverage",
+            "code": "",
+            "features": {
+              "num_statements": 2,
+              "num_branches": 0
+            }
+          },
+          {
+            "name": "getName",
+            "code": "",
+            "features": {
+              "num_statements": 1,
+              "num_branches": 0
+            }
+          },
+          {
+            "name": "setName",
+            "code": "",
+            "features": {
+              "num_statements": 1,
+              "num_branches": 0
+            }
+          },
+          {
+            "name": "main",
+            "code": "",
+            "features": {
+              "num_statements": 11,
+              "num_branches": 0
+            }
+          }
+        ]
+      },
+      {
+        "path": "samples\\com\\example\\samples\\SampleJava2.java",
+        "num_methods": 7,
+        "methods": [
+          {
+            "name": "processData",
+            "code": "",
+            "features": {
+              "num_statements": 3,
+              "num_branches": 0
+            }
+          },
+          {
+            "name": "getValue",
+            "code": "",
+            "features": {
+              "num_statements": 1,
+              "num_branches": 0
+            }
+          },
+          {
+            "name": "containsKey",
+            "code": "",
+            "features": {
+              "num_statements": 1,
+              "num_branches": 0
+            }
+          },
+          {
+            "name": "getCounter",
+            "code": "",
+            "features": {
+              "num_statements": 1,
+              "num_branches": 0
+            }
+          },
+          {
+            "name": "reset",
+            "code": "",
+            "features": {
+              "num_statements": 3,
+              "num_branches": 0
+            }
+          },
+          {
+            "name": "displayAll",
+            "code": "",
+            "features": {
+              "num_statements": 2,
+              "num_branches": 0
+            }
+          },
+          {
+            "name": "main",
+            "code": "",
+            "features": {
+              "num_statements": 12,
+              "num_branches": 0
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "semantic_analysis": {
+    "total_pairs": 1,
+    "pairs": [
+      {
+        "i": 4,
+        "j": 30,
+        "score": 1.0,
+        "a": {
+          "file": "samples\\exact_clone.py",
+          "func_name": "add",
+          "code": "def add(a, b):\n    \"\"\"Simple add\"\"\"\n    return a + b",
+          "features": {
+            "num_statements": 3,
+            "num_branches": 0
+          }
+        },
+        "b": {
+          "file": "samples\\sample_safe_1.py",
+          "func_name": "add",
+          "code": "def add(a, b):\n    \"\"\"Simple add\"\"\"\n    return a + b",
+          "features": {
+            "num_statements": 3,
+            "num_branches": 0
+          }
+        }
+      }
+    ]
+  },
+  "dynamic_testing": {
+    "total_files_tested": 7,
+    "results": [
+      {
+        "path": "samples\\buggy_critical.py",
+        "runs": 5,
+        "anomalies": []
+      },
+      {
+        "path": "samples\\exact_clone.py",
+        "runs": 5,
+        "anomalies": []
+      },
+      {
+        "path": "samples\\math_utils.py",
+        "runs": 5,
+        "anomalies": []
+      },
+      {
+        "path": "samples\\math_utils_clone.py",
+        "runs": 5,
+        "anomalies": []
+      },
+      {
+        "path": "samples\\sample_buggy.py",
+        "runs": 5,
+        "anomalies": []
+      },
+      {
+        "path": "samples\\sample_safe_1.py",
+        "runs": 5,
+        "anomalies": []
+      },
+      {
+        "path": "samples\\sample_safe_2.py",
+        "runs": 5,
+        "anomalies": []
+      }
+    ]
+  },
+  "bci_tracing": {
+    "total_files_traced": 0,
+    "results": []
+  },
+  "fusion_reports": {
+    "total_reports": 1,
+    "reports": [
+      {
+        "file_a": "samples\\exact_clone.py",
+        "func_a": "add",
+        "file_b": "samples\\sample_safe_1.py",
+        "func_b": "add",
+        "struct_sim": 0.5,
+        "semantic_sim": 1.0,
+        "dynamic_anomaly": false,
+        "fusion_score": 0.65,
+        "score_components": {
+          "structural": 0.5,
+          "semantic": 1.0,
+          "dynamic": false,
+          "weighted_structural": 0.15,
+          "weighted_semantic": 0.5,
+          "weighted_dynamic": 0.0
+        },
+        "explanation": "Clone detected due to: High semantic similarity (1.00)"
+      }
+    ]
+  },
+  "summary_statistics": {
+    "total_files": 23,
+    "total_snippets": 48,
+    "total_clone_pairs": 1,
+    "total_reports": 1,
+    "files_with_anomalies": 0,
+    "total_anomalies": 0,
+    "average_similarity": 1.0,
+    "average_fusion_score": 0.65
+  },
+  "bug_detection": {
+    "total_bugs": 30,
+    "stats": {
+      "total_bugs": 30,
+      "by_severity": {
+        "critical": 3,
+        "high": 15,
+        "medium": 9,
+        "low": 3
+      },
+      "by_category": {
+        "swallowed_exception": 1,
+        "always_false_condition": 1,
+        "division_by_zero": 1,
+        "strcpy_usage": 2,
+        "system_call": 2,
+        "bare_except": 2,
+        "empty_exception_handler": 3,
+        "self_comparison_always_false": 1,
+        "unreachable_code": 1,
+        "mutable_default_argument": 1,
+        "constant_condition": 2,
+        "duplicate_condition": 2,
+        "goto_usage": 2,
+        "equality_none_comparison": 1,
+        "shadowed_builtin": 3,
+        "possible_missing_return": 1,
+        "always_true_condition": 1,
+        "malloc_usage": 1,
+        "unused_parameter": 2
+      },
+      "by_detector": {
+        "static_rules": 18,
+        "logical_checker": 5,
+        "static_rules_cpp": 7
+      },
+      "files_with_bugs": 3
+    },
+    "bugs": [
+      {
+        "file": "samples\\sample_buggy.py",
+        "function": "something_risky",
+        "line": 77,
+        "category": "swallowed_exception",
+        "severity": "critical",
+        "message": "Catching broad 'Exception' and ignoring it",
+        "evidence": "This hides all errors and makes debugging impossible",
+        "suggestion": null,
+        "detector": "static_rules"
+      },
+      {
+        "file": "samples\\sample_buggy.py",
+        "function": "something_risky",
+        "line": 110,
+        "category": "always_false_condition",
+        "severity": "critical",
+        "message": "Condition 'x and not x' is always False",
+        "evidence": "Contradictory conditions in AND expression",
+        "detector": "logical_checker"
+      },
+      {
+        "file": "samples\\sample_buggy.py",
+        "function": "something_risky",
+        "line": 117,
+        "category": "division_by_zero",
+        "severity": "critical",
+        "message": "Division by zero",
+        "evidence": "This will raise ZeroDivisionError at runtime",
+        "suggestion": null,
+        "detector": "static_rules"
+      },
+      {
+        "file": "samples\\buggy.cpp",
+        "function": null,
+        "line": 8,
+        "category": "strcpy_usage",
+        "severity": "high",
+        "message": "Use strncpy() to avoid buffer overflows",
+        "evidence": "strcpy(",
+        "detector": "static_rules_cpp"
+      },
+      {
+        "file": "samples\\buggy.cpp",
+        "function": null,
+        "line": 17,
+        "category": "strcpy_usage",
+        "severity": "high",
+        "message": "Use strncpy() to avoid buffer overflows",
+        "evidence": "strcpy(",
+        "detector": "static_rules_cpp"
+      },
+      {
+        "file": "samples\\buggy.cpp",
+        "function": null,
+        "line": 19,
+        "category": "system_call",
+        "severity": "high",
+        "message": "Avoid system() calls if possible",
+        "evidence": "system(",
+        "detector": "static_rules_cpp"
+      },
+      {
+        "file": "samples\\buggy.cpp",
+        "function": null,
+        "line": 20,
+        "category": "system_call",
+        "severity": "high",
+        "message": "Avoid system() calls if possible",
+        "evidence": "system(",
+        "detector": "static_rules_cpp"
+      },
+      {
+        "file": "samples\\sample_buggy.py",
+        "function": "something_risky",
+        "line": 25,
+        "category": "bare_except",
+        "severity": "high",
+        "message": "Bare 'except:' clause catches all exceptions including KeyboardInterrupt and SystemExit",
+        "evidence": "Use 'except Exception:' or specific exception types",
+        "suggestion": "except Exception as e:\n    # Log the error\n    import logging\n    logging.error(e)",
+        "detector": "static_rules"
+      },
+      {
+        "file": "samples\\sample_buggy.py",
+        "function": "something_risky",
+        "line": 25,
+        "category": "empty_exception_handler",
+        "severity": "high",
+        "message": "Empty exception handler silently swallows errors",
+        "evidence": "Exception is caught but not handled or logged",
+        "suggestion": "# Add logging or comment\n    import logging\n    logging.warn('Exception ignored')",
+        "detector": "static_rules"
+      },
+      {
+        "file": "samples\\sample_buggy.py",
+        "function": "something_risky",
+        "line": 38,
+        "category": "self_comparison_always_false",
+        "severity": "high",
+        "message": "Comparing variable to itself is always False",
+        "evidence": "x != x, x < x, x > x are always False",
+        "detector": "logical_checker"
+      },
+      {
+        "file": "samples\\sample_buggy.py",
+        "function": "unreachable_code",
+        "line": 57,
+        "category": "unreachable_code",
+        "severity": "high",
+        "message": "Unreachable code after return/raise statement",
+        "evidence": "Code at line 57 will never execute",
+        "suggestion": null,
+        "detector": "static_rules"
+      },
+      {
+        "file": "samples\\sample_buggy.py",
+        "function": "mutable_default",
+        "line": 60,
+        "category": "mutable_default_argument",
+        "severity": "high",
+        "message": "Mutable default argument in function 'mutable_default'. Use None and initialize inside function.",
+        "evidence": "def mutable_default(..., arg=List(elts=[], ctx=Load()))",
+        "suggestion": null,
+        "detector": "static_rules"
+      },
+      {
+        "file": "samples\\sample_buggy.py",
+        "function": "something_risky",
+        "line": 70,
+        "category": "bare_except",
+        "severity": "high",
+        "message": "Bare 'except:' clause catches all exceptions including KeyboardInterrupt and SystemExit",
+        "evidence": "Use 'except Exception:' or specific exception types",
+        "suggestion": "except Exception as e:\n    # Log the error\n    import logging\n    logging.error(e)",
+        "detector": "static_rules"
+      },
+      {
+        "file": "samples\\sample_buggy.py",
+        "function": "something_risky",
+        "line": 70,
+        "category": "empty_exception_handler",
+        "severity": "high",
+        "message": "Empty exception handler silently swallows errors",
+        "evidence": "Exception is caught but not handled or logged",
+        "suggestion": "# Add logging or comment\n    import logging\n    logging.warn('Exception ignored')",
+        "detector": "static_rules"
+      },
+      {
+        "file": "samples\\sample_buggy.py",
+        "function": "something_risky",
+        "line": 77,
+        "category": "empty_exception_handler",
+        "severity": "high",
+        "message": "Empty exception handler silently swallows errors",
+        "evidence": "Exception is caught but not handled or logged",
+        "suggestion": "# Add logging or comment\n    import logging\n    logging.warn('Exception ignored')",
+        "detector": "static_rules"
+      },
+      {
+        "file": "samples\\sample_buggy.py",
+        "function": "something_risky",
+        "line": 89,
+        "category": "constant_condition",
+        "severity": "high",
+        "message": "Condition is always False",
+        "evidence": "'if False:' makes the if branch unreachable (dead code)",
+        "suggestion": null,
+        "detector": "static_rules"
+      },
+      {
+        "file": "samples\\sample_buggy.py",
+        "function": "something_risky",
+        "line": 96,
+        "category": "duplicate_condition",
+        "severity": "high",
+        "message": "Duplicate condition in if/elif chain",
+        "evidence": "This condition was already checked earlier, branch is unreachable",
+        "suggestion": null,
+        "detector": "static_rules"
+      },
+      {
+        "file": "samples\\sample_buggy.py",
+        "function": "something_risky",
+        "line": 96,
+        "category": "duplicate_condition",
+        "severity": "high",
+        "message": "elif has same condition as if - branch is unreachable",
+        "evidence": "The if branch already handles this condition",
+        "detector": "logical_checker"
+      },
+      {
+        "file": "samples\\buggy.cpp",
+        "function": null,
+        "line": 22,
+        "category": "goto_usage",
+        "severity": "medium",
+        "message": "Avoid goto statements",
+        "evidence": "Goto usage",
+        "detector": "static_rules_cpp"
+      },
+      {
+        "file": "samples\\buggy.cpp",
+        "function": null,
+        "line": 23,
+        "category": "goto_usage",
+        "severity": "medium",
+        "message": "Avoid goto statements",
+        "evidence": "goto label",
+        "detector": "static_rules_cpp"
+      },
+      {
+        "file": "samples\\sample_buggy.py",
+        "function": "something_risky",
+        "line": 19,
+        "category": "equality_none_comparison",
+        "severity": "medium",
+        "message": "Use 'is None' instead of '== None'",
+        "evidence": "'== None' can be overridden by __eq__, use 'is None' for identity check",
+        "suggestion": "is None",
+        "detector": "static_rules"
+      },
+      {
+        "file": "samples\\sample_buggy.py",
+        "function": "something_risky",
+        "line": 46,
+        "category": "shadowed_builtin",
+        "severity": "medium",
+        "message": "Assignment shadows built-in 'list'",
+        "evidence": "Variable 'list' shadows Python built-in",
+        "suggestion": null,
+        "detector": "static_rules"
+      },
+      {
+        "file": "samples\\sample_buggy.py",
+        "function": "something_risky",
+        "line": 48,
+        "category": "shadowed_builtin",
+        "severity": "medium",
+        "message": "Assignment shadows built-in 'dict'",
+        "evidence": "Variable 'dict' shadows Python built-in",
+        "suggestion": null,
+        "detector": "static_rules"
+      },
+      {
+        "file": "samples\\sample_buggy.py",
+        "function": "something_risky",
+        "line": 50,
+        "category": "shadowed_builtin",
+        "severity": "medium",
+        "message": "Assignment shadows built-in 'str'",
+        "evidence": "Variable 'str' shadows Python built-in",
+        "suggestion": null,
+        "detector": "static_rules"
+      },
+      {
+        "file": "samples\\sample_buggy.py",
+        "function": "something_risky",
+        "line": 83,
+        "category": "constant_condition",
+        "severity": "medium",
+        "message": "Condition is always True",
+        "evidence": "'if True:' makes the else branch unreachable",
+        "suggestion": null,
+        "detector": "static_rules"
+      },
+      {
+        "file": "samples\\sample_buggy.py",
+        "function": "duplicate_conditions",
+        "line": 92,
+        "category": "possible_missing_return",
+        "severity": "medium",
+        "message": "Function 'duplicate_conditions' may not return on all code paths",
+        "evidence": "All return statements are inside conditional blocks",
+        "detector": "logical_checker"
+      },
+      {
+        "file": "samples\\sample_buggy.py",
+        "function": "something_risky",
+        "line": 104,
+        "category": "always_true_condition",
+        "severity": "medium",
+        "message": "Condition 'x or not x' is always True",
+        "evidence": "Tautology in OR expression - condition is redundant",
+        "detector": "logical_checker"
+      },
+      {
+        "file": "samples\\buggy.cpp",
+        "function": null,
+        "line": 16,
+        "category": "malloc_usage",
+        "severity": "low",
+        "message": "Consider using new/delete or smart pointers in C++",
+        "evidence": "malloc(",
+        "detector": "static_rules_cpp"
+      },
+      {
+        "file": "samples\\sample_buggy.py",
+        "function": "process_data",
+        "line": 9,
+        "category": "unused_parameter",
+        "severity": "low",
+        "message": "Unused parameter 'unused_param' in function 'process_data'",
+        "evidence": "Parameter 'unused_param' is never used in function body",
+        "suggestion": null,
+        "detector": "static_rules"
+      },
+      {
+        "file": "samples\\sample_safe_2.py",
+        "function": "maybe_throw",
+        "line": 5,
+        "category": "unused_parameter",
+        "severity": "low",
+        "message": "Unused parameter 's' in function 'maybe_throw'",
+        "evidence": "Parameter 's' is never used in function body",
+        "suggestion": null,
+        "detector": "static_rules"
+      }
+    ]
+  },
+  "evolution": {
+    "error": "C:\\Users\\jaswa\\Downloads\\q\\prototype (2)"
+  }
+}

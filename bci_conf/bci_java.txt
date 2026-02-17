@@ -1,0 +1,7 @@
+# BCI Inclusion Filter - Auto-generated
+# Package instrumentation
+package:com.example.samples
+
+# Class instrumentation
+class:com.example.samples.SampleJava2
+class:com.example.samples.for

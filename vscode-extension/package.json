@@ -1,0 +1,99 @@
+{
+    "name": "intelligent-bug-detection",
+    "displayName": "Intelligent Bug Detection",
+    "description": "Real-time AI bug detection, clone highlighting, and repair for Python/Java/JS/C++",
+    "version": "1.0.0",
+    "publisher": "ibd-team",
+    "engines": {
+        "vscode": "^1.80.0"
+    },
+    "categories": [
+        "Linters",
+        "Other"
+    ],
+    "activationEvents": [
+        "onLanguage:python",
+        "onLanguage:java",
+        "onLanguage:javascript",
+        "onLanguage:typescript",
+        "onLanguage:cpp",
+        "onLanguage:c"
+    ],
+    "main": "./out/extension.js",
+    "contributes": {
+        "commands": [
+            {
+                "command": "ibd.analyzeFile",
+                "title": "IBD: Analyze Current File"
+            },
+            {
+                "command": "ibd.repairFile",
+                "title": "IBD: Repair Current File (Safe Copy)"
+            },
+            {
+                "command": "ibd.toggleRealTime",
+                "title": "IBD: Toggle Real-Time Analysis"
+            }
+        ],
+        "menus": {
+            "editor/context": [
+                {
+                    "command": "ibd.analyzeFile",
+                    "group": "ibd-group@1"
+                },
+                {
+                    "command": "ibd.repairFile",
+                    "group": "ibd-group@2"
+                }
+            ]
+        },
+        "configuration": {
+            "title": "Intelligent Bug Detection",
+            "properties": {
+                "ibd.pythonPath": {
+                    "type": "string",
+                    "default": "python",
+                    "description": "Path to the Python interpreter (must have pygls installed)"
+                },
+                "ibd.enableRealTimeAnalysis": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Enable real-time bug detection as you type"
+                },
+                "ibd.cloneThreshold": {
+                    "type": "number",
+                    "default": 0.75,
+                    "minimum": 0.0,
+                    "maximum": 1.0,
+                    "description": "Minimum similarity score (0.0–1.0) to flag as clone"
+                },
+                "ibd.debounceMs": {
+                    "type": "number",
+                    "default": 500,
+                    "minimum": 100,
+                    "maximum": 5000,
+                    "description": "Delay in ms before analysis runs after typing stops"
+                },
+                "ibd.backendUrl": {
+                    "type": "string",
+                    "default": "http://localhost:8000",
+                    "description": "Backend API URL for AI-powered repair"
+                }
+            }
+        }
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./"
+    },
+    "devDependencies": {
+        "@types/vscode": "^1.80.0",
+        "@types/node": "^18.0.0",
+        "typescript": "^5.1.0"
+    },
+    "dependencies": {
+        "axios": "^1.4.0",
+        "vscode-languageclient": "^9.0.1"
+    }
+}

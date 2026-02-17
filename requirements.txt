@@ -1,0 +1,17 @@
+# core
+numpy
+scikit-learn
+sentence-transformers
+tqdm
+gitpython
+
+# optional (for Java parsing)
+javalang
+
+# lsp server
+pygls
+
+# backend
+fastapi
+uvicorn
+pydantic

@@ -1,0 +1,140 @@
+# sample_buggy.py - Contains intentional bugs for testing bug detection
+
+def divide_numbers(a, b):
+    """Divides two numbers and returns the result."""
+    # BUG: Division by zero not handled
+    result = a / b
+    return result
+
+def process_data(data, unused_param):
+    """Process the data and return summary.
+    
+    Returns:
+        dict: A summary of the processed data
+    """
+    # BUG: unused_param is never used
+    # BUG: Mutable default argument would be bad here
+    
+    # BUG: Using == None instead of is None
+    if data == None:
+        return None
+    
+    # BUG: Empty exception handler
+    try:
+        result = data['key']
+    except:
+        pass
+    
+    # BUG: Docstring says returns dict but returns None implicitly
+    print("Processing done")
+
+def always_false_check(x):
+    """Check something impossible."""
+    # BUG: Contradictory condition - always false
+    if x > 10 and x < 5:
+        return "impossible"
+    
+    # BUG: Self comparison
+    if x != x:
+        return "never happens"
+    
+    return "normal"
+
+def shadowing_builtins():
+    """Function that shadows built-ins."""
+    # BUG: Shadowing built-in 'list'
+    list = [1, 2, 3]
+    # BUG: Shadowing built-in 'dict'
+    dict = {"a": 1}
+    # BUG: Shadowing built-in 'str'
+    str = "hello"
+    return list, dict, str
+
+def unreachable_code():
+    """Function with unreachable code."""
+    return "early return"
+    # BUG: Unreachable code
+    print("This will never execute")
+    x = 10
+
+def mutable_default(items=[]):
+    """Function with mutable default argument."""
+    # BUG: Mutable default argument
+    items.append(1)
+    return items
+
+def bare_except_handler():
+    """Function with bare except."""
+    try:
+        risky_operation()
+    except:  # BUG: Bare except catches everything including KeyboardInterrupt
+        pass
+
+def swallowed_exception():
+    """Function that swallows exceptions."""
+    try:
+        something_risky()
+    except Exception:  # BUG: Catching broad Exception and ignoring
+        pass
+
+def constant_condition():
+    """Function with constant conditions."""
+    # BUG: Condition is always True
+    if True:
+        print("always")
+    else:
+        print("never")  # Dead code
+    
+    # BUG: Condition is always False
+    if False:
+        print("dead code")
+
+def duplicate_conditions(x):
+    """Function with duplicate conditions."""
+    if x > 10:
+        return "big"
+    elif x > 10:  # BUG: Duplicate condition
+        return "also big"
+    else:
+        return "small"
+
+def tautology_check(flag):
+    """Function with tautology."""
+    # BUG: x or not x is always True
+    if flag or not flag:
+        return "always true"
+
+def contradiction_check(flag):
+    """Function with contradiction."""
+    # BUG: x and not x is always False
+    if flag and not flag:
+        return "never happens"
+    return "normal"
+
+def division_by_literal_zero():
+    """Function with division by zero."""
+    # BUG: Division by zero
+    x = 10 / 0
+    return x
+
+def risky_operation():
+    raise ValueError("risky")
+
+def something_risky():
+    raise RuntimeError("something went wrong")
+
+if __name__ == "__main__":
+    # Test the buggy functions
+    print("Testing buggy code...")
+    
+    # This will crash
+    try:
+        divide_numbers(10, 0)
+    except ZeroDivisionError:
+        print("Caught division by zero")
+    
+    # This will work but has bugs
+    process_data({"key": "value"}, "unused")
+    
+    print("Done testing")
+

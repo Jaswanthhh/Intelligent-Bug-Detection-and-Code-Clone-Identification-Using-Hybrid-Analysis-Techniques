@@ -1,0 +1,218 @@
+[!] Warning: sentence-transformers import error. Semantic analysis will be disabled.
+[*] Static analysis...
+  -> scanned 18 files
+[*] Build snippet records...
+  -> extracted 54 function/method snippets
+[*] Semantic analysis (embedding similarities)...
+  -> found 0 semantic-similar pairs (threshold=0.75)
+[*] Dynamic testing (simple fuzzing)...
+[*] BCI tracing disabled
+
+[*] Bug Detection...
+  [*] Running static bug detection...
+      -> Found 38 static bugs
+  [*] Analyzing runtime behavior...
+      -> Found 0 runtime bugs
+  [*] Checking logical consistency...
+      -> Found 6 logical bugs
+  -> Found 43 potential bugs
+
+  [!] 23 CRITICAL/HIGH severity bugs detected!
+    [CRITICAL] samples\SampleBuggy.java:12
+      Hardcoded credentials detected
+    [CRITICAL] samples\buggy.js:14
+      Avoid using eval() - security risk
+    [CRITICAL] samples\sample_buggy.py:77
+      Catching broad 'Exception' and ignoring it
+    [CRITICAL] samples\sample_buggy.py:110
+      Condition 'x and not x' is always False
+    [CRITICAL] samples\sample_buggy.py:117
+      Division by zero
+    ... and 18 more critical/high bugs
+[*] Fusion & scoring...
+[*] Results (top candidates):
+
+[*] No dynamic anomalies detected (in prototype runs).
+
+============================================================
+[*] SUMMARY STATISTICS
+============================================================
+Files Analyzed: 18
+Code Snippets Extracted: 54
+Clone Pairs Detected: 0
+Fusion Reports Generated: 0
+Files with Dynamic Anomalies: 0
+Total Dynamic Anomalies: 0
+
+Dynamic Testing Statistics:
+  Total Test Runs: 25
+  Anomaly Rate: 0.00%
+
+File Type Breakdown:
+  .java: 7 files
+  .py: 5 files
+  .cpp: 3 files
+  .js: 3 files
+
+Bug Detection Statistics:
+  Total Bugs Found: 43
+    [!!!] CRITICAL: 5
+    [!!] HIGH: 18
+    [!] MEDIUM: 12
+    [.] LOW: 8
+  Top Bug Categories:
+    - empty_exception_handler: 3
+    - shadowed_builtin: 3
+    - var_usage: 3
+    - strcpy_usage: 2
+    - system_call: 2
+============================================================
+
+============================================================
+[*] DETAILED BUG REPORT
+============================================================
+
+[FILE] samples\SampleBuggy.java (6 bugs)
+  [!!!] Line 12: [CRITICAL] hardcoded_credentials
+      Hardcoded credentials detected
+      Evidence: password = "secret123"
+  [!!] Line 29 in checkName(): [HIGH] string_equality
+      Use .equals() for String comparison, not ==
+      Evidence: input == "admin"
+  [!!] Line 48 in getValue(): [HIGH] return_in_finally
+      Return in finally block can suppress exceptions
+      Evidence: finally {
+            return 2; // Suppresses the return 
+  [!] Line 53 in getValue(): [MEDIUM] float_equality
+      Comparing floating point numbers with == is unreliable
+      Evidence: Float comparison with ==
+    public boolean compareFloats(float a, float b) {
+        if (a ==
+  [!] Line 78 in handleError(): [MEDIUM] system_exit_call
+      System.exit() terminates JVM - avoid in library code
+      Evidence: System.exit(
+  [.] Line 86 in logError(): [LOW] print_stack_trace
+      printStackTrace() should be replaced with proper logging
+      Evidence: .printStackTrace()
+
+[FILE] samples\buggy.js (7 bugs)
+  [.] Line 3: [LOW] console_log_usage
+      Remove console.log in production
+      Evidence: console.log(
+  [!!] Line 6: [HIGH] debugger_statement
+      Debugger statement found
+      Evidence: debugger;
+  [!] Line 9: [MEDIUM] loose_equality_null
+      Use === null or === undefined
+      Evidence: == null
+  [!!!] Line 14: [CRITICAL] eval_usage
+      Avoid using eval() - security risk
+      Evidence: eval(
+  [.] Line 14: [LOW] var_usage
+      Prefer 'let' or 'const' over 'var'
+      Evidence: var x
+  [.] Line 16: [LOW] var_usage
+      Prefer 'let' or 'const' over 'var'
+      Evidence: Var usage
+  [.] Line 17: [LOW] var_usage
+      Prefer 'let' or 'const' over 'var'
+      Evidence: var oldStyle
+
+[FILE] samples\sample_buggy.py (22 bugs)
+  [.] Line 9 in process_data(): [LOW] unused_parameter
+      Unused parameter 'unused_param' in function 'process_data'
+      Evidence: Parameter 'unused_param' is never used in function body
+  [!] Line 19 in something_risky(): [MEDIUM] equality_none_comparison
+      Use 'is None' instead of '== None'
+      Evidence: '== None' can be overridden by __eq__, use 'is None' for identity check
+  [!!] Line 25 in something_risky(): [HIGH] bare_except
+      Bare 'except:' clause catches all exceptions including KeyboardInterrupt and SystemExit
+      Evidence: Use 'except Exception:' or specific exception types
+  [!!] Line 25 in something_risky(): [HIGH] empty_exception_handler
+      Empty exception handler silently swallows errors
+      Evidence: Exception is caught but not handled or logged
+  [!!] Line 38 in something_risky(): [HIGH] self_comparison_always_false
+      Comparing variable to itself is always False
+      Evidence: x != x, x < x, x > x are always False
+  [!] Line 46 in something_risky(): [MEDIUM] shadowed_builtin
+      Assignment shadows built-in 'list'
+      Evidence: Variable 'list' shadows Python built-in
+  [!] Line 48 in something_risky(): [MEDIUM] shadowed_builtin
+      Assignment shadows built-in 'dict'
+      Evidence: Variable 'dict' shadows Python built-in
+  [!] Line 50 in something_risky(): [MEDIUM] shadowed_builtin
+      Assignment shadows built-in 'str'
+      Evidence: Variable 'str' shadows Python built-in
+  [!!] Line 57 in unreachable_code(): [HIGH] unreachable_code
+      Unreachable code after return/raise statement
+      Evidence: Code at line 57 will never execute
+  [!!] Line 60 in mutable_default(): [HIGH] mutable_default_argument
+      Mutable default argument in function 'mutable_default'. Use None and initialize inside function.
+      Evidence: def mutable_default(..., arg=List(elts=[], ctx=Load()))
+  [!!] Line 70 in something_risky(): [HIGH] bare_except
+      Bare 'except:' clause catches all exceptions including KeyboardInterrupt and SystemExit
+      Evidence: Use 'except Exception:' or specific exception types
+  [!!] Line 70 in something_risky(): [HIGH] empty_exception_handler
+      Empty exception handler silently swallows errors
+      Evidence: Exception is caught but not handled or logged
+  [!!!] Line 77 in something_risky(): [CRITICAL] swallowed_exception
+      Catching broad 'Exception' and ignoring it
+      Evidence: This hides all errors and makes debugging impossible
+  [!!] Line 77 in something_risky(): [HIGH] empty_exception_handler
+      Empty exception handler silently swallows errors
+      Evidence: Exception is caught but not handled or logged
+  [!] Line 83 in something_risky(): [MEDIUM] constant_condition
+      Condition is always True
+      Evidence: 'if True:' makes the else branch unreachable
+  [!!] Line 89 in something_risky(): [HIGH] constant_condition
+      Condition is always False
+      Evidence: 'if False:' makes the if branch unreachable (dead code)
+  [!] Line 92 in duplicate_conditions(): [MEDIUM] possible_missing_return
+      Function 'duplicate_conditions' may not return on all code paths
+      Evidence: All return statements are inside conditional blocks
+  [!!] Line 96 in something_risky(): [HIGH] duplicate_condition
+      Duplicate condition in if/elif chain
+      Evidence: This condition was already checked earlier, branch is unreachable
+  [!!] Line 96 in something_risky(): [HIGH] duplicate_condition
+      elif has same condition as if - branch is unreachable
+      Evidence: The if branch already handles this condition
+  [!] Line 104 in something_risky(): [MEDIUM] always_true_condition
+      Condition 'x or not x' is always True
+      Evidence: Tautology in OR expression - condition is redundant
+  [!!!] Line 110 in something_risky(): [CRITICAL] always_false_condition
+      Condition 'x and not x' is always False
+      Evidence: Contradictory conditions in AND expression
+  [!!!] Line 117 in something_risky(): [CRITICAL] division_by_zero
+      Division by zero
+      Evidence: This will raise ZeroDivisionError at runtime
+
+[FILE] samples\buggy.cpp (7 bugs)
+  [!!] Line 8: [HIGH] strcpy_usage
+      Use strncpy() to avoid buffer overflows
+      Evidence: strcpy(
+  [.] Line 16: [LOW] malloc_usage
+      Consider using new/delete or smart pointers in C++
+      Evidence: malloc(
+  [!!] Line 17: [HIGH] strcpy_usage
+      Use strncpy() to avoid buffer overflows
+      Evidence: strcpy(
+  [!!] Line 19: [HIGH] system_call
+      Avoid system() calls if possible
+      Evidence: system(
+  [!!] Line 20: [HIGH] system_call
+      Avoid system() calls if possible
+      Evidence: system(
+  [!] Line 22: [MEDIUM] goto_usage
+      Avoid goto statements
+      Evidence: Goto usage
+  [!] Line 23: [MEDIUM] goto_usage
+      Avoid goto statements
+      Evidence: goto label
+
+[FILE] samples\sample_safe_2.py (1 bugs)
+  [.] Line 5 in maybe_throw(): [LOW] unused_parameter
+      Unused parameter 's' in function 'maybe_throw'
+      Evidence: Parameter 's' is never used in function body
+============================================================
+
+Done in 2.50s

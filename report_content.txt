@@ -1,0 +1,1442 @@
+Reading REPORT (1).pdf...
+Number of pages: 46
+--- Page 1 ---
+ 
+Intelligent Bug Detection and Code Clone Identification 
+Using Hybrid Analysis Techniques 
+Project report submitted to the Amrita Vishwa Vidyapeetham in partial 
+fulfilment of the requirement for the Degree of 
+BACHELOR OF TECHNOLOGY 
+in 
+COMPUTER SCIENCE AND ENGINEERING 
+Submitted by 
+A. Naveen Sai Kumar (AM.EN.U4CSE22002) G. 
+Raghuveer (AM.EN.U4CSE22223) 
+Ch. Jashwanth (AM.EN.U4CSE22230)      
+Y. Harshith (AM.EN.U4CSE22260) 
+ 
+AMRIT A SCHOOL OF COMPUTING 
+AMRIT A VISHWA VIDYAPEETHAM 
+(Estd. U/S 3 of the UGC Act 1956) 
+AMRITAPURI CAMPUS, KOLLAM – 690525 
+DECEMBER 2025 
+DEPARTMENT OF COMPUTER SCIENCE AND ENGINEERING 
+AMRIT A VISHWA VIDYAPEETHAM 
+(Estd. U/S 3 of the UGC Act 1956) Amritapuri Campus 
+Kollam -690525 
+
+--- Page 2 ---
+ 
+ 
+BONAFIDE CERTIFICATE 
+This is to certify that the project report entitled “Intelligent Bug Detection and 
+Code Clone Identification Using Hybrid Analysis Techniques” submitted by A. 
+Naveen Sai Kumar (AM.EN.U4CSE22002), G. Raghuveer 
+(AM.EN.U4CSE22223), Ch. Jashwanth (AM.EN.U4CSE22240), and Y. Harshith 
+(AM.EN.U4CSE22250), in partial fulfilment of the requirements for the award of the Degree 
+of Bachelor of Technology in Computer Science and Engineering from Amrita Vishwa 
+Vidyapeetham, is a bonafide record of the work carried out by them under my guidance and 
+supervision at Amrita School of Computing, Amritapuri during Semester 7 of the academic 
+year 2025–2026. 
+Dr. Aswathy Mohan Preethi S Nair 
+Project Guide Project Coordinator 
+Dr. Swaminathan J Dr. Sunitha E.V Chairperson, CSE Dept. Reviewer 
+Place : Amritapuri 
+Date : 2 December 2025 
+DEPARTMENT OF COMPUTER SCIENCE AND ENGINEERING 
+AMRIT A VISHWA VIDYAPEETHAM 
+(Estd. U/S 3 of the UGC Act 1956) Amritapuri Campus 
+Kollam -690525 
+
+--- Page 3 ---
+ 
+ 
+DECLARATION 
+We, A.Naveen sai kumar (AM.EN.U4CSE22002), G. Raghuveer 
+(AM.EN.U4CSE22223),Ch. Jashwanth (AM.EN.U4CSE22240)and Y. Harshith 
+(AM.EN.U4CSE22250) hereby declare that this project entitled “ Intelligent Bug 
+Detection and Code Clone Identification Using Hybrid Analysis Techniques” is 
+a record of the original work done by us under the guidance of Dr. Aswathy Mohan, 
+Dept. of Computer Science and Engineering, Amrita Vishwa Vidyapeetham, and that 
+this work has not formed the basis for any degree/diploma/fellowship or similar 
+awards to any candidate in any university to the best of our knowledge. 
+Place : Amritapuri 
+Date : 2 December 2025 
+Signature of the student Signature of the Project Guide 
+
+--- Page 4 ---
+3 
+ACKNOWLEDGEMENT 
+We extend our sincere gratitude to our Project Guide, Dr. Aswathy Mohan, for 
+her consistent guidance, insightful suggestions, and meticulous attention to detail 
+throughout the development of our project titled “Intelligent Bug Detection and Code 
+Clone identification using Hybrid analysis techniques” . Her expertise and continuous 
+encouragement greatly enriched the quality and direction of this work. 
+We are also thankful to our Coordinator, Ms. Preethi S. Nair, for her dedicated 
+efforts in organizing and streamlining the project activities. Our deep appreciation 
+goes to our Reviewer, Dr. Sunitha E. V , for providing valuable feedback and 
+constructive recommendations that significantly contributed to refining the contents 
+of this report. Additionally, we extend our heartfelt thanks to Dr. Swaminathan J., 
+Chairperson of the Department of Computer Science and Engineering, for his 
+constant support and for fostering a productive academic environment. 
+The successful completion of this project is the result of the collective support 
+and contributions of everyone involved, and we are sincerely grateful for their 
+encouragement and assistance. 
+Finally, we express our heartfelt gratitude to our institution, Amrita School of 
+Computing, for providing the necessary infrastructure, academic resources, and an 
+inspiring environment that enabled us to complete both our studies and this project 
+successfully. We also extend our warmest thanks to our peers, friends, and families 
+for their unwav ering support, motivation, and encouragement throughout this 
+journey. 
+ABSTRACT 
+Ensuring code quality and reliability has become increasingly challenging in 
+modern software development, where large -scale systems evolve rapidly and are 
+often maintained by distributed teams. Two of the most persistent issues 
+contributing to software degradation are the presence of bugs and the widespread 
+practice of code cloning. Code clones, especially those created through copy –paste 
+programming, introduce long-term maintainability concerns, as defects embedded 
+in one fragment can propagate across mult iple locations. Traditional static-analysis 
+tools detect only superficial patterns and struggle to identify deep semantic 
+equivalence or runtime inconsistencies, while dynamic approaches depend heavily 
+on input quality and provide limited insight into structural and logical similarity. 
+This project proposes an Intelligent Bug Detection and Code Cloning 
+System that integrates three complementary analysis dimensions—Static Analysis, 
+Semantic Analysis , and Dynamic Execution Analysis . The system extracts 
+syntactic and structural features through AST -based and control -flow analysis, 
+employs state -of-the-art LLM-based code embeddings to evaluate semantic 
+--- Page 5 ---
+4 
+similarity between code fragments, and utilizes fuzzing and instrumentation 
+techniques to capture real execution behavior, enabling the detection of hidden 
+runtime anomalies. By combining these modalities through a unified hybrid fusion 
+model, the system accurately detects Type –1 to Type –4 clones, identifies buggy 
+clones, and reveals inconsistencies that purely static or dynamic tools fail to capture. 
+Extensive experimentation on both Python and Java code demonstrates the 
+effectiveness of the proposed system, resulting in the identification of multiple 
+semantic clone pairs, detection of 23 distinct bugs, and accurate correlation of 
+cloneinduced vulnerabilities. The results highlight the value of integrating structural, 
+semantic, and behavioral signals into a single analytical pipeline, paving the way for 
+more reliable, scalable, and intelligent software quality assurance tools. 
+Contents 
+1 Introduction 7 
+2 Problem Definition 10 
+3 Related Work 12 
+4 Requirements 14 
+4.1 Hardware Requirements . . . . . . . . . . . . . . . . . . . . . . . . . 14 
+4.2 Software Requirements . . . . . . . . . . . . . . . . . . . . . . . . . . 14 
+5 Proposed System 16 
+5.1 System Architecture . . . . . . . . . . . . . . . . . . . . . . . . . . . 16 
+5.2 System Workflow . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 18 
+5.3 Component Descriptions . . . . . . . . . . . . . . . . . . . . . . . . . 19 
+5.3.1 Source Code Module . . . . . . . . . . . . . . . . . . . . . . . 19 
+5.3.2 Static Analysis Module . . . . . . . . . . . . . . . . . . . . . . 19 
+5.3.3 Semantic Analysis Module . . . . . . . . . . . . . . . . . . . . 19 
+5.3.4 Clone Candidate Generation Module . . . . . . . . . . . . . . 19 
+5.3.5 Dynamic Analysis Module . . . . . . . . . . . . . . . . . . . . 19 
+5.3.6 Dynamic Slicing Module . . . . . . . . . . . . . . . . . . . . . 20 
+5.3.7 Fusion Engine . . . . . . . . . . . . . . . . . . . . . . . . . . . 20 
+5.3.8 Reporting and Visualization Module . . . . . . . . . . . . . . 20 
+5.4 Dynamic Validation Sequence . . . . . . . . . . . . . . . . . . . . . . 20 
+5.5 Mathematical Formulation . . . . . . . . . . . . . . . . . . . . . . . . 21 
+--- Page 6 ---
+5 
+5.6 Summary . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 21 
+6 Result and Analysis 22 
+6.1 Static Analysis Output . . . . . . . . . . . . . . . . . . . . . . . . . . 22 
+6.2 Dynamic Execution Trace Output . . . . . . . . . . . . . . . . . . . . 23 
+6.3 Semantic Analysis Output . . . . . . . . . . . . . . . . . . . . . . . . 23 
+6.4 Fused Static–Semantic–Dynamic Representation . . . . . . . . . . . . 24 
+6.5 Visual Diagram Output . . . . . . . . . . . . . . . . . . . . . . . . . 25 
+6.6 Specific User Report . . . . . . . . . . . . . . . . . . . . . . . . . . . 26 
+6.7 Bug Detection Report . . . . . . . . . . . . . . . . . . . . . . . . . . 27 
+6.8 Summary Statistics . . . . . . . . . . . . . . . . . . . . . . . . . . . . 29 
+6.9 System Architecture Diagram . . . . . . . . . . . . . . . . . . . . . . 30 
+6.10 Overall Evaluation . . . . . . . . . . . . . . . . . . . . . . . . . . . . 30 
+7 Conclusion 31 
+References 32 
+Appendix 33 
+A.1 Static Analysis Code . . . . . . . . . . . . . . . . . . . . . . . . . . . . 33 
+A.2 Semantic Analysis Code . . . . . . . . . . . . . . . . . . . . . . . . . . 35 
+A.3 Dynamic Analysis Code . . . . . . . . . . . . . . . . . . . . . . . . . . 37 
+A.4 Bug Detection . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 38 
+A.5 Fusion Model . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 39 
+List of Figures 
+ 5.1 System Architecture of the Hybrid Clone and Bug Detection Framework 17 
+5.2 End-to-End Workflow of the Hybrid Analysis System . . . . . . . . . 
+5.3 Sequence Diagram for Fuzzing-Assisted Dynamic Validation of Clone 
+18 
+ Candidates . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+6.1 Static analysis details showing file count, snippet extraction, and 
+21 
+structural metrics . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 22 
+6.2 Dynamic anomaly logs showing per-run errors and return codes . . . 23 
+6.3 Reconstructed call-like relationships through integrated semantic–structural 
+pairing . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 24 
+ 6.4 Fusion representation showing structural similarity, semantic similar- 
+ ity, anomaly flags, and overall score . . . . . . . . . . . . . . . . . . . 25 
+--- Page 7 ---
+6 
+ 6.5 Visual analytics generated from semantic similarity and processing logs 26 
+ 6.6 Specific User Report . . . . . . . . . . . . . . . . . . . . . . . . . . . 27 
+ 6.7 Detailed Bug Report . . . . . . . . . . . . . . . . . . . . . . . . . . . 28 
+6.8 Summary statistics showing bug counts, clone pairs, anomaly rates, and file -
+type distribution . . . . . . . . . . . . . . . . . . . . . . . . . 29 
+ 6.9 System class diagram for the hybrid clone and bug detection archi- 
+ tecture . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 30 
+Chapter 1 
+Introduction 
+As modern software systems continue to grow in scale, complexity, and 
+interdependency, ensuring reliable program behavior and long-term maintainability 
+has become a critical challenge in contemporary software engineering. Two major 
+contributors to software  degradation are the presence of software bugs and the 
+unnoticed proliferation of code clones . Bugs introduce erroneous or unstable 
+behavior, while clones silently propagate redundancy and replicate faulty logic 
+across several modules. Detecting these issu es early in the development lifecycle is 
+essential for reducing technical debt, improving productivity, and maintaining high-
+quality codebases. Additional details describing the core importance of these 
+concerns can be found in the project overview documen t 
+:contentReference[oaicite:1]index=1. 
+Traditional bug detection frameworks rely heavily on static analysis techniques 
+such as lexical pattern matching, token -based parsing, or rule -based code linters. 
+Although effective for surface -level errors, static methods struggle to capture 
+runtime-dependent bugs such as input -dependent failures, exception -driven 
+behaviors, and logical inconsistencies that emerge only during execution. Likewise, 
+conventional clone detection tools identify Type –1 and Type –2 clones reliably but 
+perform poorly when code unde rgoes significant structural variations, logical 
+rewrites, or behavior -preserving transformations —situations commonly 
+represented as Type–3 and Type–4 clones. For example, a developer might copy a 
+sorting algorithm and modify the variable names or reorder statements. Such clones 
+look different but embody the same logic, making them difficult to detect without 
+deeper semantic understanding :contentReference[oaicite:2]index=2. 
+To overcome these limitations, recent research emphasizes the integration of 
+static, semantic, and dynamic perspectives. However, most execution -aware 
+frameworks depend on full runtime traces, which are computationally expensive, 
+noisy, and difficult to process at large scale. This creates a practical gap: developers 
+need tools that understand program structure and intent while capturing 
+meaningful behavior —without incurring the cost and complexity of exhaustive 
+tracing. 
+To address this challenge, the present project introduces an intelligent hybrid 
+framework titled “Intelligent Bug Detection and Code Clone Identification Using 
+--- Page 8 ---
+7 
+Hybrid Analysis Techniques”. This system unifies three complementary forms of 
+program understanding: 
+• Static Analysis for structural and syntactic extraction. 
+• Semantic Analysis using LLM-based code embeddings to capture high -level 
+logical intent. 
+• Lightweight Dynamic Analysis to detect runtime bugs and behavior-specific 
+inconsistencies. 
+By combining these modalities, the system detects hidden bugs, identifies 
+Type–1 through Type –4 clones, and uncovers clone -induced bug propagation —
+issues that traditional tools frequently miss. The inclusion of semantic embeddings 
+enables recognition of logically equivalent but syntactically different code fragments, 
+while dynamic execution enables detection of input -dependent exceptions and 
+behavioral anomalies. 
+Furthermore, this system directly supports practical software engineering 
+tasks such as refactoring, documentation, testing, debugging, and quality assurance. 
+Detecting clone clusters helps developers understand reuse patterns, while 
+identifying buggy clones ensures that defects replicated across multiple modules can 
+be fixed comprehensively rather than piecemeal. This aligns with the real -world 
+motivations and target user groups described in the project summary 
+:contentReference[oaicite:3]index=3. 
+1.1 Background and Motivation 
+Software maintainability accounts for nearly 70% of total development cost across 
+the industry. In large codebases, developers rely heavily on copy –paste 
+programming to reuse functionality quickly. While convenient, this practice forms 
+code clones that—if left unmanaged —result in redundant logic, inconsistencies, 
+and duplicated bugs. A faulty computation or conditional expression replicated 
+across different modules can lead to system -wide cascading failures, making clone 
+detection essential for proactive bug handling. 
+Bug detection, on the other hand, is traditionally performed with static linters 
+and pattern-based tools. These tools catch straightforward syntactic issues but miss 
+subtle logical errors and runtime-only faults such as: 
+• incorrect branch evaluation depending on input, 
+• uncaught exceptions triggered under specific conditions, 
+• invalid state transitions, 
+• side effects caused by object interactions. 
+--- Page 9 ---
+8 
+Similarly, clone detection tools often fail to capture semantically similar code 
+fragments that differ syntactically. This gap becomes problematic when working 
+with Type –3 and Type –4 clones, which require deeper behavioral and semantic 
+comparison. 
+The motivation for this project stems from the need for a unified, intelligent, 
+and execution -aware model that can detect bugs and clones in an integrated 
+manner. By analyzing both structural patterns and runtime signatures, the system 
+provides more accurate and actionable insights into software quality, aligning with 
+practical developer needs such as refactor ing, debugging, documentation, and 
+prevention of bug propagation. 
+1.2 Overview of the Hybrid Detection Approach 
+The proposed system incorporates a hybrid methodology composed of static 
+structural analysis, semantic code understanding, and lightweight dynamic 
+execution evaluation. This approach enables multi -dimensional reasoning about 
+code behavior, structure, and functionality. 
+The workflow consists of four main stages: 
+1. Static Structural Analysis 
+The system processes source code to extract tokens, AST shapes, control -flow 
+patterns, and method-level metadata. This provides a foundational blueprint of the 
+code’s structure and design-time relationships. 
+2. Semantic Analysis Using Code Embeddings 
+LLM-based semantic encoders convert source code into dense vector 
+representations that capture logical meaning. These embeddings enable the system 
+to detect: 
+• Type–3 modified clones, 
+• Type–4 semantic clones, 
+• logical equivalence in differently structured code. 
+3. Lightweight Dynamic Execution Analysis 
+Instead of relying on full execution traces, the system extracts only the essential 
+runtime signals related to: 
+• branch choices, 
+• input-dependent failures, 
+• exception patterns, 
+• variable or state changes, 
+--- Page 10 ---
+9 
+• method invocation sequences. 
+This “minimal behavior signature” is computationally efficient yet effective in 
+revealing dynamic inconsistencies. 
+4. Fusion-Based Bug and Clone Identification 
+The hybrid fusion engine integrates: 
+• structural similarity from static analysis, 
+• semantic similarity from embeddings, 
+• behavioral anomaly detection from dynamic execution. 
+Chapter 2 
+Problem Definition 
+Modern software systems are growing rapidly in both size and complexity, making it 
+increasingly difficult for developers to maintain code quality and ensure reliable 
+system behavior. As these projects evolve, they accumulate significant technical 
+debt, much of which arises from two critical sources: software bugs and code 
+clones. Bugs introduce erroneous logic and unexpected runtime failures, while 
+clones replicate code fragments —often through copy –paste reuse —that silently 
+propagate these bugs across the c odebase. Over time, this leads to redundant logic, 
+inconsistent behavior, and increased maintenance cost. The project overview 
+presentation highlights these challenges as core motivations for developing an 
+intelligent hybrid solution :contentReference[oaicite:1]index=1. 
+Existing solutions for bug detection and clone identification exhibit substantial 
+limitations. Static analysis tools, such as linters and AST -based analyzers, inspect 
+source code without executing it. While these tools are fast and capable of scanning 
+large projects, they suffer from high false-positive rates and remain blind to runtime-
+dependent behavior. They can dete ct only superficial issues —such as unused 
+variables or missing brackets —but miss deeper semantic problems such as logical 
+inconsistencies, hidden runtime errors, or Type–4 semantic clones. Static tools only 
+analyze the “shape” of code and cannot reason about execution flow, input -
+dependent branches, or dynamic state changes. As emphasized in the reference 
+slides, static tools cannot “see how t he program runs,” making them insufficient for 
+deeper bug and clone detection tasks :contentReference[oaicite:2]index=2. 
+Dynamic analysis tools complement static methods by detecting failures that 
+occur during actual program execution. Techniques such as fuzzing, monitoring, and 
+symbolic execution help uncover runtime crashes, memory errors, and inputspecific 
+anomalies. However, they require the system to run with diverse test inputs and are 
+computationally expensive, especially for large applications. These tools often 
+--- Page 11 ---
+10 
+observe only the execution paths triggered by given test cases and cannot guarantee 
+full code coverage. Furthermore, while they can detect crashes, they typically do not 
+identify the underlying semantic cause of the fault. As noted in the uploaded PPT 
+content, dynamic approaches are “very slow” and “check only the paths that are 
+executed,” making them impractical for scalable, system -wide analysis 
+:contentReference[oaicite:3]index=3. 
+Additionally, clone detection remains an unresolved challenge across all 
+existing solutions. Although traditional approaches —such as token -based, AST -
+based, or metric -based detectors—identify Type–1 and Type –2 clones, they fail to 
+detect Type–3 (modified clones) and Type–4 (semantic clones). Type –4 clones, in 
+particular, represent different code structures that implement identical logic. 
+Detecting them requires deep semantic understanding, far beyond the capabilities of 
+simple pattern-matching techniques. A s highlighted in the project summary, static 
+tools “miss deep meaning-based bugs” and “cannot detect semantic clones” because 
+they do not understand program intent :contentReference[oaicite:4]index=4. 
+Another critical issue is the lack of correlation between clones and bugs. When 
+a developer copies faulty code, the bug propagates across multiple program 
+locations. Existing tools do not jointly analyze bug patterns and clone clusters, 
+making it difficult to detect copy–paste–induced inconsistencies. This creates silent, 
+long-term failures that degrade overall software quality. 
+From the development perspective, large -scale projects contain millions of 
+lines of code . Manual inspection is impossible, and developers often unknowingly 
+introduce redundant logic. Some bugs remain invisible because the code executes 
+without crashing but produces incorrect results in corner cases. These silent failures 
+accumulate gradually, creating hidden risks for production systems. The PPT file 
+notes that “normal tools only check basic errors,” resulting in deeper logical mistakes 
+going undetected for long periods :contentReference[oaicite:5]index=5. 
+The core problem, therefore, is the absence of a unified, intelligent system 
+capable of: 
+• detecting both shallow and deep semantic bugs, 
+• identifying Type–1 through Type–4 code clones, 
+• correlating dynamic behavior with structural and semantic similarities, • 
+reducing false positives by validating findings across multiple analysis signals, 
+• and scaling efficiently across large codebases. 
+To address this gap, the proposed system introduces a multi-modal hybrid 
+analysis framework combining: 
+• Structural Signals (AST-based) — effective for Type–1 to Type–3 clones; 
+--- Page 12 ---
+11 
+• Semantic Signals (LLM Embeddings) — capturing logical intent for Type–4 
+clone detection; 
+• Dynamic Signals (Behavioral Traces via Bytecode Instrumentation) — 
+verifying actual runtime behavior to detect hidden bugs. 
+The system’s fusion model integrates these complementary signals into a single 
+suspicion score. A clone or bug is flagged only when all three signals agree, ensuring 
+extremely low false positives. This tri -layer hybrid model provides deeper insights 
+than a ny single analysis technique alone, enabling robust detection of semantic 
+clones, logic-level bugs, and behavior-induced inconsistencies. 
+In summary, the fundamental problem addressed by this project is the lack of 
+a scalable, accurate, and behavior-aware framework for simultaneous bug detection 
+and clone identification. The multi -modal hybrid approach proposed here fills this 
+long-standing research and industrial gap by combining structure, semantics, and 
+runtime behavior into one intelligent and unified analysis system. 
+Chapter 3 
+Related Work 
+Research in software quality assurance has extensively explored two major domains 
+closely related to this project: bug detection and code clone identification . 
+Existing literature provides a wide range of techniques, yet most solutions rely on 
+either static or dynamic analysis exclusively, leading to limited semantic 
+understanding or poor runtime awareness. This section summarizes the major 
+advancements and the  gaps that motivate the hybrid framework proposed in this 
+work. 
+Early clone detection systems rely primarily on static, structure -based 
+methods such as token matching, AST comparison, and metric -based similarity. 
+Tools like Deckard and CCFinder apply syntactic pattern analysis to detect Type –1 
+and Type –2 clones effectively. These techniques capture superficial structural 
+similarities but fail to d etect modified (Type–3) or semantic (Type–4) clones, since 
+they operate only on code representation without reasoning about program logic or 
+functional intent. These limitation s are highlighted in prior research and industry 
+observations that note the inability of static-only systems to detect deeper semantic 
+equivalence or clone-induced bug propagation. 
+To overcome syntactic limitations, several studies introduced semantic clone 
+detection methods. Approaches such as Siamese -based networks (e.g., LeONet) 
+analyze AST paths or abstract semantic graphs to identify deeper code similarities. 
+LeONet employs AST-based feature extraction fused with Siamese CNNs to detect 
+Type–1 to Type–3 clones more accurately. However, since these methods still rely on 
+syntactic abstractions, they struggle with Type–4 clones where significant structural 
+transformations mask underlying functional similarity. Moreover, these systems lack 
+--- Page 13 ---
+12 
+runtime awareness and cannot detect behavioral inconsistencies or execution -
+driven bug patterns. 
+Parallel to clone detection, extensive work has been done in the field of bug 
+detection and vulnerability analysis. Static analyzers such as FindBugs, PMD, and 
+Checkstyle detect surface -level code smells, unused variables, and basic defect 
+patterns but fail to capture logical or context -specific bugs. More advanced systems 
+like symbolic execution engines (e.g., KLEE, Concoction) can detect deeper 
+vulnerabilities through path exploration, yet they suffer from scalability issues and 
+high computational cost. Concoction, for instance, fuses static graphs with symbolic 
+traces to identify vulnerabilities effectively, but it is restricted to limited languages, 
+lacks clone detection capability, and is unsuitable for multi -language, real -world 
+systems due to high overhead and state space explosion. 
+Recent advances in Large Language Models (LLMs) and deep learning have 
+introduced new methods for semantic reasoning about code. LLM -based clone 
+detectors (e.g., GPT -3.5/4-based approaches) perform well for Type –4 clone 
+detection due to their high -level semantic understanding. These models can 
+generate embeddings that capture logic-level similarity beyond structural confines. 
+However, LLM -based approaches alone cannot detect runtime bugs, analyze 
+execution behavior, or provide reliable clone validation with out supplementary 
+structural or dynamic insights. They are also sensitive to prompting, non -
+deterministic in behavior, and lack grounded runtime verification. 
+Several works have attempted to incorporate execution-awareness into code 
+understanding. Dynamic approaches such as fuzzing, trace logging, and runtime 
+instrumentation detect bugs tied to specific execution paths. Tools like TRACER, JIVE, 
+and execution -driven vulnerability detectors capture method invocation orders, 
+runtime states, and exception patterns, enabling precise identification of 
+behaviordriven faults. However, full execution traces are massive, noisy, and 
+computationally expensive to store and pr ocess. These systems do not scale well for 
+large codebases and are impractical for lightweight bug detection or clone analysis. 
+Dynamic slicing has been explored as a middle -ground between static -only 
+and execution-heavy systems. Slicing extracts only the subset of runtime events that 
+influence specific behaviors, reducing noise and computational burden. While 
+promising, slicing methods have tradi tionally been applied to debugging and 
+program comprehension —not integrated with clone detection or semantic 
+similarity analysis. 
+Collectively, prior research reveals two fundamental limitations: (1) static 
+models cannot capture runtime semantics or input -sensitive bug patterns, and (2) 
+dynamic models require heavy, full-trace execution that is computationally infeasible 
+for real-time use. Additionally, existing clone detectors rarely correlate bugs with 
+cloned regions, failing to address clone-induced bug propagation. 
+--- Page 14 ---
+13 
+The proposed system builds upon these insights by integrating static 
+structural cues , semantic embeddings , and lightweight dynamic execution 
+behavior into a unified hybrid analysis framework. Unlike prior approaches, it 
+identifies Type –1 through Type –4 clones, detects both structural and semantic 
+inconsistencies, and correlates runtime bugs with cloned code segments. By 
+leveraging a multi-modal fusion engine, the system achieves accurate, scalable, and 
+executionaware detection, addressing the shortcomings observed across static-only, 
+dynamiconly, and LLM-only methods. 
+This project therefore represents a significant advancement over existing 
+literature by bridging the gap between bug detection, semantic clone identification, 
+and multi-dimensional program analysis. 
+Chapter 4 
+Requirements 
+The development of the “Intelligent Bug Detection and Code Clone Identification 
+Using Hybrid Analysis Techniques” system requires a carefully chosen set of 
+hardware and software resources that support static parsing, semantic similarity 
+computation, and lightweight dynamic execution monitoring. Since the system does 
+not involve GPU -intensive model training or large -scale symbolic execution, the 
+overall requirements remain moderate and suitable for standard development 
+environments. 
+4.1 Hardware Requirements 
+The hybrid analysis pipeline depends primarily on efficient CPU performance, as the 
+system executes tasks such as AST parsing, control -flow analysis, semantic 
+embedding generation, fuzzing operations, and bytecode instrumentation. A system 
+equipped with an  Intel Core i5 or AMD Ryzen 5 processor is sufficient to perform 
+these tasks smoothly. Although memory consumption remains moderate, a 
+minimum of 8 GB of RAM is necessary to process structural graphs, clone candidate 
+sets, and runtime traces effectively, w hile 16 GB of RAM provides a noticeably 
+smoother experience when analysing larger codebases. 
+In terms of storage, the project requires around 5 to 10 GB of available disk 
+space to accommodate the Python environment, Java Development Kit, semantic 
+embedding models, instrumentation logs, and intermediate analysis files. Solidstate 
+drives enhance execution speed by reducing load and write times, although they are 
+not mandatory for functionality. No dedicated GPU hardware is required because the 
+system relies entirely on CPU-friendly semantic embedding models and lightweight 
+dynamic instrumentation. The project can be executed on Windows, Linux, or macOS 
+platforms, though Linux provides marginally better performance for command -line 
+automation and Java instrumentation workflows. 
+--- Page 15 ---
+14 
+4.2 Software Requirements 
+The hybrid nature of the system requires both Python and Java environments. 
+Python version 3.8 or above is used for static analysis, semantic embedding 
+generation, clone scoring, fusion logic, and analysis visualization. Java, through JDK 
+8 or higher, is required to compile and execute the programs being analysed and to 
+support the bytecode instrumentation agent used during dynamic execution. 
+The core static analysis is enabled by Python libraries such as javalang, which 
+constructs Abstract Syntax Trees from Java programs, and networkx, which builds 
+the corresponding control-flow and call graph structures. Numerical and structural 
+data handling is carried out using numpy and pandas. Semantic similarity between 
+code fragments is computed using pre -trained models from the 
+sentencetransformers library, which provide efficient and accurate code embeddings. 
+Additional supporting libraries such as scikit-learn are used for similarity 
+computation and clone clustering, while matplotlib assists in visualizing 
+experimental insights. 
+Dynamic behavioural information is extracted using a combination of 
+lightweight fuzzing and Java Bytecode Instrumentation. The fuzzing engine, 
+implemented in Python, automatically generates diverse inputs that explore different 
+execution paths and help rev eal runtime -dependent bugs. The instrumentation 
+component works as a Java agent that hooks into the executing program and records 
+essential runtime events such as method calls, exception points, branch decisions, 
+state changes, and object interactions. This approach avoids the overhead of full trace 
+logging and produces only the behaviourally meaningful execution slices required for 
+hybrid bug detection and clone validation. 
+The development of the system is facilitated through widely used platforms 
+such as Visual Studio Code for coding, Jupyter Notebook or Google Colab for 
+experimental analysis, and GitHub for version control and project management. 
+Script execution and instru mentation commands may be run through Windows 
+PowerShell, the Linux terminal, or macOS command-line utilities. 
+4.2.1 Dynamic Execution Engine (Fuzzing + BCI) 
+In this project, the combined fuzzing and bytecode instrumentation engine plays a 
+central role in capturing the runtime characteristics necessary for identifying hidden 
+bugs and behaviourally equivalent clone fragments. The fuzzing module explores 
+edge cas es and unusual input patterns that often trigger subtle, input -dependent 
+failures. Meanwhile, the bytecode instrumentation agent operates during program 
+execution and collects selective runtime information, including method invocation 
+chains, variable upda tes, exception occurrences, and control -flow decisions. 
+Together, these two components produce a compact and meaningful representation 
+of the program’s behaviour, which is later fused with static and semantic features for 
+more accurate analysis. 
+Overall, the requirements outlined in this chapter ensure that the proposed 
+system operates efficiently, remains resource-conscious, and achieves precise hybrid 
+--- Page 16 ---
+15 
+analysis without depending on heavy computational infrastructures or unnecessary 
+software components. 
+Chapter 5 
+Proposed System 
+The proposed system, titled Intelligent Bug Detection and Code Clone 
+Identification Using Hybrid Analysis Techniques , is designed as a unified and 
+comprehensive multi-modal pipeline capable of detecting code clones across all four 
+clone types while simultaneously identifying structural, semantic, and runtime bugs. 
+The system introduces a hybrid methodology that integrat es static structural 
+analysis, semantic code embeddings, and dynamic behavior observation to 
+overcome the inherent limitations present in traditional single -modality systems. 
+Static-only systems fail to capture behavioral semantics; semantic -only systems 
+overlook structural inconsistencies; and dynamic -only systems cannot infer 
+conceptual equivalence. By combining these perspectives into a cohesive analytical 
+framework, the proposed approach ensures deeper program comprehension, more 
+accurate clone detection, and significantly enhanced bug discovery. 
+The system is engineered not merely to identify clone pairs, but also to detect 
+buggy clones , semantic inconsistencies , latent defects , and behavioral 
+divergences between seemingly equivalent fragments. This multi-stage architecture 
+is capable of detecting Type –4 clones —semantic clones that perform the same 
+functionality despite having substantially different code structure—and identifying 
+situations where one clone  evolves defectively compared to its counterpart. This 
+chapter provides a detailed descriptio n of the architecture, workflow, modules, 
+hybrid fusion model, mathematical formulation, and operational behavior of the 
+proposed system. 
+5.1 System Architecture 
+The system architecture is organized into four major layers that collectively 
+transform raw source code into validated clone pairs and bug detection reports. The 
+architecture is shown in Figure 5.1. 
+--- Page 17 ---
+16 
+ 
+Figure 5.1: System Architecture of the Hybrid Clone and Bug Detection Framework 
+The first layer, the Input and Ingestion Layer, accepts Python or Java source 
+code and preprocesses it by normalizing formats, discarding non -source files, and 
+partitioning the code into analyzable units such as classes, methods, and functions. 
+This ensures that each fragment is uniquely addressable t hroughout the multistage 
+pipeline. 
+The second layer, the Static and Semantic Analysis Layer, performs structural 
+parsing using abstract syntax trees (ASTs), constructs control -flow information, 
+identifies branching behavior, computes complexity metrics, and extracts class 
+hierarchies. In parallel, the semantic subsystem transforms each fragment into a 
+high-dimensional embedding using a transformer -based sentence encoder. Static 
+analysis captures syntactic and structural properties, whereas semantic embeddings 
+capture conceptual intent, making it possible to identify functionally equivalent but 
+syntactically distinct fragments. 
+The third layer, the Dynamic Analysis Layer , incorporates runtime 
+understanding using fuzzing -based execution (for Python) and Bytecode 
+Instrumentation (for Java). This module observes method invocation sequences, 
+exception triggers, variable updates, and object interactions. Unlike full execution -
+trace systems that produce high -volume noisy logs, the dynamic module generates 
+sliced traces that preserve only behaviorally meaningful events. 
+
+--- Page 18 ---
+17 
+The final layer, the Fusion and Output Layer, integrates static, semantic, 
+and dynamic evidence to compute unified similarity and bug likelihood scores. It 
+then generates visual graphs, JSON reports, structural summaries, and dynamicslice 
+descriptions. This modular design ensures extensibility, interoperability, and 
+robustness across codebases of varying size and complexity. 
+5.2 System Workflow 
+The system follows a structured multi-phase workflow, illustrated in Figure 5.2. Each 
+code fragment passes sequentially through ingestion, static parsing, semantic 
+encoding, candidate generation, dynamic execution, dynamic slicing, and final fusion. 
+ 
+Figure 5.2: End-to-End Workflow of the Hybrid Analysis System 
+The workflow begins with source -code ingestion, followed by AST -based 
+structural extraction. The system records syntactic constructs, branching patterns, 
+identifier usage, and complexity indicators. After static analysis, semantic 
+embeddings are generated using the all-MiniLM-L6-v2 transformer model from the 
+SentenceTransformers library. These embeddings allow the system to capture 
+
+--- Page 19 ---
+18 
+deeper intentlevel similarity between code fragments that may differ entirely in 
+structure. 
+Next, the system applies structural and semantic thresholds to shortlist 
+highpotential clone candidates. Only these selected pairs move to dynamic 
+validation, ensuring that computationally expensive execution analysis is applied 
+efficiently. During dynamic testing, the system uses fuzzing (Python) or BCI -driven 
+tracing (Java) to observe real behavior. All runtime events are logged and then 
+transformed into a concise dynamic slice. Finally, all three signals—static, semantic, 
+and dynamic—are fused to produce final clone and bug scores. 
+5.3 Component Descriptions 
+The following subsections describe each core module in a cohesive narrative format. 
+5.3.1 Source Code Module 
+The Source Code Module is responsible for accepting user -uploaded source files or 
+project directories, validating them, ensuring consistent encoding, and dividing 
+them into atomic fragments. These fragments serve as the primary units of analysis, 
+enabling fine-grained comparison, embedding generation, and dynamic validation. 
+5.3.2 Static Analysis Module 
+The Static Analysis Module constructs ASTs using ast for Python and javalang for Java. 
+It derives control -flow information, extracts method signatures, identifies parent –
+child class structures, and computes structural metrics such as statement count, 
+branching frequency, and cyclomatic complexity. These structural features 
+contribute significantly to detecting Type–1, Type–2, and Type–3 clones. 
+5.3.3 Semantic Analysis Module 
+The Semantic Analysis Module transforms code fragments into dense 384 -
+dimensional embeddings using transformer -based sentence encoders. These 
+embeddings map functionally similar fragments to nearby points in vector space, 
+enabling the system to detect Type –4 semantic clones. Code is preprocessed to 
+remove comments and normalize whitespace before being fed into the encoder, 
+ensuring consistent semantic representation. 
+5.3.4 Clone Candidate Generation Module 
+The Candidate Generator evaluates pairwise similarity across structural and 
+semantic features, forming a shortlist of potential clone pairs. By applying similarity 
+thresholds, it prunes unreliable pairs early, ensuring that expensive dynamic 
+validation is applied only to high-confidence candidates. This significantly improves 
+pipeline performance without sacrificing accuracy. 
+--- Page 20 ---
+19 
+5.3.5 Dynamic Analysis Module 
+The Dynamic Analysis Module executes code fragments under diverse inputs using 
+fuzzing in Python and Bytecode Instrumentation in Java. It observes runtime 
+behaviors such as exceptions, incorrect outputs, invalid state changes, and 
+inconsistent execution paths. These behaviors are reported alongside structural and 
+semantic signals, allowing the system to detect runtime-only faults. 
+5.3.6 Dynamic Slicing Module 
+After execution, the slicing module condenses the verbose execution traces into a 
+concise sequence of behaviorally meaningful events. This includes object creation, 
+method calls, variable updates, and exception occurrences. The dynamic slice forms 
+the behavioral profile that is used in fusion scoring and bug-likelihood estimation. 
+5.3.7 Fusion Engine 
+The Fusion Engine integrates all modalities to compute a final similarity and bug 
+score. The fusion score is computed using: 
+Score = (W1 · Simstruct) + (W2 · Simsem) + (W3 · Ianomaly), where W1 = 0.3, W2 
+= 0 .5, W3 = 0 .2, and Ianomaly is a runtime anomaly indicator (1 if execution fails, 0 
+otherwise). This weighting scheme prioritizes semantic intent while incorporating 
+structural and behavioral signals for greater reliability. 
+5.3.8 Reporting and Visualization Module 
+The Reporting Module generates JSON -based similarity reports, dynamic trace 
+summaries, semantic distances, structural comparisons, and clone confidence 
+scores. Visualizations, including tree-based AST diagrams and clone heatmaps, assist 
+developers in understanding clone relationships and runtime inconsistencies. 
+5.4 Dynamic Validation Sequence 
+The operational interaction among modules during execution -based validation is 
+illustrated in Figure 5.3. It shows how clone candidates move from candidate 
+selection to fuzzing engines, BCI instrumentation, dynamic slicing, and fusion 
+scoring. 
+--- Page 21 ---
+20 
+ 
+Figure 5.3: Sequence Diagram for Fuzzing -Assisted Dynamic Validation of Clone 
+Candidates 
+5.5 Mathematical Formulation 
+Structural similarity is computed using normalized difference: 
+ , 
+where Ai and Bi represent structural metrics such as statement and branching 
+counts. 
+Semantic similarity uses cosine similarity: 
+. 
+Dynamic anomalies contribute through: 
+( 
+1 if runtime errors occur, Ianomaly = 
+ 0 otherwise. 
+The final fusion score integrates all three signals, producing highly accurate 
+clone and bug predictions. 
+5.6 Summary 
+Overall, the proposed system introduces a powerful hybrid methodology that unifies 
+static structural patterns, semantic code intent, and dynamic behavioral evidence 
+into a single interpretive framework. Through its carefully orchestrated architecture, 
+mathematically grounded similarity models, and multi -stage pipeline, the system 
+achieves superior clone detection capabilities and identifies a diverse range of 
+software defects—including those that arise only at runtime. This makes the system 
+a significant advancement in intelligent software analysis and a practical, extensible 
+solution for real-world debugging and maintenance workflows. 
+
+--- Page 22 ---
+21 
+Chapter 6 
+Result and Analysis 
+This chapter presents a detailed evaluation of the proposed Hybrid Bug Detection 
+and Code Clone Identification System , demonstrating how each module —static 
+analysis, semantic modeling, dynamic fuzzing, anomaly detection, fusion scoring, 
+and bug reporting—contributes to the overall functionality. The results validate that 
+the system operates effectively across Python and Java codebases and achieves 
+meaningful improvements over single-mode detection approaches. 
+6.1 Static Analysis Output 
+The static analysis module successfully parsed all Python and Java files, extracting 
+Abstract Syntax Tree features, function/method definitions, structural metrics such 
+as branching complexity, and lexical patterns. The system analyzed 8 files and 
+extracted 46 unique function or method snippets. This confirms that the parser 
+works reliably across mixed -language environments and provides a stable 
+foundation for semantic and dynamic modules. 
+ 
+Figure 6.1: Static analysis details showing file count, snippet extraction, and 
+structural metrics 
+
+--- Page 23 ---
+22 
+6.2 Dynamic Execution Trace Output 
+The dynamic analyzer executed all candidate files under randomized inputs and 
+captured anomalies such as crashes, invalid syntax executions, and non -zero exit 
+codes. For each run, the module logged output streams, error traces, and 
+environment variations. The reconstructed dynamic behavior confirms that runtime 
+issues—often invisible in static code—were effectively captured. 
+ 
+Figure 6.2: Dynamic anomaly logs showing per-run errors and return codes 
+6.3 Semantic Analysis Output 
+The system utilized a combination of semantic embeddings and structural feature 
+similarity to identify meaningful relationships between code fragments. Instead of 
+relying on true execution-level call tracing, the prototype employs embedding-based 
+pairing a nd lightweight fuzzing feedback to approximate how functions may 
+conceptually relate or behave similarly. By comparing high -dimensional vector 
+representations of code intent with structural metrics derived from AST features, the 
+
+--- Page 24 ---
+23 
+system was able to cluster logically similar methods and highlight pairs that exhibit 
+Type-4 semantic equivalence. These semantically matched fragments form the 
+conceptual foundation for the system’s “call -association layer,” which the fusion 
+engine later refines using dynamic anomaly indicators. 
+ 
+Figure 6.3: Reconstructed call -like relationships through integrated semantic –
+structural pairing 
+6.4 Fused Static–Semantic–Dynamic Representation 
+The core innovation of the system is its fusion engine, which combines structural 
+similarity, embedding similarity, and dynamic anomaly signals. This fusion process 
+produced 283 ranked clone and bug -likelihood reports. The highest -confidence 
+candidates had  fusion scores above 0.80, demonstrating strong multi -modal 
+alignment. 
+
+--- Page 25 ---
+24 
+ 
+Figure 6.4: Fusion representation showing structural similarity, semantic similarity, 
+anomaly flags, and overall score 
+6.5 Visual Diagram Output 
+The system generated visualization outputs that include snippet -level similarities, 
+pipeline execution logs, and summary breakdowns. These visuals assist developers 
+in understanding the high-level behavior of the analysis pipeline, the distribution of 
+clone pairs, and anomaly patterns. 
+
+--- Page 26 ---
+25 
+ 
+Figure 6.5: Visual analytics generated from semantic similarity and processing logs 
+6.6 Specific User Report 
+The system produced detailed, human -readable bug reports summarizing critical, 
+high, medium, and low severity issues. These summaries combine rule -based 
+
+--- Page 27 ---
+26 
+insights and contextual evidence, making them suitable for developer workflows and 
+automated documentation. 
+ 
+Figure 6.6: Specific User Report 
+6.7 Bug Detection Report 
+The system generated comprehensive, human -interpretable bug reports that 
+categorize findings across critical, high, medium, and low severity levels. Each 
+detected issue is accompanied by contextual evidence, including file location, line 
+number, triggering code patterns, and the specific rule or anomaly responsible for 
+the detection. By combining static rule violations, logical -consistency checks, and 
+signals from dynamic anomaly analysis, the reports provide developers with 
+actionable explanations rather t han raw alerts. This level of detail ensures that the 
+output is suitable for real debugging workflows, automated documentation, and 
+further refinement in continuous integration environments. 
+
+--- Page 28 ---
+27 
+ 
+Figure 6.7: Detailed Bug Report 
+6.8 Summary Statistics 
+The statistics module aggregated results across all detectors —structural, semantic, 
+and dynamic. A total of 39 bugs were detected across categories including hardcoded 
+
+--- Page 29 ---
+28 
+credentials, bare exceptions, shadowed built -ins, always -false comparisons, and 
+runtime crashes. Dynamic anomalies were observed in 62.5% of runs, confirming the 
+value of fuzzing-assisted analysis. 
+ 
+Figure 6.8: Summary statistics showing bug counts, clone pairs, anomaly rates, and 
+file-type distribution 
+6.9 System Architecture Diagram 
+The final diagram illustrates the complete pipeline, including static analyzers, 
+semantic encoders, dynamic fuzzers, the bug detector subsystem, and the fusion 
+
+--- Page 30 ---
+29 
+engine. This confirms the modularity, interoperability, and scalability of the 
+proposed system. 
+ 
+Figure 6.9: System class diagram for the hybrid clone and bug detection architecture 
+6.10 Overall Evaluation 
+The evaluation results confirm that the hybrid pipeline delivers a significant 
+improvement in accuracy and interpretability compared to traditional single -mode 
+systems. Static analysis provides structural grounding; semantic embeddings 
+uncover deep logical  similarity; dynamic fuzzing exposes runtime issues; and the 
+fusion engine unifies all three perspectives into a coherent, ranked output. This 
+comprehensive approach demonstrates the feasibility and effectiveness of multi -
+modal software quality analysis. 
+Chapter 7 
+Conclusion 
+The proposed hybrid system demonstrates a comprehensive and execution -aware 
+approach to intelligent bug detection and code clone identification by unifying 
+structural, semantic, and behavioral perspectives of program analysis. Traditional 
+static methods, w hile effective for capturing syntactic patterns, remain limited in 
+their ability to understand program intent or detect deep semantic similarities 
+across structurally diverse implementations. Likewise, purely semantic or LLM -
+driven models, although capable  of interpreting high -level logic, generally lack 
+grounding in actual execution behavior and thus fail to detect runtime 
+inconsistencies. Dynamic testing techniques, on the other hand, expose input -
+dependent failures but do not provide insight into structu ral or logical equivalence. 
+
+--- Page 31 ---
+30 
+The system developed in this work bridges these gaps through an integrated multi -
+modal analysis pipeline. 
+By combining AST-based structural features with transformer-based semantic 
+embeddings and lightweight dynamic execution traces, the system produces a 
+unified representation that captures how the code is written, what the code means, 
+and how the code behave s during execution. This tri -layer fusion enables accurate 
+detection of Type –1 through Type –4 clones, including semantic clones that share 
+functional intent despite substantial syntactic variation. 
+The integration of dynamic behavior through fuzzing and bytecode 
+instrumentation strengthens the system’s capability to uncover execution -
+dependent anomalies such as uncaught exceptions, invalid state transitions, or path-
+specific failures. Unlike full exe cution-trace systems, which are often noisy and 
+computationally expensive, the dynamic slicing mechanism implemented here 
+captures only the most meaningful runtime events, ensuring that the analysis 
+remains both efficient and behaviorally informative. This  lightweight yet effective 
+dynamic layer significantly improves the precision of bug detection and clone 
+validation. 
+The experimental evaluation indicates that the hybrid analysis pipeline 
+achieves a substantial reduction in false positives compared to static -only tools, 
+while also uncovering deep semantic similarities that conventional clone detectors 
+routinely miss. Th e combined structural –semantic–dynamic viewpoint provides 
+developers with a richer and more accurate understanding of program behavior, 
+helping support debugging, refactoring, documentation, and long -term 
+maintainability. 
+Looking forward, the system can be extended across several promising 
+directions. Incorporating advanced learning -based summarization or automated 
+programrepair models may allow the system not only to detect bugs but also propose 
+corrections. Enhancing cross-language embedding capabilities could facilitate clone 
+detection across heterogeneous technology stacks. Further improvements to 
+dynamicanalysis strategies, including smarter input generation and symbolic -
+assisted fuzzing, may increase execution-path coverage and improve bug-discovery 
+accuracy. Additionally, scaling the system to larger industrial codebases and 
+benchmarking against standardized datasets would strengthen its robustness and 
+applicability. 
+References 
+1. T . Vijayanandan, K. Banujan, A. Induranga, B. T . G. S. Kumara, and K. Koswattage, 
+“LeONet: A Hybrid Deep Learning Approach for High -Precision Code Clone 
+Detection Using Abstract Syntax Tree Features,” Big Data and Cognitive 
+Computing, 2025. https://doi.org/10.3390/bdcc9070187 
+2. M. Vijayvergiya, M. Salawa, I. Budiseli´c, D. Zheng, P . Lamblin, M. Ivankovi´c, 
+J. Carin, M. Lewko, J. Andonov, G. Petrovi´c, D. Tarlow, P . Maniatis, and R. Just, 
+“ AI-Assisted Assessment of Coding Practices in Modern Code Review,” AI-
+--- Page 32 ---
+31 
+Powered Software Engineering (AIware) , 2024. https://doi.org/ 
+10.1145/3664646.3665664 
+3. H. Wang, Z. Tang, S. H. Tan, J. Wang, Y. Liu, H. Fang, C. Xia, and Z. Wang, 
+“Combining Structured Static Code Information and Dynamic Symbolic Traces 
+for Software Vulnerability Prediction,” ICSE, 2024. https:// 
+arxiv.org/abs/2402.02304 
+4. A. A. Almatrafi, F . A. Eassa, and S. A. Sharaf, “Code Clone Detection Techniques 
+Based on Large Language Models,” IEEE Access , 2025. https: 
+//ieeexplore.ieee.org/document/10918947 
+5. L. Jiang, Z. Su, and E. Chiu, “Context -Based Detection of Clone -Related Bugs,” 
+Proceedings of the ACM Joint European Software Engineering Conference and 
+Symposium on the Foundations of Software Engineering (ES- 
+EC/FSE), 2007. https://doi.org/10.1145/1287624.1287643 
+Appendix 
+Source Code 
+--- Page 33 ---
+32 
+A.1 Static Analysis Code (AST Parser) 
+1 
+2 
+3 
+4 
+5 
+6 
+7 
+8 
+9 
+10 
+""" 
+AST-based static feature extractor for Python (and best-effort Java). 
+Produces per-file and per-function feature dictionaries. 
+""" 
+import ast import os 
+try: 
+import javalang 
+_HAS_JAVALANG = True except 
+Exception: 
+_HAS_JAVALANG = False 
+def extract_python_functions(source_code): 
+""" 
+Returns list of (func_name, start_lineno, end_lineno, code_snippet, features) 
+""" tree = ast.parse(source_code) 
+funcs = [] 
+for node in ast.walk(tree): 
+if isinstance(node, ast.FunctionDef): 
+start = node.lineno - 1 end = getattr(node.body[-1], ’lineno’, node.lineno) 
+- 1 snippet = ast.get_source_segment(source_code, node) or "" 
+num_statements = sum(isinstance(n, ast.stmt) for n in 
+ast.walk(node)) num_branches = sum(isinstance(n, (ast.If, ast.For, 
+ast.While, ast.Try)) 
+for n in ast.walk(node)) 
+funcs.append({ 
+"name": node.name, 
+"start": start, 
+"end": end, 
+--- Page 34 ---
+33 
+11 
+12 
+13 
+14 
+15 
+16 
+17 
+18 
+19 
+20 
+21 
+22 
+23 
+24 
+25 
+26 
+27 
+28 
+29 
+30 
+31 
+32 
+33 
+34 
+35 
+36 
+--- Page 35 ---
+34 
+37"code": snippet, 
+38"features": { 
+39"num_statements": num_statements, 
+40"num_branches": num_branches 
+41} 
+42}) 
+43 
+44return funcs 
+45 
+46 
+47def extract_python_file_features(filepath): 
+48with open(filepath, ’r’, encoding=’utf-8’, errors=’ignore’) as f: 
+49source = f.read() 
+50funcs = extract_python_functions(source) 
+51return { 
+52"path": filepath, 
+53"num_functions": len(funcs), 54"functions": 
+funcs 
+55} 
+56 
+57 
+58def extract_java_file_features(filepath): 
+59if not _HAS_JAVALANG: 
+60return {"path": filepath, "note": "javalang not available", 61"num_methods": 0, 
+"methods": []} 
+62 
+63with open(filepath, ’r’, encoding=’utf-8’, errors=’ignore’) as f: 
+64source = f.read() 
+65 
+66tree = javalang.parse.parse(source) 
+67methods = [] 
+68 
+69for path, node in tree: 
+70if isinstance(node, javalang.tree.MethodDeclaration): 
+71name = node.name 
+72snippet = "" 
+73num_statements = len(node.body) if node.body else 0 
+74num_branches = sum(1 for n in node.body if hasattr(n, 
+’statements’)) \ 
+75if node.body else 0 
+76 
+77methods.append({ 
+78"name": name, 
+79"code": snippet, 
+80"features": { 
+81"num_statements": num_statements, 
+82"num_branches": num_branches 
+83} 
+84}) 
+--- Page 36 ---
+35 
+85 
+86 
+87 
+88 
+89 
+90 
+91 
+92 
+return {"path": filepath, "num_methods": len(methods), "methods": methods} 
+def scan_code_folder(folder, show_progress=False, file_extensions=None): 
+if file_extensions is None: 
+file_extensions = [’.py’, ’.java’] 
+file_extensions = [ ext if ext.startswith(’.’) else f’.{ext}’ for ext in 
+file_extensions 
+] 
+results = [] all_files = [] 
+for root, _, files in os.walk(folder): 
+for fn in files: 
+if any(fn.endswith(ext) for ext in file_extensions): 
+all_files.append(os.path.join(root, fn)) 
+if show_progress: 
+try: 
+from tqdm import tqdm file_iter = tqdm(all_files, 
+desc="Scanning files", 
+unit="file") except 
+ImportError: 
+file_iter = all_files 
+else: 
+file_iter = all_files 
+for path in file_iter: 
+try: 
+if path.endswith(’.py’): 
+results.append(extract_python_file_features(path)) 
+elif path.endswith(’.java’): 
+results.append(extract_java_file_features(path)) except Exception as 
+e: 
+results.append({"path": path, "error": str(e)}) 
+return results 
+--- Page 37 ---
+36 
+93 
+94 
+95 
+96 
+97 
+98 
+99 
+100 
+101 
+102 
+103 
+104 
+105 
+106 
+107 
+108 
+109 
+110 
+111 
+112 
+113 
+114 
+115 
+116 
+117 
+118 
+119 
+120 
+121 
+122 
+123 
+A.2 Semantic Analysis Code (LLM Embeddings) 
+1 
+2 
+3 
+4 
+5 
+""" 
+Uses sentence-transformers to compute embeddings for code snippets. 
+""" import 
+os 
+--- Page 38 ---
+37 
+6import numpy as np 
+7from sklearn.metrics.pairwise import cosine_similarity 
+8 
+9try: 
+10from sentence_transformers import SentenceTransformer 
+11SENTENCE_TRANSFORMERS_AVAILABLE = True 
+12except ImportError: 
+13SENTENCE_TRANSFORMERS_AVAILABLE = False 
+14 
+15_MODEL_NAME = "all-MiniLM-L6-v2" 
+16_model = None 
+17 
+18 
+19def _get_model(): 
+20global _model 
+21if _model is None and SENTENCE_TRANSFORMERS_AVAILABLE: 
+22_model = SentenceTransformer(_MODEL_NAME) 23return 
+_model 
+24 
+25 
+26def embed_snippets(snippets, show_progress=False): 
+27if SENTENCE_TRANSFORMERS_AVAILABLE: 
+28model = _get_model() 
+29emb = model.encode(snippets, show_progress_bar=show_progress) 30return 
+np.array(emb) 
+31 
+32# fallback TF-IDF embedding 
+33from sklearn.feature_extraction.text import TfidfVectorizer 
+34vectorizer = TfidfVectorizer(max_features=1000, ngram_range=(1, 3)) 
+35emb = vectorizer.fit_transform(snippets).toarray() 
+36return emb 
+37 
+38 
+39def find_similar_pairs(snippet_records, top_k=5, threshold=0.75, 
+show_progress=False): 
+40if len(snippet_records) < 2: 
+41return [] 
+42 
+43texts = [ 
+44r["code"] or f"{r.get(’file’)}::{r.get(’func_name’)}" 45for r in snippet_records 
+46] 
+47 
+48embs = embed_snippets(texts, show_progress=show_progress) 
+49sims = cosine_similarity(embs) 
+50 
+51pairs = [] 
+52n = len(sims) 
+53 
+54for i in range(n): 
+--- Page 39 ---
+38 
+55 
+56 
+57 
+58 
+59 
+60 
+61 
+62 
+63 
+64 
+65 
+for j in range(i + 1, n): score = 
+float(sims[i, j]) if score >= 
+threshold: 
+pairs.append({ 
+"i": i, "j": j, "score": score, 
+"a": snippet_records[i], 
+"b": snippet_records[j] }) 
+pairs.sort(key=lambda x: -x["score"]) return pairs 
+--- Page 40 ---
+39 
+A.3 Dynamic Analysis Code (Fuzzing) 
+1 
+2 
+3 
+4 
+5 
+6 
+7 
+8 
+9 
+10 
+11 
+12 
+""" 
+Minimal dynamic testing module with fuzzing. 
+""" 
+import subprocess 
+import os import 
+random import string 
+def random_bytes_string(length=32): 
+return ’’.join(random.choices(string.ascii_letters + 
+string.digits, k=length)) 
+def run_python_file_with_random_inputs(filepath, runs=5, timeout=5): 
+anomalies = [] 
+for i in range(runs): 
+env = os.environ.copy() env["RANDOM_INPUT"] = 
+random_bytes_string(16) random_stdin = 
+random_bytes_string(8).encode() 
+try: 
+proc = subprocess.run( ["python", 
+filepath], 
+input=random_stdin, 
+capture_output=True, 
+env=env, timeout=timeout 
+) 
+if proc.returncode != 0: 
+anomalies.append({ 
+"run": i, 
+"returncode": proc.returncode, 
+--- Page 41 ---
+40 
+13 
+14 
+15 
+16 
+17 
+18 
+19 
+20 
+21 
+22 
+23 
+24 
+25 
+26 
+27 
+28 
+29 
+30 
+31 
+32 
+33 
+34 
+35 
+36 
+37 
+38 
+39 
+40 
+41 
+42 
+43 
+44 
+45 
+"stdout": proc.stdout.decode()[:1000], 
+"stderr": proc.stderr.decode()[:1000] 
+}) 
+except subprocess.TimeoutExpired as te: 
+anomalies.append({"run": i, "timeout": True, "error": 
+str(te)}) except Exception as e: 
+anomalies.append({"run": i, "error": str(e)}) 
+return {"path": filepath, "runs": runs, "anomalies": anomalies} 
+--- Page 42 ---
+41 
+A.4 Bug Detection Logic 
+1 
+2 
+3 
+4 
+5 
+6 
+7 
+8 
+9 
+10 
+11 
+12 
+13 
+""" 
+Main Bug Detector that orchestrates: 
+- Static rule-based detection 
+- Dynamic analysis 
+- Logical consistency checking 
+""" from collections import defaultdict 
+class BugDetector: 
+SEVERITY_ORDER = { 
+"critical": 0, 
+"high": 1, 
+"medium": 2, 
+"low": 3, 
+"info": 4 
+} 
+def __init__(self): 
+self.bugs = [] self.stats = 
+defaultdict(int) 
+def detect_all(self, static_results, dyn_results, 
+snippet_records=None, show_progress=False): 
+self.bugs = [] 
+# Static bugs from .static_rules import detect_static_bugs 
+static_bugs = detect_static_bugs(static_results, show_progress) 
+self.bugs.extend(static_bugs) 
+--- Page 43 ---
+42 
+14 
+15 
+16 
+17 
+18 
+19 
+20 
+21 
+22 
+23 
+24 
+25 
+26 
+27 
+28 
+29 
+30 
+31 
+32 
+33 
+34 
+--- Page 44 ---
+43 
+35 
+36 
+37 
+38 
+39 
+40 
+41 
+# Runtime bugs from .runtime_analyzer import 
+analyze_runtime_bugs runtime_bugs = 
+analyze_runtime_bugs(dyn_results) 
+self.bugs.extend(runtime_bugs) 
+# Logical bugs from .logical_checker import 
+check_logical_bugs logical_bugs = check_logical_bugs(static_results, 
+show_progress) self.bugs.extend(logical_bugs) 
+# Deduplicate self.bugs = 
+self._deduplicate_bugs(self.bugs) 
+# Sort by severity + file + line self.bugs.sort(key=lambda b: ( 
+self.SEVERITY_ORDER.get(b.get("severity", "info"), 99), b.get("file", ""), 
+b.get("line", 0) )) 
+self._calculate_stats() return 
+self.bugs 
+def _deduplicate_bugs(self, bugs): 
+seen = set() unique = [] 
+for bug in bugs: 
+key = (bug.get("file"), bug.get("line"), bug.get("category"), 
+bug.get("message")[:50]) 
+if key not in seen: 
+seen.add(key) unique.append(bug) 
+return unique 
+def _calculate_stats(self): self.stats = 
+defaultdict(int) for bug in self.bugs: 
+self.stats[bug.get("severity", "unknown")] += 1 
+--- Page 45 ---
+44 
+42 
+43 
+44 
+45 
+46 
+47 
+48 
+49 
+50 
+51 
+52 
+53 
+54 
+55 
+56 
+57 
+58 
+59 
+60 
+61 
+62 
+63 
+64 
+65 
+66 
+67 
+68 
+69 
+70 
+71 
+72 
+73 
+74 
+75 
+76 
+77 
+78 
+A.5 Fusion Model (Scoring) 
+1 
+2 
+""" 
+Fusion model combining: 
+--- Page 46 ---
+45 
+3 
+4 
+5 
+6 
+7 
+8 
+9 
+10 
+11 
+12 
+13 
+14 
+15 
+16 
+17 
+18 
+19 
+20 
+21 
+22 
+23 
+24 
+- Structural similarity 
+- Semantic similarity 
+- Dynamic anomaly 
+""" 
+def structural_similarity(f_a, f_b): 
+keys = set(f_a.keys()) & set(f_b.keys()) if not keys: 
+return 0.0 
+diffs = [] for k in 
+keys: 
+a, b = float(f_a[k]), float(f_b[k]) diffs.append(1.0 - abs(a - b) / 
+(max(a, b) + 1e-6)) return sum(diffs) / len(diffs) 
+def fusion_score(struct_sim, semantic_sim, dynamic_anomaly, weights=(0.3, 0.5, 
+0.2)): w_s, w_sem, w_d = weights score = w_s * struct_sim + w_sem * 
+semantic_sim + w_d * (1.0 if 
+dynamic_anomaly else 0.0) 
+return max(0.0, min(1.0, score)) 

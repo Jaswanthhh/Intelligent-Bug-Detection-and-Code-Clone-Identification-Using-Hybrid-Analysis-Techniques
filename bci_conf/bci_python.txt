@@ -1,0 +1,11 @@
+# BCI Inclusion Filter for Python Code Analysis
+# Note: BCI is primarily for Java bytecode instrumentation
+# This file is for reference if we extend to Jython or other JVM-based Python implementations
+
+# For Jython applications
+# package:org.python
+# package:__main__
+
+# For Java-based Python frameworks
+# package:com.example.python
+

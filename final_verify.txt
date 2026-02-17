@@ -1,0 +1,1137 @@
+Warning: sentence-transformers not available (module 'torch.utils._pytree' has no attribute 'register_pytree_node')
+[*] Static analysis...
+  -> scanned 23 files
+[*] Build snippet records...
+  -> extracted 59 function/method snippets
+[*] Semantic analysis (embedding similarities)...
+Using Jaccard Similarity fallback for clone detection...
+DEBUG: Pair 0-1 score: 0.6000 (samples\AdminManager... vs samples\AdminManager...)
+DEBUG: Pair 0-9 score: 0.3333 (samples\AdminManager... vs samples\ResourceLeak...)
+DEBUG: Pair 0-10 score: 0.3333 (samples\AdminManager... vs samples\ResourceLeak...)
+DEBUG: Pair 0-11 score: 0.3333 (samples\AdminManager... vs samples\SampleBuggy....)
+DEBUG: Pair 0-12 score: 0.3333 (samples\AdminManager... vs samples\SampleBuggy....)
+DEBUG: Pair 0-13 score: 0.3333 (samples\AdminManager... vs samples\SampleBuggy....)
+DEBUG: Pair 0-14 score: 0.3333 (samples\AdminManager... vs samples\SampleBuggy....)
+DEBUG: Pair 0-15 score: 0.3333 (samples\AdminManager... vs samples\SampleBuggy....)
+DEBUG: Pair 0-16 score: 0.3333 (samples\AdminManager... vs samples\SampleBuggy....)
+DEBUG: Pair 0-17 score: 0.3333 (samples\AdminManager... vs samples\SampleBuggy....)
+DEBUG: Pair 0-18 score: 0.3333 (samples\AdminManager... vs samples\SampleBuggy....)
+DEBUG: Pair 0-19 score: 0.3333 (samples\AdminManager... vs samples\SampleBuggy....)
+DEBUG: Pair 0-20 score: 0.3333 (samples\AdminManager... vs samples\SampleBuggy....)
+DEBUG: Pair 0-21 score: 0.3333 (samples\AdminManager... vs samples\SampleBuggy....)
+DEBUG: Pair 0-22 score: 0.3333 (samples\AdminManager... vs samples\SampleJava1....)
+DEBUG: Pair 0-23 score: 0.3333 (samples\AdminManager... vs samples\SampleJava1....)
+DEBUG: Pair 0-24 score: 0.3333 (samples\AdminManager... vs samples\SampleJava2....)
+DEBUG: Pair 0-25 score: 0.3333 (samples\AdminManager... vs samples\SampleJava2....)
+DEBUG: Pair 0-44 score: 0.3333 (samples\AdminManager... vs samples\UserManager....)
+DEBUG: Pair 0-45 score: 0.3333 (samples\AdminManager... vs samples\UserManager....)
+DEBUG: Pair 0-46 score: 0.2500 (samples\AdminManager... vs samples\com\example\...)
+DEBUG: Pair 0-47 score: 0.2500 (samples\AdminManager... vs samples\com\example\...)
+DEBUG: Pair 0-48 score: 0.2500 (samples\AdminManager... vs samples\com\example\...)
+DEBUG: Pair 0-49 score: 0.2500 (samples\AdminManager... vs samples\com\example\...)
+DEBUG: Pair 0-50 score: 0.2500 (samples\AdminManager... vs samples\com\example\...)
+DEBUG: Pair 0-51 score: 0.2500 (samples\AdminManager... vs samples\com\example\...)
+DEBUG: Pair 0-52 score: 0.2500 (samples\AdminManager... vs samples\com\example\...)
+DEBUG: Pair 0-53 score: 0.2500 (samples\AdminManager... vs samples\com\example\...)
+DEBUG: Pair 0-54 score: 0.2500 (samples\AdminManager... vs samples\com\example\...)
+DEBUG: Pair 0-55 score: 0.2500 (samples\AdminManager... vs samples\com\example\...)
+DEBUG: Pair 0-56 score: 0.2500 (samples\AdminManager... vs samples\com\example\...)
+DEBUG: Pair 0-57 score: 0.2500 (samples\AdminManager... vs samples\com\example\...)
+DEBUG: Pair 0-58 score: 0.2500 (samples\AdminManager... vs samples\com\example\...)
+DEBUG: Pair 1-9 score: 0.3333 (samples\AdminManager... vs samples\ResourceLeak...)
+DEBUG: Pair 1-10 score: 0.3333 (samples\AdminManager... vs samples\ResourceLeak...)
+DEBUG: Pair 1-11 score: 0.3333 (samples\AdminManager... vs samples\SampleBuggy....)
+DEBUG: Pair 1-12 score: 0.3333 (samples\AdminManager... vs samples\SampleBuggy....)
+DEBUG: Pair 1-13 score: 0.3333 (samples\AdminManager... vs samples\SampleBuggy....)
+DEBUG: Pair 1-14 score: 0.3333 (samples\AdminManager... vs samples\SampleBuggy....)
+DEBUG: Pair 1-15 score: 0.3333 (samples\AdminManager... vs samples\SampleBuggy....)
+DEBUG: Pair 1-16 score: 0.3333 (samples\AdminManager... vs samples\SampleBuggy....)
+DEBUG: Pair 1-17 score: 0.3333 (samples\AdminManager... vs samples\SampleBuggy....)
+DEBUG: Pair 1-18 score: 0.3333 (samples\AdminManager... vs samples\SampleBuggy....)
+DEBUG: Pair 1-19 score: 0.3333 (samples\AdminManager... vs samples\SampleBuggy....)
+DEBUG: Pair 1-20 score: 0.3333 (samples\AdminManager... vs samples\SampleBuggy....)
+DEBUG: Pair 1-21 score: 0.3333 (samples\AdminManager... vs samples\SampleBuggy....)
+DEBUG: Pair 1-22 score: 0.3333 (samples\AdminManager... vs samples\SampleJava1....)
+DEBUG: Pair 1-23 score: 0.3333 (samples\AdminManager... vs samples\SampleJava1....)
+DEBUG: Pair 1-24 score: 0.3333 (samples\AdminManager... vs samples\SampleJava2....)
+DEBUG: Pair 1-25 score: 0.3333 (samples\AdminManager... vs samples\SampleJava2....)
+DEBUG: Pair 1-44 score: 0.3333 (samples\AdminManager... vs samples\UserManager....)
+DEBUG: Pair 1-45 score: 0.3333 (samples\AdminManager... vs samples\UserManager....)
+DEBUG: Pair 1-46 score: 0.2500 (samples\AdminManager... vs samples\com\example\...)
+DEBUG: Pair 1-47 score: 0.2500 (samples\AdminManager... vs samples\com\example\...)
+DEBUG: Pair 1-48 score: 0.2500 (samples\AdminManager... vs samples\com\example\...)
+DEBUG: Pair 1-49 score: 0.2500 (samples\AdminManager... vs samples\com\example\...)
+DEBUG: Pair 1-50 score: 0.2500 (samples\AdminManager... vs samples\com\example\...)
+DEBUG: Pair 1-51 score: 0.2500 (samples\AdminManager... vs samples\com\example\...)
+DEBUG: Pair 1-52 score: 0.2500 (samples\AdminManager... vs samples\com\example\...)
+DEBUG: Pair 1-53 score: 0.2500 (samples\AdminManager... vs samples\com\example\...)
+DEBUG: Pair 1-54 score: 0.2500 (samples\AdminManager... vs samples\com\example\...)
+DEBUG: Pair 1-55 score: 0.2500 (samples\AdminManager... vs samples\com\example\...)
+DEBUG: Pair 1-56 score: 0.2500 (samples\AdminManager... vs samples\com\example\...)
+DEBUG: Pair 1-57 score: 0.2500 (samples\AdminManager... vs samples\com\example\...)
+DEBUG: Pair 1-58 score: 0.2500 (samples\AdminManager... vs samples\com\example\...)
+DEBUG: Pair 2-3 score: 0.1176 (def delete_system():... vs def hardcoded_secret...)
+DEBUG: Pair 4-5 score: 0.1176 (def add(a, b):
+    "... vs def calculate_factor...)
+DEBUG: Pair 4-6 score: 0.1250 (def add(a, b):
+    "... vs def calculate_fibona...)
+DEBUG: Pair 4-22 score: 0.1111 (def add(a, b):
+    "... vs samples\SampleJava1....)
+DEBUG: Pair 4-26 score: 0.2000 (def add(a, b):
+    "... vs def divide_numbers(a...)
+DEBUG: Pair 4-29 score: 0.1364 (def add(a, b):
+    "... vs def shadowing_builti...)
+DEBUG: Pair 4-31 score: 0.1250 (def add(a, b):
+    "... vs def mutable_default(...)
+DEBUG: Pair 4-36 score: 0.1053 (def add(a, b):
+    "... vs def tautology_check(...)
+DEBUG: Pair 4-38 score: 0.1250 (def add(a, b):
+    "... vs def division_by_lite...)
+DEBUG: Pair 4-41 score: 1.0000 (def add(a, b):
+    "... vs def add(a, b):
+    "...)
+DEBUG: Pair 4-42 score: 0.2222 (def add(a, b):
+    "... vs def sum_two(x, y):
+ ...)
+DEBUG: Pair 5-6 score: 0.3158 (def calculate_factor... vs def calculate_fibona...)
+DEBUG: Pair 5-7 score: 0.3571 (def calculate_factor... vs def compute_factoria...)
+DEBUG: Pair 5-8 score: 0.1724 (def calculate_factor... vs def get_fib_sequence...)
+DEBUG: Pair 5-26 score: 0.1071 (def calculate_factor... vs def divide_numbers(a...)
+DEBUG: Pair 5-29 score: 0.1429 (def calculate_factor... vs def shadowing_builti...)
+DEBUG: Pair 5-31 score: 0.1364 (def calculate_factor... vs def mutable_default(...)
+DEBUG: Pair 5-35 score: 0.1111 (def calculate_factor... vs def duplicate_condit...)
+DEBUG: Pair 5-36 score: 0.1200 (def calculate_factor... vs def tautology_check(...)
+DEBUG: Pair 5-37 score: 0.1071 (def calculate_factor... vs def contradiction_ch...)
+DEBUG: Pair 5-38 score: 0.1364 (def calculate_factor... vs def division_by_lite...)
+DEBUG: Pair 5-41 score: 0.1176 (def calculate_factor... vs def add(a, b):
+    "...)
+DEBUG: Pair 5-42 score: 0.1250 (def calculate_factor... vs def sum_two(x, y):
+ ...)
+DEBUG: Pair 5-43 score: 0.1250 (def calculate_factor... vs def maybe_throw(s):
+...)
+DEBUG: Pair 6-7 score: 0.1562 (def calculate_fibona... vs def compute_factoria...)
+DEBUG: Pair 6-8 score: 0.5000 (def calculate_fibona... vs def get_fib_sequence...)
+DEBUG: Pair 6-29 score: 0.1481 (def calculate_fibona... vs def shadowing_builti...)
+DEBUG: Pair 6-31 score: 0.2000 (def calculate_fibona... vs def mutable_default(...)
+DEBUG: Pair 6-35 score: 0.1154 (def calculate_fibona... vs def duplicate_condit...)
+DEBUG: Pair 6-36 score: 0.1250 (def calculate_fibona... vs def tautology_check(...)
+DEBUG: Pair 6-37 score: 0.1111 (def calculate_fibona... vs def contradiction_ch...)
+DEBUG: Pair 6-38 score: 0.1429 (def calculate_fibona... vs def division_by_lite...)
+DEBUG: Pair 6-41 score: 0.1250 (def calculate_fibona... vs def add(a, b):
+    "...)
+DEBUG: Pair 6-42 score: 0.1333 (def calculate_fibona... vs def sum_two(x, y):
+ ...)
+DEBUG: Pair 7-8 score: 0.2432 (def compute_factoria... vs def get_fib_sequence...)
+DEBUG: Pair 7-29 score: 0.1282 (def compute_factoria... vs def shadowing_builti...)
+DEBUG: Pair 7-30 score: 0.1389 (def compute_factoria... vs def unreachable_code...)
+DEBUG: Pair 7-31 score: 0.1212 (def compute_factoria... vs def mutable_default(...)
+DEBUG: Pair 7-34 score: 0.1026 (def compute_factoria... vs def constant_conditi...)
+DEBUG: Pair 7-35 score: 0.1351 (def compute_factoria... vs def duplicate_condit...)
+DEBUG: Pair 7-36 score: 0.1765 (def compute_factoria... vs def tautology_check(...)
+DEBUG: Pair 7-37 score: 0.1622 (def compute_factoria... vs def contradiction_ch...)
+DEBUG: Pair 7-38 score: 0.1562 (def compute_factoria... vs def division_by_lite...)
+DEBUG: Pair 7-42 score: 0.1111 (def compute_factoria... vs def sum_two(x, y):
+ ...)
+DEBUG: Pair 8-29 score: 0.1111 (def get_fib_sequence... vs def shadowing_builti...)
+DEBUG: Pair 8-31 score: 0.1379 (def get_fib_sequence... vs def mutable_default(...)
+DEBUG: Pair 9-10 score: 0.6000 (samples\ResourceLeak... vs samples\ResourceLeak...)
+DEBUG: Pair 9-11 score: 0.3333 (samples\ResourceLeak... vs samples\SampleBuggy....)
+DEBUG: Pair 9-12 score: 0.3333 (samples\ResourceLeak... vs samples\SampleBuggy....)
+DEBUG: Pair 9-13 score: 0.3333 (samples\ResourceLeak... vs samples\SampleBuggy....)
+DEBUG: Pair 9-14 score: 0.3333 (samples\ResourceLeak... vs samples\SampleBuggy....)
+DEBUG: Pair 9-15 score: 0.3333 (samples\ResourceLeak... vs samples\SampleBuggy....)
+DEBUG: Pair 9-16 score: 0.3333 (samples\ResourceLeak... vs samples\SampleBuggy....)
+DEBUG: Pair 9-17 score: 0.3333 (samples\ResourceLeak... vs samples\SampleBuggy....)
+DEBUG: Pair 9-18 score: 0.3333 (samples\ResourceLeak... vs samples\SampleBuggy....)
+DEBUG: Pair 9-19 score: 0.3333 (samples\ResourceLeak... vs samples\SampleBuggy....)
+DEBUG: Pair 9-20 score: 0.3333 (samples\ResourceLeak... vs samples\SampleBuggy....)
+DEBUG: Pair 9-21 score: 0.3333 (samples\ResourceLeak... vs samples\SampleBuggy....)
+DEBUG: Pair 9-22 score: 0.3333 (samples\ResourceLeak... vs samples\SampleJava1....)
+DEBUG: Pair 9-23 score: 0.3333 (samples\ResourceLeak... vs samples\SampleJava1....)
+DEBUG: Pair 9-24 score: 0.3333 (samples\ResourceLeak... vs samples\SampleJava2....)
+DEBUG: Pair 9-25 score: 0.3333 (samples\ResourceLeak... vs samples\SampleJava2....)
+DEBUG: Pair 9-44 score: 0.3333 (samples\ResourceLeak... vs samples\UserManager....)
+DEBUG: Pair 9-45 score: 0.3333 (samples\ResourceLeak... vs samples\UserManager....)
+DEBUG: Pair 9-46 score: 0.2500 (samples\ResourceLeak... vs samples\com\example\...)
+DEBUG: Pair 9-47 score: 0.2500 (samples\ResourceLeak... vs samples\com\example\...)
+DEBUG: Pair 9-48 score: 0.2500 (samples\ResourceLeak... vs samples\com\example\...)
+DEBUG: Pair 9-49 score: 0.2500 (samples\ResourceLeak... vs samples\com\example\...)
+DEBUG: Pair 9-50 score: 0.2500 (samples\ResourceLeak... vs samples\com\example\...)
+DEBUG: Pair 9-51 score: 0.2500 (samples\ResourceLeak... vs samples\com\example\...)
+DEBUG: Pair 9-52 score: 0.2500 (samples\ResourceLeak... vs samples\com\example\...)
+DEBUG: Pair 9-53 score: 0.2500 (samples\ResourceLeak... vs samples\com\example\...)
+DEBUG: Pair 9-54 score: 0.2500 (samples\ResourceLeak... vs samples\com\example\...)
+DEBUG: Pair 9-55 score: 0.2500 (samples\ResourceLeak... vs samples\com\example\...)
+DEBUG: Pair 9-56 score: 0.2500 (samples\ResourceLeak... vs samples\com\example\...)
+DEBUG: Pair 9-57 score: 0.2500 (samples\ResourceLeak... vs samples\com\example\...)
+DEBUG: Pair 9-58 score: 0.2500 (samples\ResourceLeak... vs samples\com\example\...)
+DEBUG: Pair 10-11 score: 0.3333 (samples\ResourceLeak... vs samples\SampleBuggy....)
+DEBUG: Pair 10-12 score: 0.3333 (samples\ResourceLeak... vs samples\SampleBuggy....)
+DEBUG: Pair 10-13 score: 0.3333 (samples\ResourceLeak... vs samples\SampleBuggy....)
+DEBUG: Pair 10-14 score: 0.3333 (samples\ResourceLeak... vs samples\SampleBuggy....)
+DEBUG: Pair 10-15 score: 0.3333 (samples\ResourceLeak... vs samples\SampleBuggy....)
+DEBUG: Pair 10-16 score: 0.3333 (samples\ResourceLeak... vs samples\SampleBuggy....)
+DEBUG: Pair 10-17 score: 0.3333 (samples\ResourceLeak... vs samples\SampleBuggy....)
+DEBUG: Pair 10-18 score: 0.3333 (samples\ResourceLeak... vs samples\SampleBuggy....)
+DEBUG: Pair 10-19 score: 0.3333 (samples\ResourceLeak... vs samples\SampleBuggy....)
+DEBUG: Pair 10-20 score: 0.3333 (samples\ResourceLeak... vs samples\SampleBuggy....)
+DEBUG: Pair 10-21 score: 0.3333 (samples\ResourceLeak... vs samples\SampleBuggy....)
+DEBUG: Pair 10-22 score: 0.3333 (samples\ResourceLeak... vs samples\SampleJava1....)
+DEBUG: Pair 10-23 score: 0.3333 (samples\ResourceLeak... vs samples\SampleJava1....)
+DEBUG: Pair 10-24 score: 0.3333 (samples\ResourceLeak... vs samples\SampleJava2....)
+DEBUG: Pair 10-25 score: 0.3333 (samples\ResourceLeak... vs samples\SampleJava2....)
+DEBUG: Pair 10-44 score: 0.3333 (samples\ResourceLeak... vs samples\UserManager....)
+DEBUG: Pair 10-45 score: 0.3333 (samples\ResourceLeak... vs samples\UserManager....)
+DEBUG: Pair 10-46 score: 0.2500 (samples\ResourceLeak... vs samples\com\example\...)
+DEBUG: Pair 10-47 score: 0.2500 (samples\ResourceLeak... vs samples\com\example\...)
+DEBUG: Pair 10-48 score: 0.2500 (samples\ResourceLeak... vs samples\com\example\...)
+DEBUG: Pair 10-49 score: 0.2500 (samples\ResourceLeak... vs samples\com\example\...)
+DEBUG: Pair 10-50 score: 0.2500 (samples\ResourceLeak... vs samples\com\example\...)
+DEBUG: Pair 10-51 score: 0.2500 (samples\ResourceLeak... vs samples\com\example\...)
+DEBUG: Pair 10-52 score: 0.2500 (samples\ResourceLeak... vs samples\com\example\...)
+DEBUG: Pair 10-53 score: 0.2500 (samples\ResourceLeak... vs samples\com\example\...)
+DEBUG: Pair 10-54 score: 0.2500 (samples\ResourceLeak... vs samples\com\example\...)
+DEBUG: Pair 10-55 score: 0.2500 (samples\ResourceLeak... vs samples\com\example\...)
+DEBUG: Pair 10-56 score: 0.2500 (samples\ResourceLeak... vs samples\com\example\...)
+DEBUG: Pair 10-57 score: 0.2500 (samples\ResourceLeak... vs samples\com\example\...)
+DEBUG: Pair 10-58 score: 0.2500 (samples\ResourceLeak... vs samples\com\example\...)
+DEBUG: Pair 11-12 score: 0.6000 (samples\SampleBuggy.... vs samples\SampleBuggy....)
+DEBUG: Pair 11-13 score: 0.6000 (samples\SampleBuggy.... vs samples\SampleBuggy....)
+DEBUG: Pair 11-14 score: 0.6000 (samples\SampleBuggy.... vs samples\SampleBuggy....)
+DEBUG: Pair 11-15 score: 0.6000 (samples\SampleBuggy.... vs samples\SampleBuggy....)
+DEBUG: Pair 11-16 score: 0.6000 (samples\SampleBuggy.... vs samples\SampleBuggy....)
+DEBUG: Pair 11-17 score: 0.6000 (samples\SampleBuggy.... vs samples\SampleBuggy....)
+DEBUG: Pair 11-18 score: 0.6000 (samples\SampleBuggy.... vs samples\SampleBuggy....)
+DEBUG: Pair 11-19 score: 0.6000 (samples\SampleBuggy.... vs samples\SampleBuggy....)
+DEBUG: Pair 11-20 score: 0.6000 (samples\SampleBuggy.... vs samples\SampleBuggy....)
+DEBUG: Pair 11-21 score: 0.6000 (samples\SampleBuggy.... vs samples\SampleBuggy....)
+DEBUG: Pair 11-22 score: 0.3333 (samples\SampleBuggy.... vs samples\SampleJava1....)
+DEBUG: Pair 11-23 score: 0.3333 (samples\SampleBuggy.... vs samples\SampleJava1....)
+DEBUG: Pair 11-24 score: 0.3333 (samples\SampleBuggy.... vs samples\SampleJava2....)
+DEBUG: Pair 11-25 score: 0.3333 (samples\SampleBuggy.... vs samples\SampleJava2....)
+DEBUG: Pair 11-44 score: 0.3333 (samples\SampleBuggy.... vs samples\UserManager....)
+DEBUG: Pair 11-45 score: 0.3333 (samples\SampleBuggy.... vs samples\UserManager....)
+DEBUG: Pair 11-46 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 11-47 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 11-48 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 11-49 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 11-50 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 11-51 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 11-52 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 11-53 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 11-54 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 11-55 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 11-56 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 11-57 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 11-58 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 12-13 score: 0.6000 (samples\SampleBuggy.... vs samples\SampleBuggy....)
+DEBUG: Pair 12-14 score: 0.6000 (samples\SampleBuggy.... vs samples\SampleBuggy....)
+DEBUG: Pair 12-15 score: 0.6000 (samples\SampleBuggy.... vs samples\SampleBuggy....)
+DEBUG: Pair 12-16 score: 0.6000 (samples\SampleBuggy.... vs samples\SampleBuggy....)
+DEBUG: Pair 12-17 score: 0.6000 (samples\SampleBuggy.... vs samples\SampleBuggy....)
+DEBUG: Pair 12-18 score: 0.6000 (samples\SampleBuggy.... vs samples\SampleBuggy....)
+DEBUG: Pair 12-19 score: 0.6000 (samples\SampleBuggy.... vs samples\SampleBuggy....)
+DEBUG: Pair 12-20 score: 0.6000 (samples\SampleBuggy.... vs samples\SampleBuggy....)
+DEBUG: Pair 12-21 score: 0.6000 (samples\SampleBuggy.... vs samples\SampleBuggy....)
+DEBUG: Pair 12-22 score: 0.3333 (samples\SampleBuggy.... vs samples\SampleJava1....)
+DEBUG: Pair 12-23 score: 0.3333 (samples\SampleBuggy.... vs samples\SampleJava1....)
+DEBUG: Pair 12-24 score: 0.3333 (samples\SampleBuggy.... vs samples\SampleJava2....)
+DEBUG: Pair 12-25 score: 0.3333 (samples\SampleBuggy.... vs samples\SampleJava2....)
+DEBUG: Pair 12-44 score: 0.3333 (samples\SampleBuggy.... vs samples\UserManager....)
+DEBUG: Pair 12-45 score: 0.3333 (samples\SampleBuggy.... vs samples\UserManager....)
+DEBUG: Pair 12-46 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 12-47 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 12-48 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 12-49 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 12-50 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 12-51 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 12-52 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 12-53 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 12-54 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 12-55 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 12-56 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 12-57 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 12-58 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 13-14 score: 0.6000 (samples\SampleBuggy.... vs samples\SampleBuggy....)
+DEBUG: Pair 13-15 score: 0.6000 (samples\SampleBuggy.... vs samples\SampleBuggy....)
+DEBUG: Pair 13-16 score: 0.6000 (samples\SampleBuggy.... vs samples\SampleBuggy....)
+DEBUG: Pair 13-17 score: 0.6000 (samples\SampleBuggy.... vs samples\SampleBuggy....)
+DEBUG: Pair 13-18 score: 0.6000 (samples\SampleBuggy.... vs samples\SampleBuggy....)
+DEBUG: Pair 13-19 score: 0.6000 (samples\SampleBuggy.... vs samples\SampleBuggy....)
+DEBUG: Pair 13-20 score: 0.6000 (samples\SampleBuggy.... vs samples\SampleBuggy....)
+DEBUG: Pair 13-21 score: 0.6000 (samples\SampleBuggy.... vs samples\SampleBuggy....)
+DEBUG: Pair 13-22 score: 0.3333 (samples\SampleBuggy.... vs samples\SampleJava1....)
+DEBUG: Pair 13-23 score: 0.3333 (samples\SampleBuggy.... vs samples\SampleJava1....)
+DEBUG: Pair 13-24 score: 0.3333 (samples\SampleBuggy.... vs samples\SampleJava2....)
+DEBUG: Pair 13-25 score: 0.3333 (samples\SampleBuggy.... vs samples\SampleJava2....)
+DEBUG: Pair 13-44 score: 0.3333 (samples\SampleBuggy.... vs samples\UserManager....)
+DEBUG: Pair 13-45 score: 0.3333 (samples\SampleBuggy.... vs samples\UserManager....)
+DEBUG: Pair 13-46 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 13-47 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 13-48 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 13-49 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 13-50 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 13-51 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 13-52 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 13-53 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 13-54 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 13-55 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 13-56 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 13-57 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 13-58 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 14-15 score: 0.6000 (samples\SampleBuggy.... vs samples\SampleBuggy....)
+DEBUG: Pair 14-16 score: 0.6000 (samples\SampleBuggy.... vs samples\SampleBuggy....)
+DEBUG: Pair 14-17 score: 0.6000 (samples\SampleBuggy.... vs samples\SampleBuggy....)
+DEBUG: Pair 14-18 score: 0.6000 (samples\SampleBuggy.... vs samples\SampleBuggy....)
+DEBUG: Pair 14-19 score: 0.6000 (samples\SampleBuggy.... vs samples\SampleBuggy....)
+DEBUG: Pair 14-20 score: 0.6000 (samples\SampleBuggy.... vs samples\SampleBuggy....)
+DEBUG: Pair 14-21 score: 0.6000 (samples\SampleBuggy.... vs samples\SampleBuggy....)
+DEBUG: Pair 14-22 score: 0.3333 (samples\SampleBuggy.... vs samples\SampleJava1....)
+DEBUG: Pair 14-23 score: 0.3333 (samples\SampleBuggy.... vs samples\SampleJava1....)
+DEBUG: Pair 14-24 score: 0.3333 (samples\SampleBuggy.... vs samples\SampleJava2....)
+DEBUG: Pair 14-25 score: 0.3333 (samples\SampleBuggy.... vs samples\SampleJava2....)
+DEBUG: Pair 14-44 score: 0.3333 (samples\SampleBuggy.... vs samples\UserManager....)
+DEBUG: Pair 14-45 score: 0.3333 (samples\SampleBuggy.... vs samples\UserManager....)
+DEBUG: Pair 14-46 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 14-47 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 14-48 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 14-49 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 14-50 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 14-51 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 14-52 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 14-53 score: 0.4286 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 14-54 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 14-55 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 14-56 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 14-57 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 14-58 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 15-16 score: 0.6000 (samples\SampleBuggy.... vs samples\SampleBuggy....)
+DEBUG: Pair 15-17 score: 0.6000 (samples\SampleBuggy.... vs samples\SampleBuggy....)
+DEBUG: Pair 15-18 score: 0.6000 (samples\SampleBuggy.... vs samples\SampleBuggy....)
+DEBUG: Pair 15-19 score: 0.6000 (samples\SampleBuggy.... vs samples\SampleBuggy....)
+DEBUG: Pair 15-20 score: 0.6000 (samples\SampleBuggy.... vs samples\SampleBuggy....)
+DEBUG: Pair 15-21 score: 0.6000 (samples\SampleBuggy.... vs samples\SampleBuggy....)
+DEBUG: Pair 15-22 score: 0.3333 (samples\SampleBuggy.... vs samples\SampleJava1....)
+DEBUG: Pair 15-23 score: 0.3333 (samples\SampleBuggy.... vs samples\SampleJava1....)
+DEBUG: Pair 15-24 score: 0.3333 (samples\SampleBuggy.... vs samples\SampleJava2....)
+DEBUG: Pair 15-25 score: 0.3333 (samples\SampleBuggy.... vs samples\SampleJava2....)
+DEBUG: Pair 15-44 score: 0.3333 (samples\SampleBuggy.... vs samples\UserManager....)
+DEBUG: Pair 15-45 score: 0.3333 (samples\SampleBuggy.... vs samples\UserManager....)
+DEBUG: Pair 15-46 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 15-47 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 15-48 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 15-49 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 15-50 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 15-51 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 15-52 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 15-53 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 15-54 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 15-55 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 15-56 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 15-57 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 15-58 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 16-17 score: 0.6000 (samples\SampleBuggy.... vs samples\SampleBuggy....)
+DEBUG: Pair 16-18 score: 0.6000 (samples\SampleBuggy.... vs samples\SampleBuggy....)
+DEBUG: Pair 16-19 score: 0.6000 (samples\SampleBuggy.... vs samples\SampleBuggy....)
+DEBUG: Pair 16-20 score: 0.6000 (samples\SampleBuggy.... vs samples\SampleBuggy....)
+DEBUG: Pair 16-21 score: 0.6000 (samples\SampleBuggy.... vs samples\SampleBuggy....)
+DEBUG: Pair 16-22 score: 0.3333 (samples\SampleBuggy.... vs samples\SampleJava1....)
+DEBUG: Pair 16-23 score: 0.3333 (samples\SampleBuggy.... vs samples\SampleJava1....)
+DEBUG: Pair 16-24 score: 0.3333 (samples\SampleBuggy.... vs samples\SampleJava2....)
+DEBUG: Pair 16-25 score: 0.3333 (samples\SampleBuggy.... vs samples\SampleJava2....)
+DEBUG: Pair 16-44 score: 0.3333 (samples\SampleBuggy.... vs samples\UserManager....)
+DEBUG: Pair 16-45 score: 0.3333 (samples\SampleBuggy.... vs samples\UserManager....)
+DEBUG: Pair 16-46 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 16-47 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 16-48 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 16-49 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 16-50 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 16-51 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 16-52 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 16-53 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 16-54 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 16-55 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 16-56 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 16-57 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 16-58 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 17-18 score: 0.6000 (samples\SampleBuggy.... vs samples\SampleBuggy....)
+DEBUG: Pair 17-19 score: 0.6000 (samples\SampleBuggy.... vs samples\SampleBuggy....)
+DEBUG: Pair 17-20 score: 0.6000 (samples\SampleBuggy.... vs samples\SampleBuggy....)
+DEBUG: Pair 17-21 score: 0.6000 (samples\SampleBuggy.... vs samples\SampleBuggy....)
+DEBUG: Pair 17-22 score: 0.3333 (samples\SampleBuggy.... vs samples\SampleJava1....)
+DEBUG: Pair 17-23 score: 0.3333 (samples\SampleBuggy.... vs samples\SampleJava1....)
+DEBUG: Pair 17-24 score: 0.3333 (samples\SampleBuggy.... vs samples\SampleJava2....)
+DEBUG: Pair 17-25 score: 0.3333 (samples\SampleBuggy.... vs samples\SampleJava2....)
+DEBUG: Pair 17-44 score: 0.3333 (samples\SampleBuggy.... vs samples\UserManager....)
+DEBUG: Pair 17-45 score: 0.3333 (samples\SampleBuggy.... vs samples\UserManager....)
+DEBUG: Pair 17-46 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 17-47 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 17-48 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 17-49 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 17-50 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 17-51 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 17-52 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 17-53 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 17-54 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 17-55 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 17-56 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 17-57 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 17-58 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 18-19 score: 0.6000 (samples\SampleBuggy.... vs samples\SampleBuggy....)
+DEBUG: Pair 18-20 score: 0.6000 (samples\SampleBuggy.... vs samples\SampleBuggy....)
+DEBUG: Pair 18-21 score: 0.6000 (samples\SampleBuggy.... vs samples\SampleBuggy....)
+DEBUG: Pair 18-22 score: 0.3333 (samples\SampleBuggy.... vs samples\SampleJava1....)
+DEBUG: Pair 18-23 score: 0.3333 (samples\SampleBuggy.... vs samples\SampleJava1....)
+DEBUG: Pair 18-24 score: 0.3333 (samples\SampleBuggy.... vs samples\SampleJava2....)
+DEBUG: Pair 18-25 score: 0.3333 (samples\SampleBuggy.... vs samples\SampleJava2....)
+DEBUG: Pair 18-44 score: 0.3333 (samples\SampleBuggy.... vs samples\UserManager....)
+DEBUG: Pair 18-45 score: 0.3333 (samples\SampleBuggy.... vs samples\UserManager....)
+DEBUG: Pair 18-46 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 18-47 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 18-48 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 18-49 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 18-50 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 18-51 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 18-52 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 18-53 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 18-54 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 18-55 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 18-56 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 18-57 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 18-58 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 19-20 score: 0.6000 (samples\SampleBuggy.... vs samples\SampleBuggy....)
+DEBUG: Pair 19-21 score: 0.6000 (samples\SampleBuggy.... vs samples\SampleBuggy....)
+DEBUG: Pair 19-22 score: 0.3333 (samples\SampleBuggy.... vs samples\SampleJava1....)
+DEBUG: Pair 19-23 score: 0.3333 (samples\SampleBuggy.... vs samples\SampleJava1....)
+DEBUG: Pair 19-24 score: 0.3333 (samples\SampleBuggy.... vs samples\SampleJava2....)
+DEBUG: Pair 19-25 score: 0.3333 (samples\SampleBuggy.... vs samples\SampleJava2....)
+DEBUG: Pair 19-44 score: 0.3333 (samples\SampleBuggy.... vs samples\UserManager....)
+DEBUG: Pair 19-45 score: 0.3333 (samples\SampleBuggy.... vs samples\UserManager....)
+DEBUG: Pair 19-46 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 19-47 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 19-48 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 19-49 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 19-50 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 19-51 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 19-52 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 19-53 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 19-54 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 19-55 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 19-56 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 19-57 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 19-58 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 20-21 score: 0.6000 (samples\SampleBuggy.... vs samples\SampleBuggy....)
+DEBUG: Pair 20-22 score: 0.3333 (samples\SampleBuggy.... vs samples\SampleJava1....)
+DEBUG: Pair 20-23 score: 0.3333 (samples\SampleBuggy.... vs samples\SampleJava1....)
+DEBUG: Pair 20-24 score: 0.3333 (samples\SampleBuggy.... vs samples\SampleJava2....)
+DEBUG: Pair 20-25 score: 0.3333 (samples\SampleBuggy.... vs samples\SampleJava2....)
+DEBUG: Pair 20-44 score: 0.3333 (samples\SampleBuggy.... vs samples\UserManager....)
+DEBUG: Pair 20-45 score: 0.3333 (samples\SampleBuggy.... vs samples\UserManager....)
+DEBUG: Pair 20-46 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 20-47 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 20-48 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 20-49 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 20-50 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 20-51 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 20-52 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 20-53 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 20-54 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 20-55 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 20-56 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 20-57 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 20-58 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 21-22 score: 0.3333 (samples\SampleBuggy.... vs samples\SampleJava1....)
+DEBUG: Pair 21-23 score: 0.6000 (samples\SampleBuggy.... vs samples\SampleJava1....)
+DEBUG: Pair 21-24 score: 0.3333 (samples\SampleBuggy.... vs samples\SampleJava2....)
+DEBUG: Pair 21-25 score: 0.6000 (samples\SampleBuggy.... vs samples\SampleJava2....)
+DEBUG: Pair 21-44 score: 0.3333 (samples\SampleBuggy.... vs samples\UserManager....)
+DEBUG: Pair 21-45 score: 0.3333 (samples\SampleBuggy.... vs samples\UserManager....)
+DEBUG: Pair 21-46 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 21-47 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 21-48 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 21-49 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 21-50 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 21-51 score: 0.4286 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 21-52 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 21-53 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 21-54 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 21-55 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 21-56 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 21-57 score: 0.2500 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 21-58 score: 0.4286 (samples\SampleBuggy.... vs samples\com\example\...)
+DEBUG: Pair 22-23 score: 0.6000 (samples\SampleJava1.... vs samples\SampleJava1....)
+DEBUG: Pair 22-24 score: 0.3333 (samples\SampleJava1.... vs samples\SampleJava2....)
+DEBUG: Pair 22-25 score: 0.3333 (samples\SampleJava1.... vs samples\SampleJava2....)
+DEBUG: Pair 22-41 score: 0.1111 (samples\SampleJava1.... vs def add(a, b):
+    "...)
+DEBUG: Pair 22-44 score: 0.3333 (samples\SampleJava1.... vs samples\UserManager....)
+DEBUG: Pair 22-45 score: 0.3333 (samples\SampleJava1.... vs samples\UserManager....)
+DEBUG: Pair 22-46 score: 0.4286 (samples\SampleJava1.... vs samples\com\example\...)
+DEBUG: Pair 22-47 score: 0.4286 (samples\SampleJava1.... vs samples\com\example\...)
+DEBUG: Pair 22-48 score: 0.4286 (samples\SampleJava1.... vs samples\com\example\...)
+DEBUG: Pair 22-49 score: 0.4286 (samples\SampleJava1.... vs samples\com\example\...)
+DEBUG: Pair 22-50 score: 0.4286 (samples\SampleJava1.... vs samples\com\example\...)
+DEBUG: Pair 22-51 score: 0.4286 (samples\SampleJava1.... vs samples\com\example\...)
+DEBUG: Pair 22-52 score: 0.2500 (samples\SampleJava1.... vs samples\com\example\...)
+DEBUG: Pair 22-53 score: 0.2500 (samples\SampleJava1.... vs samples\com\example\...)
+DEBUG: Pair 22-54 score: 0.2500 (samples\SampleJava1.... vs samples\com\example\...)
+DEBUG: Pair 22-55 score: 0.2500 (samples\SampleJava1.... vs samples\com\example\...)
+DEBUG: Pair 22-56 score: 0.2500 (samples\SampleJava1.... vs samples\com\example\...)
+DEBUG: Pair 22-57 score: 0.2500 (samples\SampleJava1.... vs samples\com\example\...)
+DEBUG: Pair 22-58 score: 0.2500 (samples\SampleJava1.... vs samples\com\example\...)
+DEBUG: Pair 23-24 score: 0.3333 (samples\SampleJava1.... vs samples\SampleJava2....)
+DEBUG: Pair 23-25 score: 0.6000 (samples\SampleJava1.... vs samples\SampleJava2....)
+DEBUG: Pair 23-44 score: 0.3333 (samples\SampleJava1.... vs samples\UserManager....)
+DEBUG: Pair 23-45 score: 0.3333 (samples\SampleJava1.... vs samples\UserManager....)
+DEBUG: Pair 23-46 score: 0.4286 (samples\SampleJava1.... vs samples\com\example\...)
+DEBUG: Pair 23-47 score: 0.4286 (samples\SampleJava1.... vs samples\com\example\...)
+DEBUG: Pair 23-48 score: 0.4286 (samples\SampleJava1.... vs samples\com\example\...)
+DEBUG: Pair 23-49 score: 0.4286 (samples\SampleJava1.... vs samples\com\example\...)
+DEBUG: Pair 23-50 score: 0.4286 (samples\SampleJava1.... vs samples\com\example\...)
+DEBUG: Pair 23-51 score: 0.6667 (samples\SampleJava1.... vs samples\com\example\...)
+DEBUG: Pair 23-52 score: 0.2500 (samples\SampleJava1.... vs samples\com\example\...)
+DEBUG: Pair 23-53 score: 0.2500 (samples\SampleJava1.... vs samples\com\example\...)
+DEBUG: Pair 23-54 score: 0.2500 (samples\SampleJava1.... vs samples\com\example\...)
+DEBUG: Pair 23-55 score: 0.2500 (samples\SampleJava1.... vs samples\com\example\...)
+DEBUG: Pair 23-56 score: 0.2500 (samples\SampleJava1.... vs samples\com\example\...)
+DEBUG: Pair 23-57 score: 0.2500 (samples\SampleJava1.... vs samples\com\example\...)
+DEBUG: Pair 23-58 score: 0.4286 (samples\SampleJava1.... vs samples\com\example\...)
+DEBUG: Pair 24-25 score: 0.6000 (samples\SampleJava2.... vs samples\SampleJava2....)
+DEBUG: Pair 24-44 score: 0.3333 (samples\SampleJava2.... vs samples\UserManager....)
+DEBUG: Pair 24-45 score: 0.3333 (samples\SampleJava2.... vs samples\UserManager....)
+DEBUG: Pair 24-46 score: 0.2500 (samples\SampleJava2.... vs samples\com\example\...)
+DEBUG: Pair 24-47 score: 0.2500 (samples\SampleJava2.... vs samples\com\example\...)
+DEBUG: Pair 24-48 score: 0.2500 (samples\SampleJava2.... vs samples\com\example\...)
+DEBUG: Pair 24-49 score: 0.2500 (samples\SampleJava2.... vs samples\com\example\...)
+DEBUG: Pair 24-50 score: 0.2500 (samples\SampleJava2.... vs samples\com\example\...)
+DEBUG: Pair 24-51 score: 0.2500 (samples\SampleJava2.... vs samples\com\example\...)
+DEBUG: Pair 24-52 score: 0.4286 (samples\SampleJava2.... vs samples\com\example\...)
+DEBUG: Pair 24-53 score: 0.4286 (samples\SampleJava2.... vs samples\com\example\...)
+DEBUG: Pair 24-54 score: 0.4286 (samples\SampleJava2.... vs samples\com\example\...)
+DEBUG: Pair 24-55 score: 0.4286 (samples\SampleJava2.... vs samples\com\example\...)
+DEBUG: Pair 24-56 score: 0.4286 (samples\SampleJava2.... vs samples\com\example\...)
+DEBUG: Pair 24-57 score: 0.4286 (samples\SampleJava2.... vs samples\com\example\...)
+DEBUG: Pair 24-58 score: 0.4286 (samples\SampleJava2.... vs samples\com\example\...)
+DEBUG: Pair 25-44 score: 0.3333 (samples\SampleJava2.... vs samples\UserManager....)
+DEBUG: Pair 25-45 score: 0.3333 (samples\SampleJava2.... vs samples\UserManager....)
+DEBUG: Pair 25-46 score: 0.2500 (samples\SampleJava2.... vs samples\com\example\...)
+DEBUG: Pair 25-47 score: 0.2500 (samples\SampleJava2.... vs samples\com\example\...)
+DEBUG: Pair 25-48 score: 0.2500 (samples\SampleJava2.... vs samples\com\example\...)
+DEBUG: Pair 25-49 score: 0.2500 (samples\SampleJava2.... vs samples\com\example\...)
+DEBUG: Pair 25-50 score: 0.2500 (samples\SampleJava2.... vs samples\com\example\...)
+DEBUG: Pair 25-51 score: 0.4286 (samples\SampleJava2.... vs samples\com\example\...)
+DEBUG: Pair 25-52 score: 0.4286 (samples\SampleJava2.... vs samples\com\example\...)
+DEBUG: Pair 25-53 score: 0.4286 (samples\SampleJava2.... vs samples\com\example\...)
+DEBUG: Pair 25-54 score: 0.4286 (samples\SampleJava2.... vs samples\com\example\...)
+DEBUG: Pair 25-55 score: 0.4286 (samples\SampleJava2.... vs samples\com\example\...)
+DEBUG: Pair 25-56 score: 0.4286 (samples\SampleJava2.... vs samples\com\example\...)
+DEBUG: Pair 25-57 score: 0.4286 (samples\SampleJava2.... vs samples\com\example\...)
+DEBUG: Pair 25-58 score: 0.6667 (samples\SampleJava2.... vs samples\com\example\...)
+DEBUG: Pair 26-27 score: 0.1481 (def divide_numbers(a... vs def process_data(dat...)
+DEBUG: Pair 26-28 score: 0.1143 (def divide_numbers(a... vs def always_false_che...)
+DEBUG: Pair 26-29 score: 0.1212 (def divide_numbers(a... vs def shadowing_builti...)
+DEBUG: Pair 26-31 score: 0.1111 (def divide_numbers(a... vs def mutable_default(...)
+DEBUG: Pair 26-36 score: 0.1379 (def divide_numbers(a... vs def tautology_check(...)
+DEBUG: Pair 26-37 score: 0.1613 (def divide_numbers(a... vs def contradiction_ch...)
+DEBUG: Pair 26-38 score: 0.2500 (def divide_numbers(a... vs def division_by_lite...)
+DEBUG: Pair 26-41 score: 0.2000 (def divide_numbers(a... vs def add(a, b):
+    "...)
+DEBUG: Pair 27-28 score: 0.1017 (def process_data(dat... vs def always_false_che...)
+DEBUG: Pair 27-31 score: 0.1200 (def process_data(dat... vs def mutable_default(...)
+DEBUG: Pair 27-33 score: 0.1321 (def process_data(dat... vs def swallowed_except...)
+DEBUG: Pair 27-34 score: 0.1071 (def process_data(dat... vs def constant_conditi...)
+DEBUG: Pair 27-37 score: 0.1273 (def process_data(dat... vs def contradiction_ch...)
+DEBUG: Pair 28-30 score: 0.1935 (def always_false_che... vs def unreachable_code...)
+DEBUG: Pair 28-34 score: 0.2188 (def always_false_che... vs def constant_conditi...)
+DEBUG: Pair 28-35 score: 0.2258 (def always_false_che... vs def duplicate_condit...)
+DEBUG: Pair 28-36 score: 0.2000 (def always_false_che... vs def tautology_check(...)
+DEBUG: Pair 28-37 score: 0.3929 (def always_false_che... vs def contradiction_ch...)
+DEBUG: Pair 28-38 score: 0.1786 (def always_false_che... vs def division_by_lite...)
+DEBUG: Pair 28-42 score: 0.1304 (def always_false_che... vs def sum_two(x, y):
+ ...)
+DEBUG: Pair 29-30 score: 0.1290 (def shadowing_builti... vs def unreachable_code...)
+DEBUG: Pair 29-31 score: 0.1923 (def shadowing_builti... vs def mutable_default(...)
+DEBUG: Pair 29-33 score: 0.1290 (def shadowing_builti... vs def swallowed_except...)
+DEBUG: Pair 29-35 score: 0.1250 (def shadowing_builti... vs def duplicate_condit...)
+DEBUG: Pair 29-36 score: 0.1333 (def shadowing_builti... vs def tautology_check(...)
+DEBUG: Pair 29-37 score: 0.1212 (def shadowing_builti... vs def contradiction_ch...)
+DEBUG: Pair 29-38 score: 0.1481 (def shadowing_builti... vs def division_by_lite...)
+DEBUG: Pair 29-41 score: 0.1364 (def shadowing_builti... vs def add(a, b):
+    "...)
+DEBUG: Pair 30-31 score: 0.2174 (def unreachable_code... vs def mutable_default(...)
+DEBUG: Pair 30-32 score: 0.1538 (def unreachable_code... vs def bare_except_hand...)
+DEBUG: Pair 30-33 score: 0.1034 (def unreachable_code... vs def swallowed_except...)
+DEBUG: Pair 30-34 score: 0.2593 (def unreachable_code... vs def constant_conditi...)
+DEBUG: Pair 30-35 score: 0.2692 (def unreachable_code... vs def duplicate_condit...)
+DEBUG: Pair 30-36 score: 0.2400 (def unreachable_code... vs def tautology_check(...)
+DEBUG: Pair 30-37 score: 0.2593 (def unreachable_code... vs def contradiction_ch...)
+DEBUG: Pair 30-38 score: 0.3333 (def unreachable_code... vs def division_by_lite...)
+DEBUG: Pair 30-42 score: 0.1667 (def unreachable_code... vs def sum_two(x, y):
+ ...)
+DEBUG: Pair 31-32 score: 0.1818 (def mutable_default(... vs def bare_except_hand...)
+DEBUG: Pair 31-33 score: 0.1200 (def mutable_default(... vs def swallowed_except...)
+DEBUG: Pair 31-34 score: 0.1538 (def mutable_default(... vs def constant_conditi...)
+DEBUG: Pair 31-35 score: 0.2083 (def mutable_default(... vs def duplicate_condit...)
+DEBUG: Pair 31-36 score: 0.2273 (def mutable_default(... vs def tautology_check(...)
+DEBUG: Pair 31-37 score: 0.2000 (def mutable_default(... vs def contradiction_ch...)
+DEBUG: Pair 31-38 score: 0.2632 (def mutable_default(... vs def division_by_lite...)
+DEBUG: Pair 31-41 score: 0.1250 (def mutable_default(... vs def add(a, b):
+    "...)
+DEBUG: Pair 31-42 score: 0.1333 (def mutable_default(... vs def sum_two(x, y):
+ ...)
+DEBUG: Pair 32-33 score: 0.2500 (def bare_except_hand... vs def swallowed_except...)
+DEBUG: Pair 32-34 score: 0.1429 (def bare_except_hand... vs def constant_conditi...)
+DEBUG: Pair 32-35 score: 0.1481 (def bare_except_hand... vs def duplicate_condit...)
+DEBUG: Pair 32-36 score: 0.1600 (def bare_except_hand... vs def tautology_check(...)
+DEBUG: Pair 32-37 score: 0.1429 (def bare_except_hand... vs def contradiction_ch...)
+DEBUG: Pair 32-38 score: 0.1818 (def bare_except_hand... vs def division_by_lite...)
+DEBUG: Pair 32-39 score: 0.1176 (def bare_except_hand... vs def risky_operation(...)
+DEBUG: Pair 33-36 score: 0.1071 (def swallowed_except... vs def tautology_check(...)
+DEBUG: Pair 33-37 score: 0.1333 (def swallowed_except... vs def contradiction_ch...)
+DEBUG: Pair 33-38 score: 0.1200 (def swallowed_except... vs def division_by_lite...)
+DEBUG: Pair 34-35 score: 0.2963 (def constant_conditi... vs def duplicate_condit...)
+DEBUG: Pair 34-36 score: 0.3200 (def constant_conditi... vs def tautology_check(...)
+DEBUG: Pair 34-37 score: 0.3333 (def constant_conditi... vs def contradiction_ch...)
+DEBUG: Pair 34-38 score: 0.1538 (def constant_conditi... vs def division_by_lite...)
+DEBUG: Pair 35-36 score: 0.2800 (def duplicate_condit... vs def tautology_check(...)
+DEBUG: Pair 35-37 score: 0.2500 (def duplicate_condit... vs def contradiction_ch...)
+DEBUG: Pair 35-38 score: 0.3182 (def duplicate_condit... vs def division_by_lite...)
+DEBUG: Pair 35-42 score: 0.1579 (def duplicate_condit... vs def sum_two(x, y):
+ ...)
+DEBUG: Pair 36-37 score: 0.5000 (def tautology_check(... vs def contradiction_ch...)
+DEBUG: Pair 36-38 score: 0.2857 (def tautology_check(... vs def division_by_lite...)
+DEBUG: Pair 36-41 score: 0.1053 (def tautology_check(... vs def add(a, b):
+    "...)
+DEBUG: Pair 36-42 score: 0.1765 (def tautology_check(... vs def sum_two(x, y):
+ ...)
+DEBUG: Pair 36-43 score: 0.1176 (def tautology_check(... vs def maybe_throw(s):
+...)
+DEBUG: Pair 37-38 score: 0.2500 (def contradiction_ch... vs def division_by_lite...)
+DEBUG: Pair 37-42 score: 0.1500 (def contradiction_ch... vs def sum_two(x, y):
+ ...)
+DEBUG: Pair 38-41 score: 0.1250 (def division_by_lite... vs def add(a, b):
+    "...)
+DEBUG: Pair 38-42 score: 0.2143 (def division_by_lite... vs def sum_two(x, y):
+ ...)
+DEBUG: Pair 39-40 score: 0.2000 (def risky_operation(... vs def something_risky(...)
+DEBUG: Pair 39-42 score: 0.1111 (def risky_operation(... vs def sum_two(x, y):
+ ...)
+DEBUG: Pair 39-43 score: 0.1200 (def risky_operation(... vs def maybe_throw(s):
+...)
+DEBUG: Pair 41-42 score: 0.2222 (def add(a, b):
+    "... vs def sum_two(x, y):
+ ...)
+DEBUG: Pair 44-45 score: 0.6000 (samples\UserManager.... vs samples\UserManager....)
+DEBUG: Pair 44-46 score: 0.2500 (samples\UserManager.... vs samples\com\example\...)
+DEBUG: Pair 44-47 score: 0.2500 (samples\UserManager.... vs samples\com\example\...)
+DEBUG: Pair 44-48 score: 0.2500 (samples\UserManager.... vs samples\com\example\...)
+DEBUG: Pair 44-49 score: 0.2500 (samples\UserManager.... vs samples\com\example\...)
+DEBUG: Pair 44-50 score: 0.2500 (samples\UserManager.... vs samples\com\example\...)
+DEBUG: Pair 44-51 score: 0.2500 (samples\UserManager.... vs samples\com\example\...)
+DEBUG: Pair 44-52 score: 0.2500 (samples\UserManager.... vs samples\com\example\...)
+DEBUG: Pair 44-53 score: 0.2500 (samples\UserManager.... vs samples\com\example\...)
+DEBUG: Pair 44-54 score: 0.2500 (samples\UserManager.... vs samples\com\example\...)
+DEBUG: Pair 44-55 score: 0.2500 (samples\UserManager.... vs samples\com\example\...)
+DEBUG: Pair 44-56 score: 0.2500 (samples\UserManager.... vs samples\com\example\...)
+DEBUG: Pair 44-57 score: 0.2500 (samples\UserManager.... vs samples\com\example\...)
+DEBUG: Pair 44-58 score: 0.2500 (samples\UserManager.... vs samples\com\example\...)
+DEBUG: Pair 45-46 score: 0.2500 (samples\UserManager.... vs samples\com\example\...)
+DEBUG: Pair 45-47 score: 0.2500 (samples\UserManager.... vs samples\com\example\...)
+DEBUG: Pair 45-48 score: 0.2500 (samples\UserManager.... vs samples\com\example\...)
+DEBUG: Pair 45-49 score: 0.2500 (samples\UserManager.... vs samples\com\example\...)
+DEBUG: Pair 45-50 score: 0.2500 (samples\UserManager.... vs samples\com\example\...)
+DEBUG: Pair 45-51 score: 0.2500 (samples\UserManager.... vs samples\com\example\...)
+DEBUG: Pair 45-52 score: 0.2500 (samples\UserManager.... vs samples\com\example\...)
+DEBUG: Pair 45-53 score: 0.2500 (samples\UserManager.... vs samples\com\example\...)
+DEBUG: Pair 45-54 score: 0.2500 (samples\UserManager.... vs samples\com\example\...)
+DEBUG: Pair 45-55 score: 0.2500 (samples\UserManager.... vs samples\com\example\...)
+DEBUG: Pair 45-56 score: 0.2500 (samples\UserManager.... vs samples\com\example\...)
+DEBUG: Pair 45-57 score: 0.2500 (samples\UserManager.... vs samples\com\example\...)
+DEBUG: Pair 45-58 score: 0.2500 (samples\UserManager.... vs samples\com\example\...)
+DEBUG: Pair 46-47 score: 0.7143 (samples\com\example\... vs samples\com\example\...)
+DEBUG: Pair 46-48 score: 0.7143 (samples\com\example\... vs samples\com\example\...)
+DEBUG: Pair 46-49 score: 0.7143 (samples\com\example\... vs samples\com\example\...)
+DEBUG: Pair 46-50 score: 0.7143 (samples\com\example\... vs samples\com\example\...)
+DEBUG: Pair 46-51 score: 0.7143 (samples\com\example\... vs samples\com\example\...)
+DEBUG: Pair 46-52 score: 0.5000 (samples\com\example\... vs samples\com\example\...)
+DEBUG: Pair 46-53 score: 0.5000 (samples\com\example\... vs samples\com\example\...)
+DEBUG: Pair 46-54 score: 0.5000 (samples\com\example\... vs samples\com\example\...)
+DEBUG: Pair 46-55 score: 0.5000 (samples\com\example\... vs samples\com\example\...)
+DEBUG: Pair 46-56 score: 0.5000 (samples\com\example\... vs samples\com\example\...)
+DEBUG: Pair 46-57 score: 0.5000 (samples\com\example\... vs samples\com\example\...)
+DEBUG: Pair 46-58 score: 0.5000 (samples\com\example\... vs samples\com\example\...)
+DEBUG: Pair 47-48 score: 0.7143 (samples\com\example\... vs samples\com\example\...)
+DEBUG: Pair 47-49 score: 0.7143 (samples\com\example\... vs samples\com\example\...)
+DEBUG: Pair 47-50 score: 0.7143 (samples\com\example\... vs samples\com\example\...)
+DEBUG: Pair 47-51 score: 0.7143 (samples\com\example\... vs samples\com\example\...)
+DEBUG: Pair 47-52 score: 0.5000 (samples\com\example\... vs samples\com\example\...)
+DEBUG: Pair 47-53 score: 0.5000 (samples\com\example\... vs samples\com\example\...)
+DEBUG: Pair 47-54 score: 0.5000 (samples\com\example\... vs samples\com\example\...)
+DEBUG: Pair 47-55 score: 0.5000 (samples\com\example\... vs samples\com\example\...)
+DEBUG: Pair 47-56 score: 0.5000 (samples\com\example\... vs samples\com\example\...)
+DEBUG: Pair 47-57 score: 0.5000 (samples\com\example\... vs samples\com\example\...)
+DEBUG: Pair 47-58 score: 0.5000 (samples\com\example\... vs samples\com\example\...)
+DEBUG: Pair 48-49 score: 0.7143 (samples\com\example\... vs samples\com\example\...)
+DEBUG: Pair 48-50 score: 0.7143 (samples\com\example\... vs samples\com\example\...)
+DEBUG: Pair 48-51 score: 0.7143 (samples\com\example\... vs samples\com\example\...)
+DEBUG: Pair 48-52 score: 0.5000 (samples\com\example\... vs samples\com\example\...)
+DEBUG: Pair 48-53 score: 0.5000 (samples\com\example\... vs samples\com\example\...)
+DEBUG: Pair 48-54 score: 0.5000 (samples\com\example\... vs samples\com\example\...)
+DEBUG: Pair 48-55 score: 0.5000 (samples\com\example\... vs samples\com\example\...)
+DEBUG: Pair 48-56 score: 0.5000 (samples\com\example\... vs samples\com\example\...)
+DEBUG: Pair 48-57 score: 0.5000 (samples\com\example\... vs samples\com\example\...)
+DEBUG: Pair 48-58 score: 0.5000 (samples\com\example\... vs samples\com\example\...)
+DEBUG: Pair 49-50 score: 0.7143 (samples\com\example\... vs samples\com\example\...)
+DEBUG: Pair 49-51 score: 0.7143 (samples\com\example\... vs samples\com\example\...)
+DEBUG: Pair 49-52 score: 0.5000 (samples\com\example\... vs samples\com\example\...)
+DEBUG: Pair 49-53 score: 0.5000 (samples\com\example\... vs samples\com\example\...)
+DEBUG: Pair 49-54 score: 0.5000 (samples\com\example\... vs samples\com\example\...)
+DEBUG: Pair 49-55 score: 0.5000 (samples\com\example\... vs samples\com\example\...)
+DEBUG: Pair 49-56 score: 0.5000 (samples\com\example\... vs samples\com\example\...)
+DEBUG: Pair 49-57 score: 0.5000 (samples\com\example\... vs samples\com\example\...)
+DEBUG: Pair 49-58 score: 0.5000 (samples\com\example\... vs samples\com\example\...)
+DEBUG: Pair 50-51 score: 0.7143 (samples\com\example\... vs samples\com\example\...)
+DEBUG: Pair 50-52 score: 0.5000 (samples\com\example\... vs samples\com\example\...)
+DEBUG: Pair 50-53 score: 0.5000 (samples\com\example\... vs samples\com\example\...)
+DEBUG: Pair 50-54 score: 0.5000 (samples\com\example\... vs samples\com\example\...)
+DEBUG: Pair 50-55 score: 0.5000 (samples\com\example\... vs samples\com\example\...)
+DEBUG: Pair 50-56 score: 0.5000 (samples\com\example\... vs samples\com\example\...)
+DEBUG: Pair 50-57 score: 0.5000 (samples\com\example\... vs samples\com\example\...)
+DEBUG: Pair 50-58 score: 0.5000 (samples\com\example\... vs samples\com\example\...)
+DEBUG: Pair 51-52 score: 0.5000 (samples\com\example\... vs samples\com\example\...)
+DEBUG: Pair 51-53 score: 0.5000 (samples\com\example\... vs samples\com\example\...)
+DEBUG: Pair 51-54 score: 0.5000 (samples\com\example\... vs samples\com\example\...)
+DEBUG: Pair 51-55 score: 0.5000 (samples\com\example\... vs samples\com\example\...)
+DEBUG: Pair 51-56 score: 0.5000 (samples\com\example\... vs samples\com\example\...)
+DEBUG: Pair 51-57 score: 0.5000 (samples\com\example\... vs samples\com\example\...)
+DEBUG: Pair 51-58 score: 0.7143 (samples\com\example\... vs samples\com\example\...)
+DEBUG: Pair 52-53 score: 0.7143 (samples\com\example\... vs samples\com\example\...)
+DEBUG: Pair 52-54 score: 0.7143 (samples\com\example\... vs samples\com\example\...)
+DEBUG: Pair 52-55 score: 0.7143 (samples\com\example\... vs samples\com\example\...)
+DEBUG: Pair 52-56 score: 0.7143 (samples\com\example\... vs samples\com\example\...)
+DEBUG: Pair 52-57 score: 0.7143 (samples\com\example\... vs samples\com\example\...)
+DEBUG: Pair 52-58 score: 0.7143 (samples\com\example\... vs samples\com\example\...)
+DEBUG: Pair 53-54 score: 0.7143 (samples\com\example\... vs samples\com\example\...)
+DEBUG: Pair 53-55 score: 0.7143 (samples\com\example\... vs samples\com\example\...)
+DEBUG: Pair 53-56 score: 0.7143 (samples\com\example\... vs samples\com\example\...)
+DEBUG: Pair 53-57 score: 0.7143 (samples\com\example\... vs samples\com\example\...)
+DEBUG: Pair 53-58 score: 0.7143 (samples\com\example\... vs samples\com\example\...)
+DEBUG: Pair 54-55 score: 0.7143 (samples\com\example\... vs samples\com\example\...)
+DEBUG: Pair 54-56 score: 0.7143 (samples\com\example\... vs samples\com\example\...)
+DEBUG: Pair 54-57 score: 0.7143 (samples\com\example\... vs samples\com\example\...)
+DEBUG: Pair 54-58 score: 0.7143 (samples\com\example\... vs samples\com\example\...)
+DEBUG: Pair 55-56 score: 0.7143 (samples\com\example\... vs samples\com\example\...)
+DEBUG: Pair 55-57 score: 0.7143 (samples\com\example\... vs samples\com\example\...)
+DEBUG: Pair 55-58 score: 0.7143 (samples\com\example\... vs samples\com\example\...)
+DEBUG: Pair 56-57 score: 0.7143 (samples\com\example\... vs samples\com\example\...)
+DEBUG: Pair 56-58 score: 0.7143 (samples\com\example\... vs samples\com\example\...)
+DEBUG: Pair 57-58 score: 0.7143 (samples\com\example\... vs samples\com\example\...)
+  -> found 694 semantic-similar pairs (threshold=0.1)
+[*] Dynamic testing (simple fuzzing)...
+[*] BCI tracing disabled
+
+[*] Bug Detection...
+  [*] Running static bug detection...
+      -> Found 32 static bugs
+  [*] Analyzing runtime behavior...
+      -> Found 0 runtime bugs
+  [*] Checking logical consistency...
+      -> Found 6 logical bugs
+  -> Found 37 potential bugs
+
+  [!] 22 CRITICAL/HIGH severity bugs detected!
+    [CRITICAL] samples\SampleBuggy.java:12
+      Hardcoded credentials detected
+    [CRITICAL] samples\buggy_high.js:6
+      Avoid using eval() - security risk
+    [CRITICAL] samples\sample_buggy.py:77
+      Catching broad 'Exception' and ignoring it
+    [CRITICAL] samples\sample_buggy.py:110
+      Condition 'x and not x' is always False
+    [CRITICAL] samples\sample_buggy.py:117
+      Division by zero
+    ... and 17 more critical/high bugs
+[*] Fusion & scoring...
+[*] Results (top candidates):
+{
+  "file_a": "samples\\exact_clone.py",
+  "func_a": "add",
+  "file_b": "samples\\sample_safe_1.py",
+  "func_b": "add",
+  "struct_sim": 0.5,
+  "semantic_sim": 1.0,
+  "dynamic_anomaly": false,
+  "fusion_score": 0.65
+}
+{
+  "file_a": "samples\\math_utils.py",
+  "func_a": "calculate_fibonacci",
+  "file_b": "samples\\math_utils_clone.py",
+  "func_b": "get_fib_sequence",
+  "struct_sim": 0.9500000049999995,
+  "semantic_sim": 0.5,
+  "dynamic_anomaly": false,
+  "fusion_score": 0.5350000014999998
+}
+{
+  "file_a": "samples\\sample_buggy.py",
+  "func_a": "tautology_check",
+  "file_b": "samples\\sample_buggy.py",
+  "func_b": "contradiction_check",
+  "struct_sim": 0.900000019999996,
+  "semantic_sim": 0.5,
+  "dynamic_anomaly": false,
+  "fusion_score": 0.5200000059999987
+}
+{
+  "file_a": "samples\\com\\example\\samples\\SampleJava1.java",
+  "func_a": "addNumber",
+  "file_b": "samples\\com\\example\\samples\\SampleJava1.java",
+  "func_b": "calculateAverage",
+  "struct_sim": 0.5,
+  "semantic_sim": 0.7142857142857143,
+  "dynamic_anomaly": false,
+  "fusion_score": 0.5071428571428571
+}
+{
+  "file_a": "samples\\com\\example\\samples\\SampleJava1.java",
+  "func_a": "getName",
+  "file_b": "samples\\com\\example\\samples\\SampleJava1.java",
+  "func_b": "setName",
+  "struct_sim": 0.5,
+  "semantic_sim": 0.7142857142857143,
+  "dynamic_anomaly": false,
+  "fusion_score": 0.5071428571428571
+}
+{
+  "file_a": "samples\\com\\example\\samples\\SampleJava2.java",
+  "func_a": "processData",
+  "file_b": "samples\\com\\example\\samples\\SampleJava2.java",
+  "func_b": "reset",
+  "struct_sim": 0.5,
+  "semantic_sim": 0.7142857142857143,
+  "dynamic_anomaly": false,
+  "fusion_score": 0.5071428571428571
+}
+{
+  "file_a": "samples\\com\\example\\samples\\SampleJava2.java",
+  "func_a": "getValue",
+  "file_b": "samples\\com\\example\\samples\\SampleJava2.java",
+  "func_b": "containsKey",
+  "struct_sim": 0.5,
+  "semantic_sim": 0.7142857142857143,
+  "dynamic_anomaly": false,
+  "fusion_score": 0.5071428571428571
+}
+{
+  "file_a": "samples\\com\\example\\samples\\SampleJava2.java",
+  "func_a": "getValue",
+  "file_b": "samples\\com\\example\\samples\\SampleJava2.java",
+  "func_b": "getCounter",
+  "struct_sim": 0.5,
+  "semantic_sim": 0.7142857142857143,
+  "dynamic_anomaly": false,
+  "fusion_score": 0.5071428571428571
+}
+{
+  "file_a": "samples\\com\\example\\samples\\SampleJava2.java",
+  "func_a": "containsKey",
+  "file_b": "samples\\com\\example\\samples\\SampleJava2.java",
+  "func_b": "getCounter",
+  "struct_sim": 0.5,
+  "semantic_sim": 0.7142857142857143,
+  "dynamic_anomaly": false,
+  "fusion_score": 0.5071428571428571
+}
+{
+  "file_a": "samples\\com\\example\\samples\\SampleJava1.java",
+  "func_a": "main",
+  "file_b": "samples\\com\\example\\samples\\SampleJava2.java",
+  "func_b": "main",
+  "struct_sim": 0.45833333680555527,
+  "semantic_sim": 0.7142857142857143,
+  "dynamic_anomaly": false,
+  "fusion_score": 0.4946428581845237
+}
+{
+  "file_a": "samples\\math_utils.py",
+  "func_a": "calculate_factorial",
+  "file_b": "samples\\math_utils_clone.py",
+  "func_b": "compute_factorial",
+  "struct_sim": 1.0,
+  "semantic_sim": 0.35714285714285715,
+  "dynamic_anomaly": false,
+  "fusion_score": 0.47857142857142854
+}
+{
+  "file_a": "samples\\math_utils.py",
+  "func_a": "calculate_factorial",
+  "file_b": "samples\\math_utils.py",
+  "func_b": "calculate_fibonacci",
+  "struct_sim": 1.0,
+  "semantic_sim": 0.3157894736842105,
+  "dynamic_anomaly": false,
+  "fusion_score": 0.45789473684210524
+}
+{
+  "file_a": "samples\\com\\example\\samples\\SampleJava1.java",
+  "func_a": "addNumber",
+  "file_b": "samples\\com\\example\\samples\\SampleJava1.java",
+  "func_b": "calculateSum",
+  "struct_sim": 0.3333333888888704,
+  "semantic_sim": 0.7142857142857143,
+  "dynamic_anomaly": false,
+  "fusion_score": 0.45714287380951824
+}
+{
+  "file_a": "samples\\com\\example\\samples\\SampleJava1.java",
+  "func_a": "calculateSum",
+  "file_b": "samples\\com\\example\\samples\\SampleJava1.java",
+  "func_b": "calculateAverage",
+  "struct_sim": 0.3333333888888704,
+  "semantic_sim": 0.7142857142857143,
+  "dynamic_anomaly": false,
+  "fusion_score": 0.45714287380951824
+}
+{
+  "file_a": "samples\\com\\example\\samples\\SampleJava2.java",
+  "func_a": "processData",
+  "file_b": "samples\\com\\example\\samples\\SampleJava2.java",
+  "func_b": "displayAll",
+  "struct_sim": 0.3333333888888704,
+  "semantic_sim": 0.7142857142857143,
+  "dynamic_anomaly": false,
+  "fusion_score": 0.45714287380951824
+}
+{
+  "file_a": "samples\\com\\example\\samples\\SampleJava2.java",
+  "func_a": "reset",
+  "file_b": "samples\\com\\example\\samples\\SampleJava2.java",
+  "func_b": "displayAll",
+  "struct_sim": 0.3333333888888704,
+  "semantic_sim": 0.7142857142857143,
+  "dynamic_anomaly": false,
+  "fusion_score": 0.45714287380951824
+}
+{
+  "file_a": "samples\\SampleBuggy.java",
+  "func_a": "processName",
+  "file_b": "samples\\SampleBuggy.java",
+  "func_b": "checkName",
+  "struct_sim": 0.5,
+  "semantic_sim": 0.6,
+  "dynamic_anomaly": false,
+  "fusion_score": 0.44999999999999996
+}
+{
+  "file_a": "samples\\SampleBuggy.java",
+  "func_a": "processName",
+  "file_b": "samples\\SampleBuggy.java",
+  "func_b": "compareFloats",
+  "struct_sim": 0.5,
+  "semantic_sim": 0.6,
+  "dynamic_anomaly": false,
+  "fusion_score": 0.44999999999999996
+}
+{
+  "file_a": "samples\\SampleBuggy.java",
+  "func_a": "checkName",
+  "file_b": "samples\\SampleBuggy.java",
+  "func_b": "compareFloats",
+  "struct_sim": 0.5,
+  "semantic_sim": 0.6,
+  "dynamic_anomaly": false,
+  "fusion_score": 0.44999999999999996
+}
+{
+  "file_a": "samples\\SampleBuggy.java",
+  "func_a": "riskyOperation",
+  "file_b": "samples\\SampleBuggy.java",
+  "func_b": "getValue",
+  "struct_sim": 0.5,
+  "semantic_sim": 0.6,
+  "dynamic_anomaly": false,
+  "fusion_score": 0.44999999999999996
+}
+
+[*] No dynamic anomalies detected (in prototype runs).
+
+============================================================
+[*] SUMMARY STATISTICS
+============================================================
+Files Analyzed: 23
+Code Snippets Extracted: 59
+Clone Pairs Detected: 694
+Fusion Reports Generated: 694
+Files with Dynamic Anomalies: 0
+Total Dynamic Anomalies: 0
+
+Semantic Similarity Statistics:
+  Average: 0.333
+  Maximum: 1.000
+  Minimum: 0.100
+  Median: 0.250
+
+Fusion Score Statistics:
+  Average: 0.264
+  Maximum: 0.650
+  Minimum: 0.089
+  High Confidence (>=0.7): 0 (0.0%)
+
+Structural Similarity Statistics:
+  Average: 0.326
+
+Dynamic Testing Statistics:
+  Total Test Runs: 35
+  Anomaly Rate: 0.00%
+
+File Type Breakdown:
+  .java: 8 files
+  .py: 7 files
+  .cpp: 4 files
+  .js: 4 files
+
+Bug Detection Statistics:
+  Total Bugs Found: 37
+    [!!!] CRITICAL: 5
+    [!!] HIGH: 17
+    [!] MEDIUM: 11
+    [.] LOW: 4
+  Top Bug Categories:
+    - empty_exception_handler: 3
+    - shadowed_builtin: 3
+    - strcpy_usage: 2
+    - system_call: 2
+    - bare_except: 2
+============================================================
+
+============================================================
+[*] DETAILED BUG REPORT
+============================================================
+
+[FILE] samples\SampleBuggy.java (6 bugs)
+  [!!!] Line 12: [CRITICAL] hardcoded_credentials
+      Hardcoded credentials detected
+      Evidence: password = "secret123"
+  [!!] Line 29 in checkName(): [HIGH] string_equality
+      Use .equals() for String comparison, not ==
+      Evidence: input == "admin"
+  [!!] Line 48 in getValue(): [HIGH] return_in_finally
+      Return in finally block can suppress exceptions
+      Evidence: finally {
+            return 2; // Suppresses the return 
+  [!] Line 53 in getValue(): [MEDIUM] float_equality
+      Comparing floating point numbers with == is unreliable
+      Evidence: Float comparison with ==
+    public boolean compareFloats(float a, float b) {
+        if (a ==
+  [!] Line 78 in handleError(): [MEDIUM] system_exit_call
+      System.exit() terminates JVM - avoid in library code
+      Evidence: System.exit(
+  [.] Line 86 in logError(): [LOW] print_stack_trace
+      printStackTrace() should be replaced with proper logging
+      Evidence: .printStackTrace()
+
+[FILE] samples\buggy_high.js (1 bugs)
+  [!!!] Line 6: [CRITICAL] eval_usage
+      Avoid using eval() - security risk
+      Evidence: eval(
+
+[FILE] samples\sample_buggy.py (22 bugs)
+  [.] Line 9 in process_data(): [LOW] unused_parameter
+      Unused parameter 'unused_param' in function 'process_data'
+      Evidence: Parameter 'unused_param' is never used in function body
+  [!] Line 19 in something_risky(): [MEDIUM] equality_none_comparison
+      Use 'is None' instead of '== None'
+      Evidence: '== None' can be overridden by __eq__, use 'is None' for identity check
+  [!!] Line 25 in something_risky(): [HIGH] bare_except
+      Bare 'except:' clause catches all exceptions including KeyboardInterrupt and SystemExit
+      Evidence: Use 'except Exception:' or specific exception types
+  [!!] Line 25 in something_risky(): [HIGH] empty_exception_handler
+      Empty exception handler silently swallows errors
+      Evidence: Exception is caught but not handled or logged
+  [!!] Line 38 in something_risky(): [HIGH] self_comparison_always_false
+      Comparing variable to itself is always False
+      Evidence: x != x, x < x, x > x are always False
+  [!] Line 46 in something_risky(): [MEDIUM] shadowed_builtin
+      Assignment shadows built-in 'list'
+      Evidence: Variable 'list' shadows Python built-in
+  [!] Line 48 in something_risky(): [MEDIUM] shadowed_builtin
+      Assignment shadows built-in 'dict'
+      Evidence: Variable 'dict' shadows Python built-in
+  [!] Line 50 in something_risky(): [MEDIUM] shadowed_builtin
+      Assignment shadows built-in 'str'
+      Evidence: Variable 'str' shadows Python built-in
+  [!!] Line 57 in unreachable_code(): [HIGH] unreachable_code
+      Unreachable code after return/raise statement
+      Evidence: Code at line 57 will never execute
+  [!!] Line 60 in mutable_default(): [HIGH] mutable_default_argument
+      Mutable default argument in function 'mutable_default'. Use None and initialize inside function.
+      Evidence: def mutable_default(..., arg=List(elts=[], ctx=Load()))
+  [!!] Line 70 in something_risky(): [HIGH] bare_except
+      Bare 'except:' clause catches all exceptions including KeyboardInterrupt and SystemExit
+      Evidence: Use 'except Exception:' or specific exception types
+  [!!] Line 70 in something_risky(): [HIGH] empty_exception_handler
+      Empty exception handler silently swallows errors
+      Evidence: Exception is caught but not handled or logged
+  [!!!] Line 77 in something_risky(): [CRITICAL] swallowed_exception
+      Catching broad 'Exception' and ignoring it
+      Evidence: This hides all errors and makes debugging impossible
+  [!!] Line 77 in something_risky(): [HIGH] empty_exception_handler
+      Empty exception handler silently swallows errors
+      Evidence: Exception is caught but not handled or logged
+  [!] Line 83 in something_risky(): [MEDIUM] constant_condition
+      Condition is always True
+      Evidence: 'if True:' makes the else branch unreachable
+  [!!] Line 89 in something_risky(): [HIGH] constant_condition
+      Condition is always False
+      Evidence: 'if False:' makes the if branch unreachable (dead code)
+  [!] Line 92 in duplicate_conditions(): [MEDIUM] possible_missing_return
+      Function 'duplicate_conditions' may not return on all code paths
+      Evidence: All return statements are inside conditional blocks
+  [!!] Line 96 in something_risky(): [HIGH] duplicate_condition
+      Duplicate condition in if/elif chain
+      Evidence: This condition was already checked earlier, branch is unreachable
+  [!!] Line 96 in something_risky(): [HIGH] duplicate_condition
+      elif has same condition as if - branch is unreachable
+      Evidence: The if branch already handles this condition
+  [!] Line 104 in something_risky(): [MEDIUM] always_true_condition
+      Condition 'x or not x' is always True
+      Evidence: Tautology in OR expression - condition is redundant
+  [!!!] Line 110 in something_risky(): [CRITICAL] always_false_condition
+      Condition 'x and not x' is always False
+      Evidence: Contradictory conditions in AND expression
+  [!!!] Line 117 in something_risky(): [CRITICAL] division_by_zero
+      Division by zero
+      Evidence: This will raise ZeroDivisionError at runtime
+
+[FILE] samples\buggy.cpp (7 bugs)
+  [!!] Line 8: [HIGH] strcpy_usage
+      Use strncpy() to avoid buffer overflows
+      Evidence: strcpy(
+  [.] Line 16: [LOW] malloc_usage
+      Consider using new/delete or smart pointers in C++
+      Evidence: malloc(
+  [!!] Line 17: [HIGH] strcpy_usage
+      Use strncpy() to avoid buffer overflows
+      Evidence: strcpy(
+  [!!] Line 19: [HIGH] system_call
+      Avoid system() calls if possible
+      Evidence: system(
+  [!!] Line 20: [HIGH] system_call
+      Avoid system() calls if possible
+      Evidence: system(
+  [!] Line 22: [MEDIUM] goto_usage
+      Avoid goto statements
+      Evidence: Goto usage
+  [!] Line 23: [MEDIUM] goto_usage
+      Avoid goto statements
+      Evidence: goto label
+
+[FILE] samples\sample_safe_2.py (1 bugs)
+  [.] Line 5 in maybe_throw(): [LOW] unused_parameter
+      Unused parameter 's' in function 'maybe_throw'
+      Evidence: Parameter 's' is never used in function body
+============================================================
+
+Done in 4.93s

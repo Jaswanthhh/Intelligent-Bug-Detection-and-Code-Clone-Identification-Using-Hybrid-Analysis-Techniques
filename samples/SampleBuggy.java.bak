@@ -1,0 +1,112 @@
+// SampleBuggy.java - Contains intentional bugs for testing bug detection
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class SampleBuggy {
+
+    private String name;
+    private List<String> items;
+
+    // BUG: Hardcoded credentials
+    private static final String password = "secret123";
+
+    public SampleBuggy() {
+        this.name = null;
+        this.items = new ArrayList<>();
+    }
+
+    // BUG: Null check after dereference
+    public void processName() {
+        int length = name.length(); // Might throw NPE
+        if (name != null) { // Too late!
+            System.out.println("Name: " + name);
+        }
+    }
+
+    // BUG: String comparison with ==
+    public boolean checkName(String input) {
+        if (input == "admin") { // Should use .equals()
+            return true;
+        }
+        return false;
+    }
+
+    // BUG: Empty catch block
+    public void riskyOperation() {
+        try {
+            int result = 10 / 0;
+        } catch (Exception e) {
+            // Silently swallowed!
+        }
+    }
+
+    // BUG: Return in finally
+    public int getValue() {
+        try {
+            return 1;
+        } finally {
+            return 2; // Suppresses the return from try
+        }
+    }
+
+    // BUG: Float comparison with ==
+    public boolean compareFloats(float a, float b) {
+        if (a == b) { // Unreliable for floats
+            return true;
+        }
+        return false;
+    }
+
+    // BUG: Empty if body
+    public void emptyCheck(int x) {
+        if (x > 10) {
+            // TODO: implement this
+        }
+    }
+
+    // BUG: Potential infinite loop
+    public void infiniteLoop() {
+        while (true) {
+            System.out.println("Looping...");
+            // No break statement visible
+        }
+    }
+
+    // BUG: System.exit in library code
+    public void handleError() {
+        System.exit(1); // Terminates entire JVM
+    }
+
+    // BUG: printStackTrace without proper logging
+    public void logError() {
+        try {
+            riskyOperation();
+        } catch (Exception e) {
+            e.printStackTrace(); // Should use proper logging
+        }
+    }
+
+    // BUG: Concurrent modification
+    public void modifyWhileIterating() {
+        for (String item : items) {
+            if (item.equals("remove")) {
+                items.remove(item); // ConcurrentModificationException
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        SampleBuggy buggy = new SampleBuggy();
+        System.out.println("Testing buggy Java code...");
+
+        // Test string comparison bug
+        boolean result = buggy.checkName("admin");
+        System.out.println("Check result: " + result);
+
+        // Test empty catch
+        buggy.riskyOperation();
+
+        System.out.println("Done testing");
+    }
+}

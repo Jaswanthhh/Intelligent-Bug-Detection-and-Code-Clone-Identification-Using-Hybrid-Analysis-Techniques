@@ -1,0 +1,13 @@
+function processUserData(input) {
+    // HIGH: XSS vulnerability
+    document.getElementById("output").innerHTML = input;
+
+    // HIGH: Eval usage
+    eval(input);
+}
+
+function queryDB(id) {
+    // HIGH: SQL Injection
+    const query = "SELECT * FROM users WHERE id = " + id;
+    execute(query);
+}

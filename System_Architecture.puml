@@ -1,0 +1,79 @@
+@startuml
+!theme plain
+top to bottom direction
+skinparam componentStyle uml2
+
+package "Layer 1: Input Processing" {
+    [Source Code Folder] as Src
+    [File Filter] as Filter
+    [Python AST Parser] as PyParser
+    [Java Parser (javalang)] as JavaParser
+}
+
+package "Layer 2: Analysis Engines" {
+    [Static Analyzer (Python)] as StaticPy
+    [Static Analyzer (Java)] as StaticJava
+    [Code Preprocessor] as PreProc
+    [LLM Embedding Model\n(all-MiniLM-L6-v2)] as LLM
+    [Cosine Similarity Engine] as SemSim
+    [Dynamic Fuzzer\n(Python)] as Fuzzer
+    [BCI Agent\n(Java Bytecode Instrumentation)] as BCI
+    [Trace Collector] as TraceCol
+}
+
+package "Layer 3: Data Representation" {
+    database "Structural Features\nDB" as StructDB
+    database "Vector Embeddings\nDB" as VectorDB
+    database "Execution Logs &\nAnomalies" as TraceDB
+}
+
+package "Layer 4: Intelligence & Fusion" {
+    [Fusion Engine] as Fusion
+    [Bug & Clone Classifier] as Classifier
+}
+
+package "Layer 5: Reporting" {
+    [Results.json] as JSON
+    [Final Report] as Report
+    [AST Visualizer\n(Mermaid Gen)] as Viz
+    [*.mmd Diagrams] as MMD
+}
+
+' Relationships
+Src --> Filter
+Filter --> PyParser : Python Files
+Filter --> JavaParser : Java Files
+
+PyParser --> StaticPy
+JavaParser --> StaticJava
+
+PyParser --> PreProc
+JavaParser --> PreProc
+PreProc --> LLM
+LLM --> SemSim
+
+PyParser --> Fuzzer
+JavaParser --> BCI
+BCI --> TraceCol
+
+StaticPy --> StructDB
+StaticJava --> StructDB
+SemSim --> VectorDB
+Fuzzer --> TraceDB
+TraceCol --> TraceDB
+
+StructDB --> Fusion
+VectorDB --> Fusion
+TraceDB --> Fusion
+Fusion --> Classifier
+
+Classifier --> JSON
+Classifier --> Report
+Classifier --> Type4 : Score > 0.8 & Low Struct
+Classifier --> LatentBug : High Sem & Dynamic Diff
+
+StaticPy --> Viz
+StaticJava --> Viz
+Viz --> MMD
+
+@enduml
