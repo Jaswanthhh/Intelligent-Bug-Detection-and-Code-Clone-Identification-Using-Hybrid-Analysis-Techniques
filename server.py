@@ -250,7 +250,7 @@ import httpx
 # In-memory settings
 # In-memory settings
 settings = {
-    "api_key": "AIzaSyD3kVJ8jzSaSaS_x3eJQzexzc2g2oZF3rM", 
+    "api_key": "AIzaSyD3kVJ8jzSaSaS_x3eJQzexzc2g2oXXXXX", 
     "provider": "gemini"
 }
 
