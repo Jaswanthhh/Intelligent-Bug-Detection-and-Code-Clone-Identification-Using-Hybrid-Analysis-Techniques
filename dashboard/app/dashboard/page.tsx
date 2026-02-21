@@ -5,7 +5,7 @@ import { useSearchParams } from "next/navigation";
 import { getStatus, repairBug, readFile } from "@/lib/api";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Loader2, AlertTriangle, CheckCircle, Bug, Copy, Activity, ArrowLeft, Shield, Terminal, Wrench, Layers, Lightbulb, Zap } from "lucide-react";
+import { Loader2, AlertTriangle, CheckCircle, Bug, Copy, Activity, ArrowLeft, Shield, Terminal, Wrench, Layers, Lightbulb, Zap, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, BarChart, Bar, XAxis, YAxis } from "recharts";
 import Link from "next/link";
@@ -21,6 +21,7 @@ function DashboardContent() {
     const [sortOrder, setSortOrder] = useState<string>("severity-desc");
     const [visibleBugs, setVisibleBugs] = useState(20);
     const [visibleClones, setVisibleClones] = useState(20);
+    const [filterCloneType, setFilterCloneType] = useState<string>("all");
 
     useEffect(() => {
         if (!jobId) return;
@@ -126,6 +127,18 @@ function DashboardContent() {
             if (sortOrder === "severity-asc") return scoreA - scoreB;
             return 0;
         });
+
+    const clones = results?.fusion_reports?.reports || [];
+    const filteredClones = clones.filter((c: any) => {
+        if (filterCloneType === "all") return true;
+        const ctype = c.score_components?.clone_type || "";
+        if (filterCloneType === "type1") return ctype.includes("Type 1");
+        if (filterCloneType === "type2") return ctype.includes("Type 2");
+        if (filterCloneType === "type3") return ctype.includes("Type 3");
+        if (filterCloneType === "type4") return ctype.includes("Type 4");
+        if (filterCloneType === "other") return !ctype.includes("Type ");
+        return true;
+    });
 
     // Real data for charts
     const severityData = [
@@ -427,25 +440,54 @@ function DashboardContent() {
 
                         {/* Clones Section */}
                         <div className="space-y-6">
-                            <h2 className="text-xl font-bold text-white">Code Clones</h2>
+                            <div className="flex items-center justify-between">
+                                <h2 className="text-xl font-bold text-white">Code Clones</h2>
+                                <select
+                                    className="bg-slate-900 border border-slate-700 text-slate-300 text-sm rounded px-2 py-1 outline-none focus:border-purple-500"
+                                    value={filterCloneType}
+                                    onChange={(e) => {
+                                        setFilterCloneType(e.target.value);
+                                        setVisibleClones(20);
+                                    }}
+                                >
+                                    <option value="all">All Clone Types</option>
+                                    <option value="type1">Type 1 (Exact)</option>
+                                    <option value="type2">Type 2 (Renamed)</option>
+                                    <option value="type3">Type 3 (Modified)</option>
+                                    <option value="type4">Type 4 (Semantic)</option>
+                                    <option value="other">Other / Weak</option>
+                                </select>
+                            </div>
                             <div className="space-y-4">
-                                {results?.semantic_analysis?.pairs?.length > 0 ? (
+                                {filteredClones.length > 0 ? (
                                     <>
-                                        {results.semantic_analysis.pairs.slice(0, visibleClones).map((pair: any, i: number) => (
+                                        {filteredClones.slice(0, visibleClones).map((pair: any, i: number) => (
                                             <Card key={i} className="bg-slate-900 border-slate-800">
                                                 <CardContent className="p-4">
                                                     <div className="flex items-center justify-between mb-2">
                                                         <span className="text-sm font-medium text-slate-400">Similarity Score</span>
-                                                        <span className="text-sm font-bold text-purple-400">{(pair.score * 100).toFixed(1)}%</span>
+                                                        <div className="flex items-center gap-3">
+                                                            {pair.score_components?.clone_type && (
+                                                                <span className={`px-2 py-0.5 rounded text-xs font-bold uppercase tracking-wider 
+                                                                    ${pair.score_components.clone_type.includes('Type 1') ? 'bg-red-500/10 text-red-500 border border-red-500/20' :
+                                                                        pair.score_components.clone_type.includes('Type 2') ? 'bg-orange-500/10 text-orange-500 border border-orange-500/20' :
+                                                                            pair.score_components.clone_type.includes('Type 3') ? 'bg-yellow-500/10 text-yellow-500 border border-yellow-500/20' :
+                                                                                pair.score_components.clone_type.includes('Type 4') ? 'bg-green-500/10 text-green-500 border border-green-500/20' :
+                                                                                    'bg-slate-800 text-slate-400 border border-slate-700'}`}>
+                                                                    {pair.score_components.clone_type}
+                                                                </span>
+                                                            )}
+                                                            <span className="text-sm font-bold text-purple-400">{(pair.fusion_score * 100).toFixed(1)}%</span>
+                                                        </div>
                                                     </div>
                                                     <div className="grid grid-cols-2 gap-4 text-sm">
                                                         <div className="p-2 bg-slate-950 rounded border border-slate-800">
-                                                            <div className="font-mono text-xs text-slate-500 mb-1">{pair.a.file}:{pair.a.start}-{pair.a.end}</div>
-                                                            <div className="font-medium text-white">{pair.a.func_name}</div>
+                                                            <div className="font-mono text-xs text-slate-500 mb-1">{pair.file_a}</div>
+                                                            <div className="font-medium text-white">{pair.func_a}</div>
                                                         </div>
                                                         <div className="p-2 bg-slate-950 rounded border border-slate-800">
-                                                            <div className="font-mono text-xs text-slate-500 mb-1">{pair.b.file}:{pair.b.start}-{pair.b.end}</div>
-                                                            <div className="font-medium text-white">{pair.b.func_name}</div>
+                                                            <div className="font-mono text-xs text-slate-500 mb-1">{pair.file_b}</div>
+                                                            <div className="font-medium text-white">{pair.func_b}</div>
                                                         </div>
                                                     </div>
 
@@ -483,14 +525,14 @@ function DashboardContent() {
                                                 </CardContent>
                                             </Card>
                                         ))}
-                                        {visibleClones < results.semantic_analysis.pairs.length && (
+                                        {visibleClones < filteredClones.length && (
                                             <div className="flex justify-center pt-4">
                                                 <Button
                                                     variant="ghost"
                                                     onClick={() => setVisibleClones(prev => prev + 20)}
                                                     className="text-slate-400 hover:text-white"
                                                 >
-                                                    Load More Clones ({results.semantic_analysis.pairs.length - visibleClones} remaining)
+                                                    Load More Clones ({filteredClones.length - visibleClones} remaining)
                                                 </Button>
                                             </div>
                                         )}

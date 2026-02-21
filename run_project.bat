@@ -27,8 +27,13 @@ python main.py --code_folder samples --file_extensions .py .java
 echo.
 echo [Scenario 4] Specific User Request
 python main.py --code_folder samples --semantic_threshold 0.6 --dynamic_runs 2 --show_progress --output_json results.json --file_extensions .py --verbose
+
+echo.
+echo [Scenario 5] Scan BigCloneBench dataset (bcb_reduced)
+echo NOTE: This directory has ~50k files and may take significant time to process. To run a smaller batch, you could specify a subfolder or use file extensions.
+python main.py --code_folder bcb_reduced --semantic_threshold 0.6 --output_json bcb_results.json --file_extensions .java --show_progress
 echo.
 echo ============================================================
-echo Results saved to results.json
+echo Results saved to results.json and bcb_results.json
 echo ============================================================
 pause

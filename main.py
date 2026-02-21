@@ -224,9 +224,10 @@ def run_pipeline(paths, semantic_threshold=0.75, dynamic_runs=5, enable_bci=Fals
         dyn_flag = dyn_a or dyn_b
         
         # Use new detailed scoring
-        total_score, components, explanation = fusion_score_detailed(struct_sim, sem_score, dyn_flag)
+        total_score, components, explanation = fusion_score_detailed(struct_sim, sem_score, dyn_flag, code_a=a.get('code', ''), code_b=b.get('code', ''))
         
         reports.append({
+            "a": a, "b": b,
             "file_a": a.get('file'), "func_a": a.get('func_name'),
             "file_b": b.get('file'), "func_b": b.get('func_name'),
             "struct_sim": struct_sim, "semantic_sim": sem_score,
@@ -255,7 +256,12 @@ def run_pipeline(paths, semantic_threshold=0.75, dynamic_runs=5, enable_bci=Fals
     
     print("[*] Results (top candidates):")
     for r in reports[:20]:
-        print(json.dumps(r, indent=2))
+        clone_type = r.get("score_components", {}).get("clone_type", "Unknown type")
+        print(f"\n[CLONE MATCH] {r['file_a']} <---> {r['file_b']}")
+        print(f"  -> Type: {clone_type}")
+        print(f"  -> Fusion Score: {r['fusion_score']:.3f} | Struct: {r['struct_sim']:.3f} | Sem: {r['semantic_sim']:.3f}")
+        if r['dynamic_anomaly']:
+            print(f"  -> [!] Dynamic Anomaly Detected")
 
     # Print dynamic anomalies summary
     if anomaly_map:
@@ -299,6 +305,26 @@ def run_pipeline(paths, semantic_threshold=0.75, dynamic_runs=5, enable_bci=Fals
     print(f"Fusion Reports Generated: {total_reports}")
     print(f"Files with Dynamic Anomalies: {files_with_anomalies}")
     print(f"Total Dynamic Anomalies: {total_anomalies}")
+    
+    # Clone Type Breakdown
+    if reports:
+        type_counts = {"Type 1": 0, "Type 2": 0, "Type 3": 0, "Type 4": 0, "Other": 0}
+        for r in reports:
+            ctype = r.get("score_components", {}).get("clone_type", "")
+            if "Type 1" in ctype: type_counts["Type 1"] += 1
+            elif "Type 2" in ctype: type_counts["Type 2"] += 1
+            elif "Type 3" in ctype: type_counts["Type 3"] += 1
+            elif "Type 4" in ctype: type_counts["Type 4"] += 1
+            else: type_counts["Other"] += 1
+            
+        print("\nClone Type Breakdown:")
+        print(f"  Type 1 (Exact):          {type_counts['Type 1']}")
+        print(f"  Type 2 (Renamed):        {type_counts['Type 2']}")
+        print(f"  Type 3 (Modified):       {type_counts['Type 3']}")
+        print(f"  Type 4 (Semantic):       {type_counts['Type 4']}")
+        if type_counts['Other'] > 0:
+            print(f"  Other/Weak Clones:       {type_counts['Other']}")
+
     
     # Similarity statistics
     if sem_pairs:

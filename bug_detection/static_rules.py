@@ -97,6 +97,10 @@ class StaticBugDetector:
             # Analyze try blocks
             if isinstance(node, ast.Try):
                 self._check_try_block(node)
+
+            # Analyze function calls for Security Taints
+            if isinstance(node, ast.Call):
+                self._check_call(node)
     
     def _check_function(self, node: ast.FunctionDef, source_code: str):
         """Check function-level bugs"""
@@ -391,6 +395,65 @@ class StaticBugDetector:
                     message="Exception handler after bare except is unreachable",
                     evidence="Bare 'except:' catches everything, subsequent handlers never execute"
                 )
+
+    def _check_call(self, node: ast.Call):
+        """Check function calls for Security Vulnerability (Taint) patterns"""
+        
+        # Helper to check if an argument is potentially "tainted" (not a raw string literal)
+        def is_tainted_arg(arg):
+            if isinstance(arg, ast.JoinedStr): # f-string containing variables
+                return True
+            if isinstance(arg, ast.BinOp) and isinstance(arg.op, (ast.Add, ast.Mod)): # string concatenation or % formatting
+                return True
+            if isinstance(arg, ast.Call) and isinstance(arg.func, ast.Attribute) and arg.func.attr == 'format': # .format()
+                return True
+            return False
+
+        # Extract function name
+        func_name = ""
+        if isinstance(node.func, ast.Name):
+            func_name = node.func.id
+        elif isinstance(node.func, ast.Attribute):
+            func_name = node.func.attr
+
+        # 1. SQL Injection Sinks
+        if func_name in ('execute', 'executemany', 'raw_query'):
+            for arg in node.args:
+                if is_tainted_arg(arg):
+                    self._add_bug(
+                        line=node.lineno,
+                        category="sql_injection",
+                        severity=self.SEVERITY_CRITICAL,
+                        message="Potential SQL Injection vulnerability detected",
+                        evidence=f"Using concatenated or formatted string in database '{func_name}' call. Use parameterized queries (?, %s).",
+                        suggestion="cursor.execute('SELECT * FROM users WHERE id = %s', (user_id,))"
+                    )
+
+        # 2. Command Injection Sinks
+        if func_name in ('system', 'popen', 'Popen', 'call', 'run', 'check_output'):
+            for arg in node.args:
+                if is_tainted_arg(arg):
+                    self._add_bug(
+                        line=node.lineno,
+                        category="command_injection",
+                        severity=self.SEVERITY_CRITICAL,
+                        message="Potential OS Command Injection vulnerability",
+                        evidence=f"Arbitrary variables passed to OS execution sink '{func_name}'.",
+                        suggestion="Use subprocess with shell=False and pass arguments as a list."
+                    )
+        
+        # 3. Code Execution / Deserialization Sinks
+        if func_name in ('eval', 'exec', 'loads'):
+            for arg in node.args:
+                if not isinstance(arg, ast.Constant):
+                    vuln_type = "Insecure Deserialization" if func_name == "loads" else "Arbitrary Code Execution"
+                    self._add_bug(
+                        line=node.lineno,
+                        category="code_injection",
+                        severity=self.SEVERITY_CRITICAL,
+                        message=f"Potential {vuln_type} vulnerability",
+                        evidence=f"Non-constant variable passed directly into dangerous sink '{func_name}'.",
+                    )
     
     def _add_bug(self, line: int, category: str, severity: str, message: str, evidence: str, suggestion: Optional[str] = None):
         """Add a bug to the list"""
@@ -464,6 +527,14 @@ class JavaStaticBugDetector:
         # printStackTrace without logging
         (r'\.printStackTrace\s*\(\s*\)', 'print_stack_trace', SEVERITY_LOW,
          "printStackTrace() should be replaced with proper logging"),
+         
+        # Taint Analysis: SQL Injection
+        (r'\.executeQuery\s*\(\s*".*"\s*\+\s*\w+.*', 'sql_injection', SEVERITY_CRITICAL,
+         "Potential SQL Injection: Concatenated string in database query. Use PreparedStatement."),
+         
+        # Taint Analysis: Command Injection
+        (r'Runtime\.getRuntime\(\)\.exec\s*\(\s*[^"]*\+\s*\w+.*', 'command_injection', SEVERITY_CRITICAL,
+         "Potential Command Injection: User input concatenated into Runtime.exec() command."),
     ]
     
     def detect_bugs_in_code(self, code: str, filepath: str) -> List[Dict[str, Any]]:

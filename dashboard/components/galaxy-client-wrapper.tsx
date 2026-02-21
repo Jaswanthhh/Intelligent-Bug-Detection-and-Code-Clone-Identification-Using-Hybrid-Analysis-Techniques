@@ -89,8 +89,7 @@ export default function GalaxyClientWrapper() {
                         <ArrowLeft className="w-4 h-4" /> Back to Dashboard
                     </Button>
                     <h1 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600 flex items-center gap-3">
-                        <Sparkles className="w-8 h-8 text-purple-400" />
-                        CodeGalaxy 3D
+                        Code Topology 3D
                     </h1>
                     <p className="text-slate-400 text-sm mt-1 max-w-md">
                         Visualizing {flatFiles.length} files, {fusionReports.length} clones, and {allBugs.length} bugs.
